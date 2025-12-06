@@ -1,10 +1,14 @@
 const { expect } = require('@playwright/test');
+const { EventForm } = require("./components/EventForm");
 
 class CaseDashboardPage {
     constructor(page) {
         this.page = page;
         this.container = this.page.getByText('Case Number: |');
-        this.AddEventBtn = this.page.getByRole('button', { name: 'Create New Event' });
+        this.AddEventBtn = this.page.locator('button[ptooltip="Create New Event"]');
+        this.eventForm = new EventForm(page);
+
+        this.EventListTab = this.page.getByRole('tab', { name: 'Calendar' });
     }
 
     //!!!!!NEED TO GET CSS ID TO VERIFY
@@ -27,6 +31,10 @@ class CaseDashboardPage {
 
     async verifyEventCreation() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
+    }
+
+    async navigateToCaseEventList() {
+        await this.EventListTab.click();
     }
 }
 module.exports = { CaseDashboardPage };
