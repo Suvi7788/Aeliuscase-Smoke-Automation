@@ -1,4 +1,5 @@
 const { EventForm } = require("./components/EventForm");
+const { expect } = require('@playwright/test');
 
 class FirmDashboardPage {
     constructor(page) {
@@ -19,6 +20,13 @@ class FirmDashboardPage {
         await this.openEventForm();
         await this.eventForm.fillEventForm(caseNo, Subject, Assignee, Description);
         await this.eventForm.submitEventForm();
+        await this.verifyEventCreation();
     }
+
+    async verifyEventCreation() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
+    }
+
+
 }
 module.exports = { FirmDashboardPage };
