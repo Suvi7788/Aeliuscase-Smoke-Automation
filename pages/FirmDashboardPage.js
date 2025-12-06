@@ -1,0 +1,24 @@
+const { EventForm } = require("./components/EventForm");
+
+class FirmDashboardPage {
+    constructor(page) {
+        const addEventBtn = "//button[@ptooltip='Create New Event']";
+
+        this.page = page;
+        this.AddEventBtn = page.locator(addEventBtn);
+
+        this.eventForm = new EventForm(page);
+    }
+
+    async openEventForm() {
+        await this.AddEventBtn.click();
+    }
+
+    async createFirmDashboardEvent(caseNo, Subject, Assignee, Description) {
+        // await this.page.waitForSelector(this.AddEventBtn);
+        await this.openEventForm();
+        await this.eventForm.fillEventForm(caseNo, Subject, Assignee, Description);
+        await this.eventForm.submitEventForm();
+    }
+}
+module.exports = { FirmDashboardPage };
