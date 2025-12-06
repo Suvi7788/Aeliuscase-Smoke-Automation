@@ -27,6 +27,12 @@ class FirmDashboardPage {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
     }
 
+    async searchForCase(caseNo) {
+        await this.page.locator('input.p-autocomplete-input[placeholder="Search"]').fill(caseNo);
+        await this.page.getByText(caseNo).click();
+    }
+
+
 
 }
 module.exports = { FirmDashboardPage };
