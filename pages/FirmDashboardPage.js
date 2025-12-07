@@ -1,14 +1,18 @@
 const { EventForm } = require("./components/EventForm");
 const { expect } = require('@playwright/test');
+const { CaseCreationPage } = require("./CaseCreationPage");
 
 class FirmDashboardPage {
     constructor(page) {
         const addEventBtn = "//button[@ptooltip='Create New Event']";
+        const createCaseBtn = "//button[@ptooltip='Open a Case']";
 
         this.page = page;
         this.AddEventBtn = page.locator(addEventBtn);
+        this.createCaseBtn = page.locator(createCaseBtn);
 
         this.eventForm = new EventForm(page);
+        this.caseCreationPage = new CaseCreationPage(page);
     }
 
     async navigateToFirmDashboard() {
@@ -36,7 +40,9 @@ class FirmDashboardPage {
         await this.page.getByRole('cell', { name: caseNo, exact: true }).click();
     }
 
-
+    async openCaseForm() {
+        await this.createCaseBtn.click();
+    }
 
 }
 module.exports = { FirmDashboardPage };

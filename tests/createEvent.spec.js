@@ -1,5 +1,4 @@
 const { test } = require("@playwright/test");
-const { LoginPage } = require("../pages/LoginPage");
 const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
 const { CaseDashboardPage } = require("../pages/CaseDashboardPage");
 const eventData = require("../data/eventData.json");
