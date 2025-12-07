@@ -30,18 +30,16 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     headless: false,
-    slowMo: 5000, // slows down actions by 1000ms = 1 second
-    /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
-
+    slowMo: 5000,
+    baseURL: 'https://uat.aeliuscase.com',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     /* Add screenshot & video options */
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-
+    storageState: 'storageState.json',
   },
-
+  globalSetup: './tests/setup/global-setup.js',
   /* Configure projects for major browsers */
   projects: [
     {

@@ -17,7 +17,7 @@ class LoginPage{
     // ---------- Method to open the login page ----------
     async gotoLogin(){
         // Navigate the browser to the login URL
-        await this.page.goto("https://uat.aeliuscase.com/login")
+        await this.page.goto("/login")
     }
 
     // ---------- Method to perform login ----------

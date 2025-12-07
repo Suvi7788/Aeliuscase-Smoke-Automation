@@ -11,6 +11,10 @@ class FirmDashboardPage {
         this.eventForm = new EventForm(page);
     }
 
+    async navigateToFirmDashboard() {
+        await this.page.goto('https://uat.aeliuscase.com/dashboard');
+    }
+
     async openEventForm() {
         await this.AddEventBtn.click();
     }
