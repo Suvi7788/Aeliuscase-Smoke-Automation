@@ -1,18 +1,22 @@
 const { EventForm } = require("./components/EventForm");
 const { expect } = require('@playwright/test');
 const { CaseCreationPage } = require("./CaseCreationPage");
+const { MessageForm } = require("./components/MessageForm");
 
 class FirmDashboardPage {
     constructor(page) {
         const addEventBtn = "//button[@ptooltip='Create New Event']";
         const createCaseBtn = "//button[@ptooltip='Open a Case']";
+        const addMessageBtn = "//button[@ptooltip='Create New Message']";
 
         this.page = page;
         this.AddEventBtn = page.locator(addEventBtn);
         this.createCaseBtn = page.locator(createCaseBtn);
-
+        this.AddMessageBtn = page.locator(addMessageBtn);
+        
         this.eventForm = new EventForm(page);
         this.caseCreationPage = new CaseCreationPage(page);
+        this.messageForm = new MessageForm(page);
     }
 
     async navigateToFirmDashboard() {
@@ -42,6 +46,16 @@ class FirmDashboardPage {
 
     async openCaseForm() {
         await this.createCaseBtn.click();
+    }
+
+    async openMessageForm(){
+        await this.AddMessageBtn.click();
+    }
+
+    async createFirmDashboardMessage(caseNo, user, Details){
+        await this.openMessageForm();
+        await this.messageForm.fillMessageForm(caseNo, user, Details);
+        await this.messageForm.submitMessageForm();
     }
 
 }
