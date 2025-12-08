@@ -1,9 +1,12 @@
 const { EventForm } = require("./components/EventForm");
 const { expect } = require('@playwright/test');
 const { CaseCreationPage } = require("./CaseCreationPage");
+const { BasePage } = require('./BasePage');
+const endpoints = require('../config/endpoints');
 
-class FirmDashboardPage {
+class FirmDashboardPage extends BasePage {
     constructor(page) {
+        super(page)
         const addEventBtn = "//button[@ptooltip='Create New Event']";
         const createCaseBtn = "//button[@ptooltip='Open a Case']";
 
@@ -13,6 +16,7 @@ class FirmDashboardPage {
 
         this.eventForm = new EventForm(page);
         this.caseCreationPage = new CaseCreationPage(page);
+
     }
 
     async navigateToFirmDashboard() {
@@ -20,6 +24,7 @@ class FirmDashboardPage {
     }
 
     async openEventForm() {
+        // await this.waitForAPIResponse(endpoints.firmEventTile);
         await this.AddEventBtn.click();
     }
 
@@ -32,7 +37,10 @@ class FirmDashboardPage {
     }
 
     async verifyEventCreation() {
+        await this.waitForAPIResponse(endpoints.createEvent);
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
+
+
     }
 
     async searchForCase(caseNo) {

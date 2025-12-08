@@ -18,6 +18,7 @@ class CaseCreationPage {
     }
     async createCase(firstName, lastName, companyName) {
         await this.caseTypeDropdown.click();
+        await this.caseTypeOption.waitFor();
         await this.caseTypeOption.click();
         await this.nextBtn.click();
         await this.applicationSection.waitFor();

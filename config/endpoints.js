@@ -1,0 +1,6 @@
+module.exports = {
+    caseEventList: '/api/CaseEvent/Search',
+    firmEventTile: '/api/CaseEvent/GetUpcomingEventsDashboard',
+    firmEventList: '/api/CaseEvent/GetUpcomingEvents',
+    createEvent: '/api/CaseEvent',
+}   

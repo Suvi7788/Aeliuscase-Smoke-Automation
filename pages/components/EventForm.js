@@ -20,11 +20,13 @@ class EventForm {
 
     async fillEventForm(caseNo, Subject, Assignee, Description) {
         await this.TypeField.click();
+        await this.TypeValue.waitFor();
         await this.TypeValue.click();
         // await this.CaseNo.fill(caseNo);
         // await this.CaseValue.click();
         await this.Subject.fill(Subject);
         await this.Assignee.fill(Assignee);
+        await this.AssigneeValue.waitFor();
         await this.AssigneeValue.click();
         await this.Description.fill(Description);
     }
