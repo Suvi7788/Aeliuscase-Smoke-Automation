@@ -2,6 +2,7 @@ const { expect } = require('@playwright/test');
 const { EventForm } = require("./components/EventForm");
 const { BasePage } = require('./BasePage');
 const endpoints = require('../config/endpoints');
+const routes = require('../config/routes');
 
 class CaseDashboardPage extends BasePage {
     constructor(page) {
@@ -42,6 +43,10 @@ class CaseDashboardPage extends BasePage {
 
     async navigateToCaseEventList() {
         await this.EventListTab.click();
+    }
+
+    async verifyEventInCaseEventTile() {
+        await this.gotoAndWaitForAPI(routes.caseEventList, endpoints.caseEventList);
     }
 }
 module.exports = { CaseDashboardPage };

@@ -4,6 +4,7 @@ const { CaseCreationPage } = require("./CaseCreationPage");
 const { MessageForm } = require("./components/MessageForm");
 const { BasePage } = require('./BasePage');
 const endpoints = require('../config/endpoints');
+const routes = require('../config/routes');
 
 class FirmDashboardPage extends BasePage {
     constructor(page) {
@@ -26,6 +27,9 @@ class FirmDashboardPage extends BasePage {
         this.messageRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
         this.messageSubject = page.locator(`//tr[td[contains(., 'Normal') or contains(., 'High') or contains(., 'Low')]]//td[2]//button`);
 
+        //  event list verification selectors
+        this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
+
     }
 
     async navigateToFirmDashboard() {
@@ -33,7 +37,6 @@ class FirmDashboardPage extends BasePage {
     }
 
     async openEventForm() {
-        // await this.waitForAPIResponse(endpoints.firmEventTile);
         await this.AddEventBtn.click();
     }
 
@@ -50,7 +53,7 @@ class FirmDashboardPage extends BasePage {
         // Wait for message to appear in tile
         await this.page.waitForTimeout(2000); // Allow time for refresh
 
-        
+
 
         // Look for the message details in the tile
         // Adjust selector based on your actual HTML structure
@@ -91,6 +94,14 @@ class FirmDashboardPage extends BasePage {
     //Verify Message Creation
     async verifyMessageCreation() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
+    }
+
+    async verifyEventInTileList() {
+        await this.gotoAndWaitForAPI(routes.dashboard, endpoints.firmEventTile);
+    }
+
+    async verifyCaseInTileList() {
+        await this.gotoAndWaitForAPI(routes.dashboard, endpoints.dashboardRecentCaseList);
     }
 
 }
