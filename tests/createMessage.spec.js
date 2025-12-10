@@ -12,5 +12,6 @@ test.describe('Firm Dashboard message Creation', () => {
     test('Create Firm Dashboard message', async ({ page }) => {
         const firmDashboardPage = new FirmDashboardPage(page);
         await firmDashboardPage.createFirmDashboardMessage(messageData.caseNo, messageData.user, messageData.Details);
+        await firmDashboardPage.verifyMessageCreation();
     })
 })
