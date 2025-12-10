@@ -1,8 +1,11 @@
 const { expect } = require('@playwright/test');
 const { EventForm } = require("./components/EventForm");
+const { BasePage } = require('./BasePage');
+const endpoints = require('../config/endpoints');
 
-class CaseDashboardPage {
+class CaseDashboardPage extends BasePage {
     constructor(page) {
+        super(page)
         this.page = page;
         this.container = this.page.getByText('Case Number: |');
         this.AddEventBtn = this.page.locator('button[ptooltip="Create New Event"]');
@@ -19,6 +22,7 @@ class CaseDashboardPage {
 
     //Open Event Form From Case Dashboard
     async openEventForm() {
+        await this.waitForAPIResponse(endpoints.caseEventList);
         await this.AddEventBtn.click();
     }
 
@@ -30,7 +34,10 @@ class CaseDashboardPage {
     }
 
     async verifyEventCreation() {
+        await this.waitForAPIResponse(endpoints.createEvent);
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
+        this.page.waitForURL(/case-overview/);
+
     }
 
     async navigateToCaseEventList() {
