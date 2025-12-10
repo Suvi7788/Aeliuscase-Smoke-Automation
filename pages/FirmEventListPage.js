@@ -2,6 +2,7 @@ const { EventForm } = require("./components/EventForm");
 const { expect } = require("@playwright/test");
 const { BasePage } = require('./BasePage');
 const endpoints = require('../config/endpoints');
+const routes = require('../config/routes');
 
 class FirmEventListPage extends BasePage {
     constructor(page) {
@@ -29,6 +30,10 @@ class FirmEventListPage extends BasePage {
         await this.waitForAPIResponse(endpoints.createEvent);
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
 
+    }
+
+    async verifyEventInEventList() {
+        await this.gotoAndWaitForAPI(routes.eventList, endpoints.firmEventList);
     }
 }
 module.exports = { FirmEventListPage };
