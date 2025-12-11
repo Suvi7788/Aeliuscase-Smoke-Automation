@@ -4,4 +4,6 @@ module.exports = {
     firmEventList: '/api/CaseEvent/GetUpcomingEvents',
     createEvent: '/api/CaseEvent',
     dashboardRecentCaseList: '/api/Case/GetRecentCaseList',
+    getCaseList: '/api/Case/GetCaseList',
+
 }   

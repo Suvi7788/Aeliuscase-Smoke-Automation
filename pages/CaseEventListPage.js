@@ -32,8 +32,8 @@ class CaseEventListPage extends BasePage {
 
     }
 
-    async verifyEventInCaseEventList() {
-        await this.gotoAndWaitForAPI(routes.caseEventList, endpoints.caseEventList);
+    async verifyEventInCaseEventList(caseId) {
+        await this.gotoAndWaitForAPI(routes.caseEventList(caseId), endpoints.caseEventList);
     }
 }
 module.exports = { CaseEventListPage };
