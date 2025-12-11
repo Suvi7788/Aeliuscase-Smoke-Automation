@@ -45,8 +45,8 @@ class CaseDashboardPage extends BasePage {
         await this.EventListTab.click();
     }
 
-    async verifyEventInCaseEventTile() {
-        await this.gotoAndWaitForAPI(routes.caseEventList, endpoints.caseEventList);
+ async verifyEventInCaseEventTile(caseId) {
+        await this.gotoAndWaitForAPI(routes.caseEventList(caseId), endpoints.caseEventList);
     }
 }
 module.exports = { CaseDashboardPage };

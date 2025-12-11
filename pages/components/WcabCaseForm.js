@@ -6,7 +6,7 @@ class WcabCaseForm {
         this.caseTypeDropdown = page.locator('span[role="combobox"][aria-label="Select from List"]');
         this.caseTypeOption = page.getByRole('option', { name: 'WCAB', exact: true });
         this.nextBtn = page.locator('button', { hasText: 'Next' });
-        this.applicationSection = page.locator('span.header-title', { hasText: 'Applicant Details' });
+        this.applicationSection = page.locator('app-applicant-details').getByText('Applicant Details');
         this.applicantSalutation = page.locator('span[role="combobox"].p-dropdown-label-empty');
         this.applicantFirstName = page.locator('input[placeholder="First Name"]');
         this.applicantLastName = page.locator('input[placeholder="Last Name"]');

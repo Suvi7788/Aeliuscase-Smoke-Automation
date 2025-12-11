@@ -2,7 +2,7 @@ const { test } = require("@playwright/test");
 const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
 const { WcabCaseForm } = require("../pages/components/WcabCaseForm");
 const { Menu } = require("../pages/Menu");
-const { RecentCasePage } = require("../pages/RecentCasePage");
+const { CasePage } = require("../pages/CasePage");
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
@@ -23,9 +23,9 @@ test.describe('Create WCAB Case From Recent Case List', () => {
     test('Create WCAB Case From Recent Case List', async ({ page }) => {
         const { faker } = await import('@faker-js/faker');
         const menu = new Menu(page);
-        const recentCasePage = new RecentCasePage(page);
+        const casePage = new CasePage(page);
         await menu.navigateToRecentCase();
-        await recentCasePage.openCaseForm();
+        await casePage.openCaseForm();
         const wcabCaseForm = new WcabCaseForm(page);
         await wcabCaseForm.createCase(faker.person.firstName(), faker.person.lastName(), faker.company.name());
         await wcabCaseForm.verifyCaseCreation();

@@ -6,7 +6,7 @@ class Menu {
         this.FirmEventListMenu = page.locator('[id="74"] a').filter({ hasText: 'List' });
         //case locator
         this.CaseMenu = page.locator('span.menubar-custom-label', { hasText: 'Case' }).first();
-        this.RecentCaseMenu = page.locator('[id="74"] a').filter({ hasText: 'Recent Case' });
+        this.RecentCaseMenu = page.locator('a').filter({ hasText: 'Recent Cases' });
     }
     async navigateToFirmEventList() {
         await this.CalendarMenu.click();
