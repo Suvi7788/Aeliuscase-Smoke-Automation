@@ -10,6 +10,6 @@ test.beforeEach(async ({ page }) => {
 test.describe('Verify Message in Tile list loads', () => {
     test('Verify Message in Tile list loads', async ({ page }) => {
         const firmDashboardPage = new FirmDashboardPage(page);
-        await firmDashboardPage.verifyMessageInTileList();
+        await firmDashboardPage.verifyMessageListLoads();
     })
 })

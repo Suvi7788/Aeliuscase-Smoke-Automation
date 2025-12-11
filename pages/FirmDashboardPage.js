@@ -12,20 +12,24 @@ class FirmDashboardPage extends BasePage {
         const addEventBtn = "//button[@ptooltip='Create New Event']";
         const createCaseBtn = "//button[@ptooltip='Open a Case']";
         const addMessageBtn = "//button[@ptooltip='Create New Message']";
+        const messageButton = "//tr[td[contains(., 'Normal') or contains(., 'High') or contains(., 'Low')]]//td[2]//button";
+
 
         this.page = page;
         this.AddEventBtn = page.locator(addEventBtn);
         this.createCaseBtn = page.locator(createCaseBtn);
         this.AddMessageBtn = page.locator(addMessageBtn);
+        this.messageButton = this.page.locator(messageButton).first();
 
         this.eventForm = new EventForm(page);
         this.caseCreationPage = new CaseCreationPage(page);
         this.messageForm = new MessageForm(page);
 
-        // Add message list verification selectors
-        this.messageTile = page.locator("//app-messages-dashboard//div[@class='col-12 p-0 mt-2']")
-        this.messageRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
-        this.messageSubject = page.locator(`//tr[td[contains(., 'Normal') or contains(., 'High') or contains(., 'Low')]]//td[2]//button`);
+        
+        
+
+        //  event list verification selectors
+        this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
 
         //  event list verification selectors
         this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
@@ -49,19 +53,7 @@ class FirmDashboardPage extends BasePage {
     }
 
 
-    async verifyMessageInTileList() {
-        // Wait for message to appear in tile
-        await this.page.waitForTimeout(2000); // Allow time for refresh
-
-
-
-        // Look for the message details in the tile
-        // Adjust selector based on your actual HTML structure
-        const messageButton = this.page.locator(`//tr[td[contains(., 'Normal') or contains(., 'High') or contains(., 'Low')]]//td[2]//button`).first();
-        await expect(messageButton).toBeVisible();
-
-        console.log('✓ Message list loaded successfully in Message tile');
-    }
+    
 
     async verifyEventCreation() {
         // await this.waitForAPIResponse(endpoints.createEvent);
@@ -102,6 +94,19 @@ class FirmDashboardPage extends BasePage {
 
     async verifyCaseInTileList() {
         await this.gotoAndWaitForAPI(routes.dashboard, endpoints.dashboardRecentCaseList);
+    }
+
+    async verifyMessageListLoads() {
+        // Wait for message to appear in tile
+        await this.page.waitForTimeout(2000); // Allow time for refresh
+
+        
+
+        // Look for the message details in the tile
+        // Adjust selector based on your actual HTML structure
+        await expect(this.messageButton).toBeVisible();
+
+        console.log('✓ Message list loaded successfully in Message tile');
     }
 
 }
