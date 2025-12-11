@@ -10,9 +10,9 @@ class CaseDashboardPage extends BasePage {
         this.page = page;
         this.container = this.page.getByText('Case Number: |');
         this.AddEventBtn = this.page.locator('button[ptooltip="Create New Event"]');
+        this.AddTaskBtn = this.page.locator('button[ptooltip="Create New Task"]');
         this.eventForm = new EventForm(page);
 
-        this.EventListTab = this.page.getByRole('tab', { name: 'Calendar' });
     }
 
     //!!!!!NEED TO GET CSS ID TO VERIFY
@@ -41,12 +41,21 @@ class CaseDashboardPage extends BasePage {
 
     }
 
-    async navigateToCaseEventList() {
-        await this.EventListTab.click();
-    }
 
- async verifyEventInCaseEventTile(caseId) {
+    async verifyEventInCaseEventTile(caseId) {
         await this.gotoAndWaitForAPI(routes.caseEventList(caseId), endpoints.caseEventList);
     }
+
+    //Open Task Form From Case Dashboard
+    async openTaskForm() {
+        // await this.waitForAPIResponse(endpoints.getCaseDashboardTaskList);
+        await this.AddTaskBtn.click();
+    }
+
+    //Verify Task Creation
+    async verifyTaskCreation() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
+    }
+
 }
 module.exports = { CaseDashboardPage };
