@@ -5,6 +5,7 @@ const { FirmEventListPage } = require("../pages/FirmEventListPage");
 const { CaseEventListPage } = require("../pages/CaseEventListPage");
 const { CaseDashboardPage } = require("../pages/CaseDashboardPage");
 const eventData = require("../data/eventData.json");
+const endpoints = require("../config/endpoints");
 
 test.describe('Verify Event Tile list loads', () => {
     test('Verify Event Tile list loads', async ({ page }) => {
