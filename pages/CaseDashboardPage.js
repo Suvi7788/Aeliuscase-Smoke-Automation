@@ -10,9 +10,9 @@ class CaseDashboardPage extends BasePage {
         this.page = page;
         this.container = this.page.getByText('Case Number: |');
         this.AddEventBtn = this.page.locator('button[ptooltip="Create New Event"]');
+        this.AddTaskBtn = this.page.locator('button[ptooltip="Create New Task"]');
+        this.AddNoteBtn = this.page.locator('button[ptooltip="New Note"]');
         this.eventForm = new EventForm(page);
-
-        this.EventListTab = this.page.getByRole('tab', { name: 'Calendar' });
     }
 
     //!!!!!NEED TO GET CSS ID TO VERIFY
@@ -41,12 +41,25 @@ class CaseDashboardPage extends BasePage {
 
     }
 
-    async navigateToCaseEventList() {
-        await this.EventListTab.click();
+
+    async verifyTilesLoadsInCaseDashboard(caseId, apiUrl) {
+        await this.gotoAndWaitForAPI(routes.caseDashboard(caseId), apiUrl);
     }
 
- async verifyEventInCaseEventTile(caseId) {
-        await this.gotoAndWaitForAPI(routes.caseEventList(caseId), endpoints.caseEventList);
+    //Open Task Form From Case Dashboard
+    async openTaskForm() {
+        // await this.waitForAPIResponse(endpoints.getCaseDashboardTaskList);
+        await this.AddTaskBtn.click();
     }
+
+    //Verify Task Creation
+    async verifyTaskCreation() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
+    }
+
+    async openNoteForm() {
+        await this.AddNoteBtn.click();
+    }
+
 }
 module.exports = { CaseDashboardPage };

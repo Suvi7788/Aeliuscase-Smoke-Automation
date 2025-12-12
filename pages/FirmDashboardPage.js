@@ -25,8 +25,9 @@ class FirmDashboardPage extends BasePage {
         this.caseCreationPage = new CaseCreationPage(page);
         this.messageForm = new MessageForm(page);
 
-        
-        
+        // tasks
+        const addTaskBtn = "//button[@ptooltip='Create New Task']";
+        this.AddTaskBtn = page.locator(addTaskBtn);
 
         //  event list verification selectors
         this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
@@ -34,10 +35,6 @@ class FirmDashboardPage extends BasePage {
         //  event list verification selectors
         this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
 
-    }
-
-    async navigateToFirmDashboard() {
-        await this.page.goto('https://uat.aeliuscase.com/dashboard');
     }
 
     async openEventForm() {
@@ -53,7 +50,7 @@ class FirmDashboardPage extends BasePage {
     }
 
 
-    
+
 
     async verifyEventCreation() {
         // await this.waitForAPIResponse(endpoints.createEvent);
@@ -62,10 +59,7 @@ class FirmDashboardPage extends BasePage {
 
     }
 
-    async searchForCase(caseNo) {
-        await this.page.locator('input.p-autocomplete-input[placeholder="Search"]').fill(caseNo);
-        await this.page.getByRole('cell', { name: caseNo, exact: true }).click();
-    }
+
 
     async openCaseForm() {
         await this.createCaseBtn.click();
@@ -83,13 +77,13 @@ class FirmDashboardPage extends BasePage {
         await this.messageForm.submitMessageForm();
     }
 
-    //Verify Message Creation
-    async verifyMessageCreation() {
+    //Verify Message and Task Creation
+    async verifyMessageAndTaskCreation() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
     }
 
-    async verifyEventInTileList() {
-        await this.gotoAndWaitForAPI(routes.dashboard, endpoints.firmEventTile);
+    async verifyTilesLoads(apiUrl) {
+        await this.gotoAndWaitForAPI(routes.dashboard, apiUrl);
     }
 
     async verifyCaseInTileList() {
@@ -100,7 +94,7 @@ class FirmDashboardPage extends BasePage {
         // Wait for message to appear in tile
         await this.page.waitForTimeout(2000); // Allow time for refresh
 
-        
+
 
         // Look for the message details in the tile
         // Adjust selector based on your actual HTML structure
@@ -108,6 +102,12 @@ class FirmDashboardPage extends BasePage {
 
         console.log('✓ Message list loaded successfully in Message tile');
     }
+
+    // Tasks
+    async openTaskForm() {
+        await this.AddTaskBtn.click();
+    }
+
 
 }
 module.exports = { FirmDashboardPage };
