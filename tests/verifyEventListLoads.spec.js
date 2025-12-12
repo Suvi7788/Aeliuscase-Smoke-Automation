@@ -9,7 +9,7 @@ const eventData = require("../data/eventData.json");
 test.describe('Verify Event Tile list loads', () => {
     test('Verify Event Tile list loads', async ({ page }) => {
         const firmDashboardPage = new FirmDashboardPage(page);
-        await firmDashboardPage.verifyEventInTileList();
+        await firmDashboardPage.verifyTilesLoads(endpoints.firmEventTile);
     })
 })
 
@@ -30,6 +30,6 @@ test.describe('Verify Case Event List loads', () => {
 test.describe('Verify Case Event Tile loads', () => {
     test('Verify Case Event Tile loads', async ({ page }) => {
         const caseDashboardPage = new CaseDashboardPage(page);
-        await caseDashboardPage.verifyEventInCaseEventTile(eventData.caseId);
+        await caseDashboardPage.verifyTilesLoadsInCaseDashboard(eventData.caseId, endpoints.caseEventList);
     })
 })

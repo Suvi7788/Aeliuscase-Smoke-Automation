@@ -18,5 +18,9 @@ class FirmTaskListPage extends BasePage {
     async verifyTaskCreation() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
     }
+
+    async verifyTaskInTaskList() {
+        await this.gotoAndWaitForAPI(routes.taskList, endpoints.GetTaskList);
+    }
 }
 module.exports = { FirmTaskListPage };

@@ -11,8 +11,8 @@ class CaseDashboardPage extends BasePage {
         this.container = this.page.getByText('Case Number: |');
         this.AddEventBtn = this.page.locator('button[ptooltip="Create New Event"]');
         this.AddTaskBtn = this.page.locator('button[ptooltip="Create New Task"]');
+        this.AddNoteBtn = this.page.locator('button[ptooltip="New Note"]');
         this.eventForm = new EventForm(page);
-
     }
 
     //!!!!!NEED TO GET CSS ID TO VERIFY
@@ -42,8 +42,8 @@ class CaseDashboardPage extends BasePage {
     }
 
 
-    async verifyEventInCaseEventTile(caseId) {
-        await this.gotoAndWaitForAPI(routes.caseEventList(caseId), endpoints.caseEventList);
+    async verifyTilesLoadsInCaseDashboard(caseId, apiUrl) {
+        await this.gotoAndWaitForAPI(routes.caseDashboard(caseId), apiUrl);
     }
 
     //Open Task Form From Case Dashboard
@@ -55,6 +55,10 @@ class CaseDashboardPage extends BasePage {
     //Verify Task Creation
     async verifyTaskCreation() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
+    }
+
+    async openNoteForm() {
+        await this.AddNoteBtn.click();
     }
 
 }

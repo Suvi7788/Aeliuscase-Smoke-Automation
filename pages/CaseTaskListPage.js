@@ -24,5 +24,8 @@ class CaseTaskListPage extends BasePage {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
     }
 
+    async verifyTaskInTaskList(caseId) {
+        await this.gotoAndWaitForAPI(routes.caseTaskList(caseId), endpoints.GetTaskList);
+    }
 }
 module.exports = { CaseTaskListPage };

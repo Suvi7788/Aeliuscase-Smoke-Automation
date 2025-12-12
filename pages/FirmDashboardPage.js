@@ -49,7 +49,7 @@ class FirmDashboardPage extends BasePage {
         await this.verifyEventCreation();
     }
 
- 
+
 
 
     async verifyEventCreation() {
@@ -59,7 +59,7 @@ class FirmDashboardPage extends BasePage {
 
     }
 
- 
+
 
     async openCaseForm() {
         await this.createCaseBtn.click();
@@ -82,8 +82,8 @@ class FirmDashboardPage extends BasePage {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
     }
 
-    async verifyEventInTileList() {
-        await this.gotoAndWaitForAPI(routes.dashboard, endpoints.firmEventTile);
+    async verifyTilesLoads(apiUrl) {
+        await this.gotoAndWaitForAPI(routes.dashboard, apiUrl);
     }
 
     async verifyCaseInTileList() {
