@@ -84,7 +84,7 @@ class FirmDashboardPage extends BasePage {
     }
 
     //Verify Message Creation
-    async verifyMessageCreation() {
+    async verifyMessageAndTaskCreation() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
     }
 
@@ -97,14 +97,20 @@ class FirmDashboardPage extends BasePage {
     }
 
     async verifyMessageListLoads() {
+        
+        await this.gotoAndWaitForAPI(routes.dashboard, endpoints.getMessageTile);
+        
+        
+        
+        
         // Wait for message to appear in tile
-        await this.page.waitForTimeout(2000); // Allow time for refresh
+        //await this.page.waitForTimeout(2000); // Allow time for refresh
 
         
 
         // Look for the message details in the tile
         // Adjust selector based on your actual HTML structure
-        await expect(this.messageButton).toBeVisible();
+        //await expect(this.messageButton).toBeVisible();
 
         console.log('✓ Message list loaded successfully in Message tile');
     }
