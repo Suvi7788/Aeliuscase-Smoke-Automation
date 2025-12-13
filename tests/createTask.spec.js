@@ -40,7 +40,7 @@ test.describe('Create Task From Firm Dashboard', () => {
         await caseDashboardPage.openTaskForm();
         await taskForm.fillTaskForm(taskData.caseNo, taskData.Subject, taskData.Assignee, taskData.Description);
         await taskForm.submitTaskForm();
-        await caseDashboardPage.verifyTaskCreation();
+        await caseDashboardPage.verifyRecordCreation();
     })
 
     test('Create Task From Case Task List', async ({ page }) => {

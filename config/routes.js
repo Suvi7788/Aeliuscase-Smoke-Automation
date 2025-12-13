@@ -6,5 +6,6 @@ module.exports = {
     caseList: (caseType) => `dashboard/recent-cases?type=${caseType}`,
     taskList: '/dashboard/list-task/20',
     caseTaskList: (caseId) => `/dashboard/case-overview/${caseId}?tab=5`,
+    caseNoteList: (caseId) => `/dashboard/case-overview/${caseId}?tab=2`,
     MessageList: '/dashboard/phone-call-messages/0',
 };
