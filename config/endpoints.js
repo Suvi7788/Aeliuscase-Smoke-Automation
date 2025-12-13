@@ -10,4 +10,5 @@ module.exports = {
     createTask: '/api/CaseTask',
     GetTaskTile: '/api/CaseTask/GetUpcomingTaskDashboard',
     GetTaskList: '/api/CaseTask/GetTaskMainList',
+    GetCaseNote: 'api/CaseNote/Search',
 }

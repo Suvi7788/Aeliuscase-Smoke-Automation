@@ -12,6 +12,8 @@ class CaseDashboardPage extends BasePage {
         this.AddEventBtn = this.page.locator('button[ptooltip="Create New Event"]');
         this.AddTaskBtn = this.page.locator('button[ptooltip="Create New Task"]');
         this.AddNoteBtn = this.page.locator('button[ptooltip="New Note"]');
+        this.AddQuickNoteBtn = this.page.locator('span.p-button-icon.pi.pi-plus-circle');
+        this.AddApplicantPartyNoteBtn = this.page.locator('button.p-element.p-ripple.footer-label.p-button-rounded.p-button-success.p-button-text.px-0.p-button.p-component');
         this.eventForm = new EventForm(page);
     }
 
@@ -52,13 +54,21 @@ class CaseDashboardPage extends BasePage {
         await this.AddTaskBtn.click();
     }
 
-    //Verify Task Creation
-    async verifyTaskCreation() {
+    //Verify Task/Note Creation
+    async verifyRecordCreation() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
     }
 
     async openNoteForm() {
         await this.AddNoteBtn.click();
+    }
+
+    async openQuickNoteForm() {
+        await this.AddQuickNoteBtn.click();
+    }
+
+    async openPartyNoteForm() {
+        await this.AddApplicantPartyNoteBtn.click();
     }
 
 }
