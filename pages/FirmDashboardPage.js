@@ -13,6 +13,11 @@ class FirmDashboardPage extends BasePage {
         const createCaseBtn = "//button[@ptooltip='Open a Case']";
         const addMessageBtn = "//button[@ptooltip='Create New Message']";
         const messageButton = "//tr[td[contains(., 'Normal') or contains(., 'High') or contains(., 'Low')]]//td[2]//button";
+        const messageOption = "//tbody/tr[4]/td[2]/div[1]/div[1]/button[1]/span[1]";
+        const viewMessageBtn = "//span[normalize-space()='View Message']";
+        const viewMessageTitle = "div[class='p-toolbar-group-start'] span[class='header-title']"
+        const editMessageBtn = "//span[normalize-space()='Edit Message']";
+
 
 
         this.page = page;
@@ -20,6 +25,12 @@ class FirmDashboardPage extends BasePage {
         this.createCaseBtn = page.locator(createCaseBtn);
         this.AddMessageBtn = page.locator(addMessageBtn);
         this.messageButton = this.page.locator(messageButton).first();
+        this.messageOption = this.page.locator(messageOption).first();
+        this.viewMessageBtn = this.page.locator(viewMessageBtn).first();
+        this.viewMessageTitle = this.page.locator(viewMessageTitle).first();
+        this.editMessageBtn = this.page.locator(editMessageBtn).first();
+
+
 
         this.eventForm = new EventForm(page);
         this.caseCreationPage = new CaseCreationPage(page);
@@ -91,12 +102,12 @@ class FirmDashboardPage extends BasePage {
     }
 
     async verifyMessageListLoads() {
-        
+
         await this.gotoAndWaitForAPI(routes.dashboard, endpoints.getMessageTile);
-        
-        
-        
-        
+
+
+
+
         // Wait for message to appear in tile
         //await this.page.waitForTimeout(2000); // Allow time for refresh
 
@@ -108,6 +119,25 @@ class FirmDashboardPage extends BasePage {
 
         console.log('✓ Message list loaded successfully in Message tile');
     }
+
+    async verifyViewMessage() {
+
+        await this.messageOption.click();
+        await this.viewMessageBtn.click();
+        await expect(this.viewMessageTitle).toBeVisible();
+    }
+
+    async openEditMessageForm() {
+        await this.messageOption.click();
+        await this.editMessageBtn.click();
+    }
+
+
+
+
+
+
+
 
     // Tasks
     async openTaskForm() {
