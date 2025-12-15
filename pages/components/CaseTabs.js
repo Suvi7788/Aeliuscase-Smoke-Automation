@@ -5,7 +5,7 @@ class CaseTabs {
         this.EventListTab = this.page.getByRole('tab', { name: 'Calendar' });
         this.TaskListTab = this.page.getByRole('tab', { name: 'Tasks' });
         this.NoteListTab = this.page.getByRole('tab', { name: 'Notes' });
-
+        this.PartiesTab = this.page.getByRole('tab', { name: 'Parties' });
         //Locators to validate case list option navigation
         this.NoteSectionLocator = this.page.getByRole('textbox', { name: 'Search Notes' });
         this.DocumentSectionLocator = this.page.getByRole('textbox', { name: 'Search Documents' });
@@ -38,6 +38,10 @@ class CaseTabs {
 
     async verifyCaseTabRoute(tabRoute) {
         await expect(this.page.url()).toContain(tabRoute);
+    }
+
+    async navigateToCasePartiesTab() {
+        await this.PartiesTab.click();
     }
 }
 module.exports = { CaseTabs };
