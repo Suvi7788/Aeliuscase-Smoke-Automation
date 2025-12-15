@@ -7,6 +7,8 @@ const { FirmTaskListPage } = require("../pages/FirmTaskListPage");
 const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
 const { CaseTabs } = require("../pages/components/CaseTabs");
 const {CaseTaskListPage} = require("../pages/CaseTaskListPage");
+const { CasePage } = require("../pages/CasePage");
+const { caseListOptions } = require("../config/caseListOptions");
 
 test.describe('Create Task From Firm Dashboard', () => {
     test.beforeEach(async ({ page }) => {
@@ -40,7 +42,7 @@ test.describe('Create Task From Firm Dashboard', () => {
         await caseDashboardPage.openTaskForm();
         await taskForm.fillTaskForm(taskData.caseNo, taskData.Subject, taskData.Assignee, taskData.Description);
         await taskForm.submitTaskForm();
-        await caseDashboardPage.verifyTaskCreation();
+        await caseDashboardPage.verifyRecordCreation();
     })
 
     test('Create Task From Case Task List', async ({ page }) => {
@@ -56,5 +58,15 @@ test.describe('Create Task From Firm Dashboard', () => {
         await caseTaskListPage.verifyTaskCreation();
     })
 
+    test('Create Task From Case List', async ({ page }) => {
+        const taskForm = new TaskForm(page);
+        const casePage = new CasePage(page);
+        const menu = new Menu(page);
+        await menu.navigateToRecentCase();
+        await casePage.openCaseListOption(caseListOptions.addTask);
+        await taskForm.fillTaskForm(taskData.caseNo, taskData.Subject, taskData.Assignee, taskData.Description);
+        await taskForm.submitTaskForm();
+        await casePage.verifyRecordCreation();
+    })
 
 })

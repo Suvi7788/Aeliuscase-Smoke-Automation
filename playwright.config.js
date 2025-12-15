@@ -37,6 +37,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     storageState: 'storageState.json',
+    workers: 4,
 
   },
   globalSetup: './tests/setup/global-setup.js',

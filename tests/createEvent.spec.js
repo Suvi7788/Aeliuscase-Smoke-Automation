@@ -6,6 +6,9 @@ const { Menu } = require("../pages/Menu");
 const { FirmEventListPage } = require("../pages/FirmEventListPage");
 const { CaseEventListPage } = require("../pages/CaseEventListPage");
 const { CaseTabs } = require("../pages/components/CaseTabs");
+const { EventForm } = require("../pages/components/EventForm");
+const { CasePage } = require("../pages/CasePage");
+const { caseListOptions } = require("../config/caseListOptions");
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
@@ -47,4 +50,15 @@ test.describe('Case Event List Event Creation', () => {
         await caseTabs.navigateToCaseEventList();
         await caseEventListPage.createCaseEventListEvent(eventData.caseNo, eventData.Subject, eventData.Assignee, eventData.Description);
     })
+})
+
+test('Create Event From Case List', async ({ page }) => {
+    const eventForm = new EventForm(page);
+    const casePage = new CasePage(page);
+    const menu = new Menu(page);
+    await menu.navigateToRecentCase();
+    await casePage.openCaseListOption(caseListOptions.addEvent);
+    await eventForm.fillEventForm(eventData.caseNo, eventData.Subject, eventData.Assignee, eventData.Description);
+    await eventForm.submitEventForm();
+    await casePage.verifyEventCreation();
 })
