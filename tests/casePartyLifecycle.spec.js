@@ -32,7 +32,7 @@ test.describe('Create Party', () => {
             await partiesPage.selectPartyType(tc.type);
             await partyForm.fillPartyForm(partyData.companyName);
             await partyForm.savePartyForm();
-            await partiesPage.verifyRecordCreation();
+            await partiesPage.verifyPartyCreation();
         })
     }
 
@@ -48,7 +48,7 @@ test.describe('Create Party', () => {
             await partiesPage.navigateToEditParty();
             await partyForm.updatePartyForm(partyData.comments);
             await partyForm.savePartyForm();
-            await partiesPage.verifyRecordUpdate();
+            await partiesPage.verifyPartyUpdate();
         })
     }
 
@@ -63,5 +63,75 @@ test.describe('Create Party', () => {
         })
     }
 
+    test(`Update Employer Party`, async ({ page }) => {
+        const menu = new Menu(page);
+        const partiesPage = new PartiesPage(page);
+        const partyForm = new PartyForm(page);
+        const caseTabs = new CaseTabs(page);
+        await menu.searchForCase(eventData.caseNo);
+        await caseTabs.navigateToCasePartiesTab();
+        await partiesPage.openCreatedParty('Employer (P)');
+        await partiesPage.navigateToEditParty();
+        await partyForm.updatePartyForm(partyData.comments);
+        await partyForm.savePartyForm();
+        await partiesPage.verifyEmployerApplicantUpdate('Employer');
+    })
+
+    test(`Update Applicant Party`, async ({ page }) => {
+        const menu = new Menu(page);
+        const partiesPage = new PartiesPage(page);
+        const partyForm = new PartyForm(page);
+        const caseTabs = new CaseTabs(page);
+        await menu.searchForCase(eventData.caseNo);
+        await caseTabs.navigateToCasePartiesTab();
+        await partiesPage.openCreatedParty('Applicant');
+        await partiesPage.navigateToEditParty();
+        await partyForm.updateApplicantAddress(partyData.comments);
+        await partyForm.savePartyForm();
+        await partiesPage.verifyEmployerApplicantUpdate('Applicant');
+    })
+
+    test(`Add Prior Treatment Providers`, async ({ page }) => {
+        const menu = new Menu(page);
+        const partiesPage = new PartiesPage(page);
+        const partyForm = new PartyForm(page);
+        const caseTabs = new CaseTabs(page);
+        await menu.searchForCase(eventData.caseNo);
+        await caseTabs.navigateToCasePartiesTab();
+        await partiesPage.openCreatedParty('Applicant');
+        await partiesPage.navigateToEditParty();
+        await partyForm.openAddPriorTreatmentProviderForm();
+        await partyForm.fillPriorTreatmentForm(partyData.companyName, partyData.doctorName);
+        await partyForm.savePriorTreatmentForm();
+        
+    })
+
+    test(`Update Prior Treatment Providers`, async ({ page }) => {
+        const menu = new Menu(page);
+        const partiesPage = new PartiesPage(page);
+        const partyForm = new PartyForm(page);
+        const caseTabs = new CaseTabs(page);
+        await menu.searchForCase(eventData.caseNo);
+        await caseTabs.navigateToCasePartiesTab();
+        await partiesPage.openCreatedParty('Applicant');
+        await partiesPage.navigateToEditParty();
+        await partyForm.navigateToEditPriorTreatment();
+        await partyForm.updatePartyForm(partyData.comments);
+        await partyForm.savePriorTreatmentForm();
+        await partiesPage.verifyPartyUpdate();
+    })
+
+    test.only(`Delete Prior Treatment Providers`, async ({ page }) => {
+        const menu = new Menu(page);
+        const partiesPage = new PartiesPage(page);
+        const partyForm = new PartyForm(page);
+        const caseTabs = new CaseTabs(page);
+        await menu.searchForCase(eventData.caseNo);
+        await caseTabs.navigateToCasePartiesTab();
+        await partiesPage.openCreatedParty('Applicant');
+        await partiesPage.navigateToEditParty();
+        await partyForm.deletePriorTreatmentProvider();
+        await partiesPage.verifyPriorTreatmentDeletion();
+    })
 
 })
