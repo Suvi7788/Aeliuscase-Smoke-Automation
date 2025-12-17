@@ -7,6 +7,7 @@ const { CaseTabs } = require("../pages/components/CaseTabs");
 const { CaseNoteListPage } = require("../pages/CaseNoteListPage");
 const { CasePage } = require("../pages/CasePage");
 const { caseListOptions } = require("../config/caseListOptions");
+const { PartiesPage } = require("../pages/PartiesPage");
 
 test.describe('Create Note', () => {
     test.beforeEach(async ({ page }) => {
@@ -68,5 +69,18 @@ test.describe('Create Note', () => {
         await noteForm.fillNoteForm(noteData.Description);
         await noteForm.submitNoteForm();
         await casePage.verifyRecordCreation();
+    })
+
+    test('Create Party Note From Party Tab', async ({ page }) => {
+        const noteForm = new NoteForm(page);
+        const menu = new Menu(page);
+        const partiesPage = new PartiesPage(page);
+        const caseTabs = new CaseTabs(page);
+        await menu.searchForCase(noteData.caseNo);
+        await caseTabs.navigateToCasePartiesTab();
+        await partiesPage.openPartyNoteForm();
+        await noteForm.fillNoteForm(noteData.Description);
+        await noteForm.submitNoteForm();
+        await partiesPage.verifyNoteCreation();
     })
 })
