@@ -37,5 +37,9 @@ class CasePage extends BasePage {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
 
     }
+
+    async verifyCaseListNavigation() {
+        await expect(this.page).toHaveURL(/\/dashboard\/recent-cases(\?|$)/);
+    }
 }
 module.exports = { CasePage };
