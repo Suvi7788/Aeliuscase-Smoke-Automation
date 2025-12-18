@@ -39,12 +39,15 @@ class FirmDashboardPage extends BasePage {
         // tasks
         const addTaskBtn = "//button[@ptooltip='Create New Task']";
         this.AddTaskBtn = page.locator(addTaskBtn);
-
-        //  event list verification selectors
+        this.taskSubject = page.getByText('Test Automation Task - Subject').first();
         this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
 
         //  event list verification selectors
         this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
+        this.taskSectionTitle = page.getByText('Upcoming Tasks (');
+        this.eventSectionTitle = page.getByText('Upcoming Events (');
+        this.messageSectionTitle = page.getByText('Messages', { exact: true });
+        this.recentCasesTitle = page.locator('app-cases-dashboard').getByText('Recent Cases');
 
     }
 
@@ -144,6 +147,28 @@ class FirmDashboardPage extends BasePage {
         await this.AddTaskBtn.click();
     }
 
+    async viewAddedTask() {
+        await this.taskSubject.click();
+    }
+
+    async verifyRecordUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
+    }
+
+    async navigateToTaskList() {
+        await this.taskSectionTitle.click();
+    }
+
+    async navigateToEventList() {
+        await this.eventSectionTitle.click();
+    }
+
+    async navigateToMessageList() {
+        await this.messageSectionTitle.click();
+    }
+    async navigateToCaseList() {
+        await this.recentCasesTitle.click();
+    }
 
 }
 module.exports = { FirmDashboardPage };

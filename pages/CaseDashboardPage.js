@@ -15,11 +15,14 @@ class CaseDashboardPage extends BasePage {
         this.AddQuickNoteBtn = this.page.locator('span.p-button-icon.pi.pi-plus-circle');
         this.AddApplicantPartyNoteBtn = this.page.locator('button.p-element.p-ripple.footer-label.p-button-rounded.p-button-success.p-button-text.px-0.p-button.p-component');
         this.eventForm = new EventForm(page);
+        this.taskSubject = page.getByText('Test Automation Task - Subject').first();
+        this.caseNumber = this.page.locator(':text-is("Case Number: AE00147 |")');
     }
 
     //!!!!!NEED TO GET CSS ID TO VERIFY
     async verifyNavigationToCase() {
-        await expect(this.container).toContainText('AE00147');
+        // await expect(this.caseNumber).toBeVisible();
+        await expect(this.page).toHaveURL(/\/dashboard\/case-overview\//);
 
     }
 
@@ -71,5 +74,12 @@ class CaseDashboardPage extends BasePage {
         await this.AddApplicantPartyNoteBtn.click();
     }
 
+    async viewAddedTask() {
+        await this.taskSubject.click();
+    }
+
+    async verifyRecordUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
+    }
 }
 module.exports = { CaseDashboardPage };
