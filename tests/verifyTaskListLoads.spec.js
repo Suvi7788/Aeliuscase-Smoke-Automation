@@ -3,7 +3,7 @@ const { test, expect } = require("@playwright/test");
 const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
 const { FirmTaskListPage } = require("../pages/FirmTaskListPage");
 const { CaseTaskListPage } = require("../pages/CaseTaskListPage");
-const { CaseDashboardPage } = require("../pages/CaseDashboardPage");
+const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
 const taskData = require("../data/taskData.json");
 const endpoints = require("../config/endpoints");
 
@@ -18,8 +18,8 @@ test.describe('Verify Task list loads', () => {
         await firmTaskListPage.verifyTaskInTaskList();
     })
     test('Verify Case Dashboard Task Tile loads', async ({ page }) => {
-        const caseDashboardPage = new CaseDashboardPage(page);
-        await caseDashboardPage.verifyTilesLoadsInCaseDashboard(taskData.caseId, endpoints.GetTaskTile);
+        const caseDashboardSection = new CaseDashboardSection(page);
+        await caseDashboardSection.verifyTilesLoadsInCaseDashboard(taskData.caseId, endpoints.GetTaskTile);
     })
     test('Verify Case Task List loads', async ({ page }) => {
         const caseTaskListPage = new CaseTaskListPage(page);
