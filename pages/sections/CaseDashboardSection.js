@@ -1,10 +1,11 @@
 const { expect } = require('@playwright/test');
-const { EventForm } = require("./components/EventForm");
-const { BasePage } = require('./BasePage');
-const endpoints = require('../config/endpoints');
-const routes = require('../config/routes');
+const { EventForm } = require("../components/EventForm");
+const { BasePage } = require('../BasePage');
+const endpoints = require('../../config/endpoints');
+const routes = require('../../config/routes');
+const { CaseTabs } = require('./CaseTabs');
 
-class CaseDashboardPage extends BasePage {
+class CaseDashboardSection extends BasePage {
     constructor(page) {
         super(page)
         this.page = page;
@@ -17,6 +18,9 @@ class CaseDashboardPage extends BasePage {
         this.eventForm = new EventForm(page);
         this.taskSubject = page.getByText('Test Automation Task - Subject').first();
         this.caseNumber = this.page.locator(':text-is("Case Number: AE00147 |")');
+        this.editPartyButton = page.getByText('Edit', { exact: true });
+        this.addPartyButton = page.locator('button[ptooltip="Add a new party"]');
+        this.caseTabs = new CaseTabs(page);
     }
 
     //!!!!!NEED TO GET CSS ID TO VERIFY
@@ -81,5 +85,20 @@ class CaseDashboardPage extends BasePage {
     async verifyRecordUpdate() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
     }
+    async openCreatedParty(partyType) {
+        this.partyType = partyType;
+        await this.page.getByText(partyType).first().click();
+    }
+    async navigateToEditParty() {
+        await this.editPartyButton.click();
+    }
+    async verifyPartyUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: `${this.partyType} party was successfully update` })).toBeVisible();
+        await expect(this.addPartyButton).toBeVisible();
+    }
+
+    async verifyEmployerApplicantUpdate(party) {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: `${party} successfully update` })).toBeVisible();
+    }
 }
-module.exports = { CaseDashboardPage };
+module.exports = { CaseDashboardSection };

@@ -13,6 +13,8 @@ class PartyForm {
         this.editPartyButton = page.locator('button[ptooltip="Edit"]').first();
         this.deletePriorTreatmentProviderButton = page.locator('button[ptooltip="Delete"]').first();
         this.deletePriorTreatmentProviderConfirmButton = page.locator('button.p-confirm-dialog-accept');
+        this.editPartyButton = page.getByText('Edit', { exact: true });
+
     }
     async fillPartyForm(companyName) {
         await this.companyNameInput.fill(companyName);
@@ -52,6 +54,10 @@ class PartyForm {
     async deletePriorTreatmentProvider() {
         await this.deletePriorTreatmentProviderButton.click();
         await this.deletePriorTreatmentProviderConfirmButton.click();
+    }
+
+    async navigateToEditParty() {
+        await this.editPartyButton.click();
     }
 }
 module.exports = { PartyForm };

@@ -1,7 +1,7 @@
-const { PartyForm } = require("./components/PartyForm");
 const { expect } = require("@playwright/test");
+const { PartyForm } = require("../components/PartyForm");
 
-class PartiesPage {
+class PartiesSection {
     constructor(page) {
         this.page = page;
         this.addPartyButton = page.locator('button[ptooltip="Add a new party"]');
@@ -86,4 +86,4 @@ class PartiesPage {
     }
 }
 
-module.exports = { PartiesPage };
+module.exports = { PartiesSection };

@@ -1,7 +1,5 @@
 const { test } = require("@playwright/test");
-const { LoginPage } = require("../pages/LoginPage");
-const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
-const { CaseDashboardPage } = require("../pages/CaseDashboardPage");
+const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
 const { Menu } = require("../pages/Menu");
 
 test.beforeEach(async ({ page }) => {
@@ -11,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 
 test('Search Case', async ({ page }) => {
     const menu = new Menu(page);
-    const caseDashboardPage = new CaseDashboardPage(page);
+    const caseDashboardSection = new CaseDashboardSection(page);
     await menu.searchForCase('AE00147');
-    await caseDashboardPage.verifyNavigationToCase();
+    await caseDashboardSection.verifyNavigationToCase();
 });
