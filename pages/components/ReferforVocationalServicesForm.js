@@ -31,6 +31,11 @@ class ReferforVocationalServicesForm {
         //delete success message
         this.deleteSuccessMessage = page.getByText('File successfully removed', { exact: true })
 
+        //save success message
+        this.saveSuccessMessage = page.getByText('Form Updated successfully.', { exact: true })
+
+        this.fileInput= page.locator('p-fileupload input[type="file"]');
+
     }
 
     navigateToReferforVocationalServicesEditMode() {
@@ -105,6 +110,8 @@ class ReferforVocationalServicesForm {
 
     async saveReferforVocationalServicesForm() {
         await this.ReferforVocationalServicesFormSave.click();
+        await this.saveSuccessMessage.isVisible();
+
     }
 
     async closeReferforVocationalServicesForm() {
@@ -155,6 +162,11 @@ class ReferforVocationalServicesForm {
         await this.deleteFileButton.click();
         await this.confermDelete.click();
         await this.deleteSuccessMessage.isVisible();
+    }
+
+
+    async uploadDocument(filePath) {
+        await this.fileInput.setInputFiles(filePath);
     }
 };
 

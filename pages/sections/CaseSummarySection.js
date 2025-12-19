@@ -1,8 +1,8 @@
 const { Page } = require("@playwright/test");
-const ReferforVocationalServicesForm = require("./components/ReferforVocationalServicesForm");
+const ReferforVocationalServicesForm = require("../components/ReferforVocationalServicesForm");
 
 
-class CaseSummaryPage {
+class CaseSummarySection {
     constructor(page) {
         this.page = page;
         this.ReferforVocationalServices = page.locator('//span[normalize-space()="Refer for Vocational Services"]');
@@ -16,4 +16,4 @@ class CaseSummaryPage {
     }
 }
 
-module.exports = { CaseSummaryPage };
+module.exports = { CaseSummarySection };
