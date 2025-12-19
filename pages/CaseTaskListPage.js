@@ -12,6 +12,7 @@ class CaseTaskListPage extends BasePage {
 
         const addTaskBtn = "//button[@ptooltip='Create New Task']";
         this.AddTaskBtn = page.locator(addTaskBtn);
+        this.taskSubject = page.getByText('Test Automation Task - Subject').first();
 
     }
     async openTaskForm() {
@@ -26,6 +27,14 @@ class CaseTaskListPage extends BasePage {
 
     async verifyTaskInTaskList(caseId) {
         await this.gotoAndWaitForAPI(routes.caseTaskList(caseId), endpoints.GetTaskList);
+    }
+
+    async viewAddedTask() {
+        await this.taskSubject.click();
+    }
+
+    async verifyRecordUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
     }
 }
 module.exports = { CaseTaskListPage };

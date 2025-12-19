@@ -3,7 +3,7 @@ const { test, expect } = require("@playwright/test");
 const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
 const { FirmEventListPage } = require("../pages/FirmEventListPage");
 const { CaseEventListPage } = require("../pages/CaseEventListPage");
-const { CaseDashboardPage } = require("../pages/CaseDashboardPage");
+const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
 const eventData = require("../data/eventData.json");
 const endpoints = require("../config/endpoints");
 
@@ -30,7 +30,7 @@ test.describe('Verify Case Event List loads', () => {
 
 test.describe('Verify Case Event Tile loads', () => {
     test('Verify Case Event Tile loads', async ({ page }) => {
-        const caseDashboardPage = new CaseDashboardPage(page);
-        await caseDashboardPage.verifyTilesLoadsInCaseDashboard(eventData.caseId, endpoints.caseEventList);
+        const caseDashboardSection = new CaseDashboardSection(page);
+        await caseDashboardSection.verifyTilesLoadsInCaseDashboard(eventData.caseId, endpoints.caseEventList);
     })
 })

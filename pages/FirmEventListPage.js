@@ -35,5 +35,9 @@ class FirmEventListPage extends BasePage {
     async verifyEventInEventList() {
         await this.gotoAndWaitForAPI(routes.eventList, endpoints.firmEventList);
     }
+
+    async verifyEventListNavigation() {
+        await expect(this.page).toHaveURL(/\/dashboard\/list-event\//);
+    }
 }
 module.exports = { FirmEventListPage };
