@@ -35,7 +35,7 @@ test.describe('Firm Event List Event Creation', () => {
     test('Create Firm Event List Event', async ({ page }) => {
         const firmEventListPage = new FirmEventListPage(page);
         const menu = new Menu(page);
-        await menu.navigateToFirmEventList();
+        await menu.navigate("calendar","firmEventList");
         await firmEventListPage.createFirmEventListEvent(eventData.caseNo, eventData.Subject, eventData.Assignee, eventData.Description);
     })
 })
@@ -57,7 +57,7 @@ test('Create Event From Case List', async ({ page }) => {
     const eventForm = new EventForm(page);
     const casePage = new CasePage(page);
     const menu = new Menu(page);
-    await menu.navigateToRecentCase();
+    await menu.navigate("case","recentCases");
     await casePage.openCaseListOption(caseListOptions.addEvent);
     await eventForm.fillEventForm(eventData.caseNo, eventData.Subject, eventData.Assignee, eventData.Description);
     await eventForm.submitEventForm();

@@ -28,7 +28,7 @@ test.describe('Create Task From Firm Dashboard', () => {
         const menu = new Menu(page);
         const firmTaskListPage = new FirmTaskListPage(page);
         const taskForm = new TaskForm(page);
-        await menu.navigateToFirmTaskList();
+        await menu.navigate("task", "tasksInbox");
         await firmTaskListPage.openTaskForm();
         await taskForm.fillTaskForm(taskData.caseNo, taskData.Subject, taskData.Assignee, taskData.Description);
         await taskForm.submitTaskForm();
@@ -63,7 +63,7 @@ test.describe('Create Task From Firm Dashboard', () => {
         const taskForm = new TaskForm(page);
         const casePage = new CasePage(page);
         const menu = new Menu(page);
-        await menu.navigateToRecentCase();
+        await menu.navigate("case", "recentCases");
         await casePage.openCaseListOption(caseListOptions.addTask);
         await taskForm.fillTaskForm(taskData.caseNo, taskData.Subject, taskData.Assignee, taskData.Description);
         await taskForm.submitTaskForm();
