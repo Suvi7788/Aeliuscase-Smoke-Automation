@@ -63,7 +63,7 @@ test.describe('Create Note', () => {
         const noteForm = new NoteForm(page);
         const casePage = new CasePage(page);
         const menu = new Menu(page);
-        await menu.navigateToRecentCase();
+        await menu.navigate("case", "recentCases");
         await casePage.openCaseListOption(caseListOptions.composeNote);
         await noteForm.fillNoteForm(noteData.Description);
         await noteForm.submitNoteForm();
