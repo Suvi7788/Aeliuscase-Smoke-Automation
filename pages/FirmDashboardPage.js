@@ -17,7 +17,9 @@ class FirmDashboardPage extends BasePage {
         const viewMessageBtn = "//span[normalize-space()='View Message']";
         const viewMessageTitle = "div[class='p-toolbar-group-start'] span[class='header-title']"
         const editMessageBtn = "//span[normalize-space()='Edit Message']";
-
+        const deleteMessageBtn = "//button[@ptooltip='Delete Message']//span[@class='p-button-icon pi pi-trash']";
+        const deleteConfermationMsg = "//span[normalize-space()='Proceed']";
+        const msgPrintBtn ="//tr[td[2][contains(., 'Monday, December 22, 2025')]]//td[9]//i";
 
 
         this.page = page;
