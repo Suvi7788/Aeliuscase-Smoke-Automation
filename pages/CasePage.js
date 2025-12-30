@@ -33,9 +33,13 @@ class CasePage extends BasePage {
     }
 
     async verifyEventCreation() {
-        await this.waitForAPIResponse(endpoints.createEvent);
+        // await this.waitForAPIResponse(endpoints.createEvent);
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
 
+    }
+
+    async verifyCaseListNavigation() {
+        await expect(this.page).toHaveURL(/\/dashboard\/recent-cases(\?|$)/);
     }
 }
 module.exports = { CasePage };

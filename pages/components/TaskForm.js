@@ -1,3 +1,4 @@
+const { expect } = require('@playwright/test');
 class TaskForm {
     constructor(page) {
         this.page = page;
@@ -12,6 +13,8 @@ class TaskForm {
         this.Description = page.locator(descriptionFiled);
         this.CalculateDays = page.locator('input[formcontrolname="calculateDays"]');
         this.SaveBtn = page.getByRole('button', { name: 'Save' });
+        this.editBtn = page.getByRole('button', { name: 'Edit', exact: true });
+        this.TaskSubject = page.locator('p').filter({ hasText: 'Test Automation Task - Description' }).first();
     }
 
     async fillTaskForm(caseNo, Subject, Assignee, Description) {
@@ -24,5 +27,17 @@ class TaskForm {
 
     async submitTaskForm() {
         await this.SaveBtn.click();
+    }
+
+    async navigateToEdit() {
+        await this.editBtn.click();
+    }
+
+    async editTaskDetails(updatedDetails) {
+        await this.Description.fill(updatedDetails);
+    }
+
+    async verifyTaskView() {
+        await expect(this.TaskSubject).toBeVisible();
     }
 } module.exports = { TaskForm };

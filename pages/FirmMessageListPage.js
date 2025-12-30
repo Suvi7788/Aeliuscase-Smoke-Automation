@@ -27,6 +27,9 @@ class FirmMessageListPage extends BasePage {
     async verifyMessageInMessageList() {
         await this.gotoAndWaitForAPI(routes.MessageList, endpoints.getMessageList);
     }
+    async verifyMessageListNavigation() {
+        await expect(this.page).toHaveURL(/\/dashboard\/phone-call-messages\//);
+    }
 }
 module.exports = { FirmMessageListPage };
 

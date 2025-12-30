@@ -8,6 +8,7 @@ class FirmTaskListPage extends BasePage {
         super(page)
         this.page = page;
         this.AddTaskBtn = page.locator("//button[@ptooltip='Create New Task']");
+        this.taskSubject = page.getByText('Test Automation Task - Subject').first();
     }
 
     async openTaskForm() {
@@ -21,6 +22,18 @@ class FirmTaskListPage extends BasePage {
 
     async verifyTaskInTaskList() {
         await this.gotoAndWaitForAPI(routes.taskList, endpoints.GetTaskList);
+    }
+
+    async viewAddedTask() {
+        await this.taskSubject.click();
+    }
+
+    async verifyRecordUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
+    }
+
+    async verifyTaskListNavigation() {
+    await expect(this.page).toHaveURL(/\/dashboard\/list-task\//);
     }
 }
 module.exports = { FirmTaskListPage };
