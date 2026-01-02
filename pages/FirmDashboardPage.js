@@ -18,6 +18,8 @@ class FirmDashboardPage extends BasePage {
         const viewMessageTitle = "div[class='p-toolbar-group-start'] span[class='header-title']"
         const editMessageBtn = "//span[normalize-space()='Edit Message']";
         const deleteMessageBtn = "//button[@ptooltip='Delete Message']//span[@class='p-button-icon pi pi-trash']";
+        const deleteConfermationMsg = "//span[normalize-space()='Proceed']";        
+        const deleteMessageBtn = "//button[@ptooltip='Delete Message']//span[@class='p-button-icon pi pi-trash']";
         const deleteConfermationMsg = "//span[normalize-space()='Proceed']";
         const msgPrintBtn ="//span[i[contains(@class,'pi-print')]]";
 
@@ -31,6 +33,8 @@ class FirmDashboardPage extends BasePage {
         this.viewMessageBtn = this.page.locator(viewMessageBtn).first();
         this.viewMessageTitle = this.page.locator(viewMessageTitle).first();
         this.editMessageBtn = this.page.locator(editMessageBtn).first();
+        this.deleteMessageBtn = this.page.locator(deleteMessageBtn).first();
+        this.deleteConfermationMsg = this.page.locator(deleteConfermationMsg).first();
         this.msgPrintBtn = this.page.locator(msgPrintBtn).first();
         
 
@@ -173,6 +177,18 @@ class FirmDashboardPage extends BasePage {
     }
     async navigateToCaseList() {
         await this.recentCasesTitle.click();
+    }
+    
+    async deleteMessage() {
+        if (!await this.deleteMessageBtn.isVisible({ timeout: 3000 })) {
+            throw new Error('Pre-condition failed: Test message not found');
+        }
+        await this.deleteMessageBtn.click();
+        await this.deleteConfermationMsg.click(); 
+    }
+    
+    async verifyDeleteMessage() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
     }
 
 }

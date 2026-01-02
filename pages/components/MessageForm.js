@@ -4,7 +4,7 @@ class MessageForm {
 
 
         this.page = page;
-        this.CaseNo = page.getByRole('complementary').locator('input[name="undefined"]')
+        this.CaseNo = page.locator('p-autocomplete[formcontrolname="phoneCallMessageCases"] input');
         this.CaseValue = page.locator('span:has-text("AE00147 - Automation vs DO NOT DELETE")');
         this.ForField = page.locator(ForFiled)
         this.ForValue = page.getByRole('option', { name: 'suvi dison' });
