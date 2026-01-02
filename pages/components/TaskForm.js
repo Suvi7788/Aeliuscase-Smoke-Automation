@@ -12,7 +12,7 @@ class TaskForm {
         this.AssigneeValue = page.getByRole('option', { name: 'suvi dison' });
         this.Description = page.locator(descriptionFiled);
         this.CalculateDays = page.locator('input[formcontrolname="calculateDays"]');
-        this.SaveBtn = page.getByRole('button', { name: 'Save' });
+        this.SaveBtn = page.getByRole('button', { name: 'Save', exact: true });
         this.editBtn = page.getByRole('button', { name: 'Edit', exact: true });
         this.TaskSubject = page.locator('p').filter({ hasText: 'Test Automation Task - Description' }).first();
     }
