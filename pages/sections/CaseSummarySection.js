@@ -6,6 +6,7 @@ class CaseSummarySection {
     constructor(page) {
         this.page = page;
         this.ReferforVocationalServices = page.locator('//span[normalize-space()="Refer for Vocational Services"]');
+        this.caseEdit = page.getByText('Edit Case', { exact: true });
 
 
     }
@@ -14,6 +15,11 @@ class CaseSummarySection {
         await this.ReferforVocationalServices.click();
 
     }
+
+    async openCaseEdit(){
+        await this.caseEdit.click();
+    }
+
 }
 
-module.exports = { CaseSummarySection };
+module.exports = CaseSummarySection;
