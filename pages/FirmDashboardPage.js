@@ -19,8 +19,6 @@ class FirmDashboardPage extends BasePage {
         const editMessageBtn = "//span[normalize-space()='Edit Message']";
         const deleteMessageBtn = "//button[@ptooltip='Delete Message']//span[@class='p-button-icon pi pi-trash']";
         const deleteConfermationMsg = "//span[normalize-space()='Proceed']";        
-        const deleteMessageBtn = "//button[@ptooltip='Delete Message']//span[@class='p-button-icon pi pi-trash']";
-        const deleteConfermationMsg = "//span[normalize-space()='Proceed']";
         const msgPrintBtn ="//span[i[contains(@class,'pi-print')]]";
 
 
