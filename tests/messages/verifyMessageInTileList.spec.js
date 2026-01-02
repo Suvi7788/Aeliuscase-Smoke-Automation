@@ -1,7 +1,7 @@
 // tests/setup/verifyMessageInTileList.spec.js
 const { test, expect } = require("@playwright/test");
-const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
-const { FirmMessageListPage } = require("../pages/FirmMessageListPage");
+const { FirmDashboardPage } = require("../../pages/FirmDashboardPage");
+const { FirmMessageListPage } = require("../../pages/FirmMessageListPage");
 
 
 test.beforeEach(async ({ page }) => {
