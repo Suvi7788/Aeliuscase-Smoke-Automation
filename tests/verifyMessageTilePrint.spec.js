@@ -15,6 +15,6 @@ test.describe('Message Tile Print', () => {
        await printPreviewPopup.verifyPrintButtonVisible();
        await printPreviewPopup.clickPrintButton();
        await printPreviewPopup.verifyDataLoadingToPrint();
-       
+
     })
 })
