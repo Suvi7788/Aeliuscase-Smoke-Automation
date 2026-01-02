@@ -18,7 +18,8 @@ class FirmDashboardPage extends BasePage {
         const viewMessageTitle = "div[class='p-toolbar-group-start'] span[class='header-title']"
         const editMessageBtn = "//span[normalize-space()='Edit Message']";
         const deleteMessageBtn = "//button[@ptooltip='Delete Message']//span[@class='p-button-icon pi pi-trash']";
-        const deleteConfermationMsg = "//span[normalize-space()='Proceed']";
+        const deleteConfermationMsg = "//span[normalize-space()='Proceed']";        
+        const msgPrintBtn ="//span[i[contains(@class,'pi-print')]]";
 
 
         this.page = page;
@@ -32,7 +33,8 @@ class FirmDashboardPage extends BasePage {
         this.editMessageBtn = this.page.locator(editMessageBtn).first();
         this.deleteMessageBtn = this.page.locator(deleteMessageBtn).first();
         this.deleteConfermationMsg = this.page.locator(deleteConfermationMsg).first();
-
+        this.msgPrintBtn = this.page.locator(msgPrintBtn).first();
+        
 
 
         this.eventForm = new EventForm(page);
@@ -137,18 +139,20 @@ class FirmDashboardPage extends BasePage {
         await this.messageOption.click();
         await this.editMessageBtn.click();
     }
-
-
-
-
-
-
-
-
     // Tasks
     async openTaskForm() {
         await this.AddTaskBtn.click();
     }
+ 
+    //Verify Print Button
+    async verifyPrintButtonVisible() {
+        await expect(this.msgPrintBtn).toBeVisible();
+    }
+    //Message Print
+    async msgPrintviewPopup(){
+        await this.msgPrintBtn.click();
+    }
+
 
     async viewAddedTask() {
         await this.taskSubject.click();
