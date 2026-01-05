@@ -1,11 +1,11 @@
 const { test } = require("@playwright/test");
-const { PartiesSection } = require("../pages/sections/PartiesSection");
+const { PartiesSection } = require("../pages/case/PartiesSection");
 const partyData = require("../data/partyData.json");
 const { Menu } = require("../pages/Menu");
 const eventData = require("../data/eventData.json");
 const { PartyForm } = require("../pages/components/PartyForm");
 const { CaseOverviewPage } = require("../pages/CaseOverviewPage");
-const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
+const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
 test.describe('Create Party', () => {
 
     const testCases = [

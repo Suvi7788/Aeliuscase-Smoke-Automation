@@ -1,4 +1,4 @@
-const { CaseTabs } = require('./sections/CaseTabs');
+const { CaseTabs } = require('./case/CaseTabs');
 
 class CaseOverviewPage {
   constructor(page) {
@@ -7,7 +7,7 @@ class CaseOverviewPage {
     this.caseTabs = new CaseTabs(page);
   }
 
- 
+
 }
 
 module.exports = { CaseOverviewPage };
