@@ -6,15 +6,16 @@ test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
 });
 
-test.describe('Message Tile Print', () => {
-    test('Verify Message Tile Print', async ({ page }) => {
+test.describe('Event Tile Print', () => {
+    test('Verify Event Tile Print', async ({ page }) => {
        const firmDashboardPage = new FirmDashboardPage(page);
        const printPreviewPopup = new PrintPreviewPopup(page);
        await firmDashboardPage.verifyPrintButtonVisible();
-       await firmDashboardPage.openMsgPrintviewPopup();
-       await printPreviewPopup.verifyMsgPrintButtonVisible();
-       await printPreviewPopup.clickMsgPrintButton();
-       await printPreviewPopup.verifyMsgDataLoadingToPrint();
+       await firmDashboardPage.openEventPrintviewPopup();
+       await printPreviewPopup.verifyEventPrintButtonVisible();
+       await printPreviewPopup.clickEventPrintButton();
+       await printPreviewPopup.verifyEventDataLoadingToPrint();
 
     })
 })
+
