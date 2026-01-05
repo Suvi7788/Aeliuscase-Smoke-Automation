@@ -2,12 +2,14 @@ const { test } = require("@playwright/test");
 const noteData = require("../data/noteData.json");
 const { Menu } = require("../pages/Menu");
 const { NoteForm } = require("../pages/components/NoteForm");
-const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
+const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
 const { CaseOverviewPage } = require("../pages/CaseOverviewPage");
 const { CaseNoteListPage } = require("../pages/CaseNoteListPage");
 const { caseListOptions } = require("../config/caseListOptions");
-const { PartiesSection } = require("../pages/sections/PartiesSection");
+const { PartiesSection } = require("../pages/case/PartiesSection");
 const { CasePage } = require("../pages/CasePage");
+const { CaseActivitySection } = require("../pages/case/CaseActivitySection");
+
 test.describe('Create Note', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/dashboard');
@@ -80,5 +82,16 @@ test.describe('Create Note', () => {
         await noteForm.fillNoteForm(noteData.Description);
         await noteForm.submitNoteForm();
         await partiesSection.verifyNoteCreation();
+    })
+
+    test('Create Note From Case Activity', async ({ page }) => {
+        const noteForm = new NoteForm(page);
+        const caseActivitySection = new CaseActivitySection(page);
+        const menu = new Menu(page);
+        await menu.searchForCase(noteData.caseNo);
+        await caseActivitySection.openAddNoteForm();
+        await noteForm.fillNoteForm(noteData.Description);
+        await noteForm.submitNoteForm();
+        await caseActivitySection.verifyRecordCreation();
     })
 })
