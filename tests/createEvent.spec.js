@@ -9,6 +9,7 @@ const { CaseOverviewPage } = require("../pages/CaseOverviewPage");
 const { EventForm } = require("../pages/components/EventForm");
 const { CasePage } = require("../pages/CasePage");
 const { caseListOptions } = require("../config/caseListOptions");
+const { CaseActivitySection } = require("../pages/case/CaseActivitySection");
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
@@ -57,7 +58,7 @@ test('Create Event From Case List', async ({ page }) => {
     await casePage.verifyEventCreation();
 })
 
- test.only('Create Event From Case Activity', async ({ page }) => {
+ test('Create Event From Case Activity', async ({ page }) => {
         const eventForm = new EventForm(page);
         const caseActivitySection = new CaseActivitySection(page);
         const menu = new Menu(page);

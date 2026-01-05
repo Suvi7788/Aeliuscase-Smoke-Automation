@@ -9,7 +9,7 @@ const { CaseTaskListPage } = require("../pages/CaseTaskListPage");
 const { CasePage } = require("../pages/CasePage");
 const { caseListOptions } = require("../config/caseListOptions");
 const { CaseOverviewPage } = require("../pages/CaseOverviewPage");
-
+const { CaseActivitySection } = require("../pages/case/CaseActivitySection");
 
 test.describe('Create Task From Firm Dashboard', () => {
     test.beforeEach(async ({ page }) => {
@@ -70,4 +70,15 @@ test.describe('Create Task From Firm Dashboard', () => {
         await casePage.verifyRecordCreation();
     })
 
+
+    test('Create Task From Case Activity', async ({ page }) => {
+        const taskForm = new TaskForm(page);
+        const caseActivitySection = new CaseActivitySection(page);
+        const menu = new Menu(page);
+        await menu.searchForCase(taskData.caseNo);
+        await caseActivitySection.openAddTaskForm();
+        await taskForm.fillTaskForm(taskData.caseNo, taskData.Subject, taskData.Assignee, taskData.Description);
+        await taskForm.submitTaskForm();
+        await caseActivitySection.verifyRecordCreation();
+    })
 })
