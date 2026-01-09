@@ -89,6 +89,8 @@ test.describe('Create Note', () => {
         const caseActivitySection = new CaseActivitySection(page);
         const menu = new Menu(page);
         await menu.searchForCase(noteData.caseNo);
+        const caseOverview = new CaseOverviewPage(page);
+        await caseOverview.caseTabs.open('activity');
         await caseActivitySection.openAddNoteForm();
         await noteForm.fillNoteForm(noteData.Description);
         await noteForm.submitNoteForm();

@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Fill Document Info', () => {
-    test.only('Fill Unassigned Document Info', async ({ page }) => {
+    test('Fill Unassigned Document Info', async ({ page }) => {
         const menu = new Menu(page);
         await menu.navigate("document", "listUnassigned");
         const fillDocumentInfoComponent = new FillDocumentInfoComponent(page);

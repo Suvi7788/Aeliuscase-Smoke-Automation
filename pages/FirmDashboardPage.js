@@ -55,7 +55,7 @@ class FirmDashboardPage extends BasePage {
         this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
         this.taskSectionTitle = page.getByText('Upcoming Tasks (');
         this.eventSectionTitle = page.getByText('Upcoming Events (');
-        this.messageSectionTitle = page.getByText('Messages', { exact: true });
+        this.messageSectionTitle = page.getByText('Messages (');
         this.recentCasesTitle = page.locator('app-cases-dashboard').getByText('Recent Cases');
 
     }

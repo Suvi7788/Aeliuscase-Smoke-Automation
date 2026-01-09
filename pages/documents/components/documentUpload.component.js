@@ -3,7 +3,8 @@ class DocumentUploadComponent {
     constructor(page) {
         this.page = page;
         this.uploadDocumentBtn = page.locator('button[ptooltip="Upload Unassigned"]');
-        this.fileInput = page.locator('.upload-box input[type="file"]');
+        this.fileInput = page.locator('input[type="file"]');
+        
     }
 
     async uploadDocument(filePath) {
@@ -30,7 +31,9 @@ class DocumentUploadComponent {
         await expect(this.page.getByText('Document uploaded successfully.')).toBeVisible();
     }
 
-
+    async verifyCaseDocsUpload() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'File Uploaded Successfully' }).first()).toBeVisible();
+    }
 
 }
 module.exports = { DocumentUploadComponent };

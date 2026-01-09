@@ -63,6 +63,8 @@ test('Create Event From Case List', async ({ page }) => {
         const caseActivitySection = new CaseActivitySection(page);
         const menu = new Menu(page);
         await menu.searchForCase(eventData.caseNo);
+        const caseOverview = new CaseOverviewPage(page);
+        await caseOverview.caseTabs.open('activity');
         await caseActivitySection.openAddEventForm();
         await eventForm.fillEventForm(eventData.caseNo, eventData.Subject, eventData.Assignee, eventData.Description);
         await eventForm.submitEventForm();
