@@ -11,6 +11,8 @@ class CaseTabs {
       notes: page.getByRole('tab', { name: 'Notes' }),
       parties: page.getByRole('tab', { name: 'Parties' }),
       injury: page.getByRole('tab', { name: 'Injury' }),
+      documents: page.getByRole('tab', { name: 'Docs' }),
+      activity: page.getByRole('tab', { name: 'Activity' }),
     };
 
     // Section validators

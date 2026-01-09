@@ -1,7 +1,7 @@
 const { test, expect } = require("@playwright/test");
-const CaseEdit = require("../pages/sections/CaseEdit");
-const CaseSummarySection = require("../pages/sections/CaseSummarySection");
-const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
+const CaseEdit = require("../pages/case/CaseEdit");
+const CaseSummarySection = require("../pages/case/CaseSummarySection");
+const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
 const { Menu } = require("../pages/Menu");
 
 test.beforeEach(async ({ page }) => {

@@ -2,7 +2,7 @@ const { test } = require("@playwright/test");
 const taskData = require("../data/taskData.json");
 const { Menu } = require("../pages/Menu");
 const { TaskForm } = require("../pages/components/TaskForm");
-const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
+const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
 const { FirmTaskListPage } = require("../pages/FirmTaskListPage");
 const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
 const { CaseTaskListPage } = require("../pages/CaseTaskListPage");
@@ -25,7 +25,7 @@ test.describe('View Task', () => {
         const menu = new Menu(page);
         const firmTaskListPage = new FirmTaskListPage(page);
         const taskForm = new TaskForm(page);
-        await menu.navigateToFirmTaskList();
+        await menu.navigate("task","tasksInbox");
         await firmTaskListPage.viewAddedTask();
         await taskForm.verifyTaskView();
     })

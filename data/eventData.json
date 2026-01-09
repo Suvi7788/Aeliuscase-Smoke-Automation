@@ -1,7 +1,8 @@
 {
     "caseNo": "AE00147",
     "Subject": "Test Automation Event - Subject",
-    "Assignee": "suvi",
+    "Assignee": "Raj",
     "Description": "Test Automation Event - Description",
-    "caseId": "147"
+    "caseId": "147",
+    "AssigneeValue": "Raj Patel"
 }

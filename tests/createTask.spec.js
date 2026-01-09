@@ -76,6 +76,8 @@ test.describe('Create Task From Firm Dashboard', () => {
         const caseActivitySection = new CaseActivitySection(page);
         const menu = new Menu(page);
         await menu.searchForCase(taskData.caseNo);
+        const caseOverview = new CaseOverviewPage(page);
+        await caseOverview.caseTabs.open('activity');
         await caseActivitySection.openAddTaskForm();
         await taskForm.fillTaskForm(taskData.caseNo, taskData.Subject, taskData.Assignee, taskData.Description);
         await taskForm.submitTaskForm();
