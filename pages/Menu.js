@@ -9,6 +9,7 @@ class Menu {
             case: page.getByRole('menuitem', { name: 'Case' }),
             task: page.getByRole('menuitem', { name: 'Task' }),
             document: page.getByRole('menuitem', { name: 'Document' }),
+            rolodex: page.getByRole('menuitem', { name: 'Rolodex' }),
         };
 
         this.subMenu = {

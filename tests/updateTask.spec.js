@@ -2,7 +2,7 @@ const { test } = require("@playwright/test");
 const taskData = require("../data/taskData.json");
 const { Menu } = require("../pages/Menu");
 const { TaskForm } = require("../pages/components/TaskForm");
-const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
+const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
 const { FirmTaskListPage } = require("../pages/FirmTaskListPage");
 const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
 const { CaseTaskListPage } = require("../pages/CaseTaskListPage");
@@ -29,7 +29,7 @@ test.describe('Update Task', () => {
         const firmDashboardPage = new FirmDashboardPage(page);
         const firmTaskListPage = new FirmTaskListPage(page);
         const taskForm = new TaskForm(page);
-        await menu.navigateToFirmTaskList();
+        await menu.navigate("task","firmTaskList");
         await firmDashboardPage.viewAddedTask();
         await taskForm.navigateToEdit();
         await taskForm.editTaskDetails(taskData.EditedDescription);

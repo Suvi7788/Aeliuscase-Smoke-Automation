@@ -1,7 +1,7 @@
 const { test } = require("@playwright/test");
 const { Menu } = require("../pages/Menu");
-const eventData = require("../data/eventData.json");
-const { CaseSummarySection } = require("../pages/sections/CaseSummarySection");
+const caseData = require("../data/caseData.json");
+const { CaseSummarySection } = require("../pages/case/CaseSummarySection");
 const { ReferforVocationalServicesForm } = require("../pages/components/ReferforVocationalServicesForm");
 
 test.describe('Case Summary', () => {
@@ -10,7 +10,7 @@ test.describe('Case Summary', () => {
     });
     test('Referfor Vocational Services Form Edits', async ({ page }) => {
         const menu = new Menu(page);
-        await menu.searchForCase(eventData.caseNo);
+        await menu.searchForCase(caseData.caseNo);
         const caseSummarySection = new CaseSummarySection(page);
         await caseSummarySection.viewReferforVocationalServicesForm();
         const referforVocationalServicesForm = new ReferforVocationalServicesForm(page);

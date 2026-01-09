@@ -30,7 +30,7 @@ export default defineConfig({
   use: {
     headless: false,
     slowMo: 5000,
-    baseURL: 'https://uat.aeliuscase.com',
+    baseURL: 'https://qa.aeliuscase.com',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     /* Add screenshot & video options */

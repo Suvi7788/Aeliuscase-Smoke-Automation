@@ -35,7 +35,7 @@ test('Create Message From Case List((Cases→Recent Cases→case options→Add P
     const messageForm = new MessageForm(page);
     const casePage = new CasePage(page);
     const menu = new Menu(page);
-    await menu.navigateToRecentCase();
+    await menu.navigate("case", "recentCases");
     await casePage.openCaseListOption(caseListOptions.addPhoneMessage);
     await messageForm.fillMessageForm(messageData.caseNo, messageData.user, messageData.Details);
     await messageForm.submitMessageForm();

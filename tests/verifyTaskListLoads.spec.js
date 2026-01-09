@@ -3,7 +3,7 @@ const { test, expect } = require("@playwright/test");
 const { FirmDashboardPage } = require("../pages/FirmDashboardPage");
 const { FirmTaskListPage } = require("../pages/FirmTaskListPage");
 const { CaseTaskListPage } = require("../pages/CaseTaskListPage");
-const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
+const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
 const taskData = require("../data/taskData.json");
 const endpoints = require("../config/endpoints");
 

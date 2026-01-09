@@ -1,3 +1,4 @@
+const messageData = require("../../data/messageData.json");
 class MessageForm {
     constructor(page) {
         const ForFiled = "//li[@role='option']//input[@role='combobox']";
@@ -7,7 +8,7 @@ class MessageForm {
         this.CaseNo = page.locator('p-autocomplete[formcontrolname="phoneCallMessageCases"] input');
         this.CaseValue = page.locator('span:has-text("AE00147 - Automation vs DO NOT DELETE")');
         this.ForField = page.locator(ForFiled)
-        this.ForValue = page.getByRole('option', { name: 'suvi dison' });
+        this.ForValue = page.getByRole('option', { name: messageData.AssigneeValue });
         this.Details = page.locator('div.ql-editor');
         this.SaveBtn = page.getByRole('button', { name: 'Save' });
 

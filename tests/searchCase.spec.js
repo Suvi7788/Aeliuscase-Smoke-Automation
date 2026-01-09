@@ -1,5 +1,5 @@
 const { test } = require("@playwright/test");
-const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
+const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
 const { Menu } = require("../pages/Menu");
 
 test.beforeEach(async ({ page }) => {

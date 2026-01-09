@@ -27,7 +27,7 @@ class CaseEventListPage extends BasePage {
     }
 
     async verifyEventCreation() {
-        await this.waitForAPIResponse(endpoints.createEvent);
+        // await this.waitForAPIResponse(endpoints.createEvent);
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
 
     }

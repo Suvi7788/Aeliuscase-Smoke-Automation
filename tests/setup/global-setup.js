@@ -17,7 +17,7 @@ async function globalSetup() {
 
     const loginPage = new LoginPage(page);
     // Navigate directly to login page (full URL required in global setup)
-    await page.goto("https://uat.aeliuscase.com/login");
+    await page.goto("https://qa.aeliuscase.com/login");
     // Perform login using credentials from environment variables
     await loginPage.login(process.env.USER, process.env.PASS);
     await page.waitForURL(/dashboard/);
