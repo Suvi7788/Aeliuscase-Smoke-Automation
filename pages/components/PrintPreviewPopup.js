@@ -13,7 +13,10 @@ export class PrintPreviewPopup {
     this.eventPrintButton = page.locator(
       "//span[@class='p-button-label' and normalize-space()='Print']"
     );
-    this.recentCasePrintButton = page.getByText('Print Cases', { exact: true });
+    this.recentCasePrintButton = page.locator(
+      "//span[@class='p-button-label' and normalize-space()='Print']"
+    );
+    this.printCaseButton = page.getByText('Print Cases', { exact: true })
   }
 
   //verify Message Print
@@ -65,7 +68,15 @@ export class PrintPreviewPopup {
   }
 
   async verifyRecentCaseDataLoadingToPrint() {
-    await expect(this.page.locator("//app-print-cases[@class='ng-tns-c4029148367-741']//div//div[@class='card']")).toBeVisible();
+    await expect(this.page.getByText('Applicant', { exact: true })).toBeVisible();
+  }
+
+  async verifyPrintCaseButtonVisible() {
+    await expect(this.printCaseButton).toBeVisible();
+  }
+
+  async clickPrintCaseButton() {
+    await this.printCaseButton.click();
   }
 
 }

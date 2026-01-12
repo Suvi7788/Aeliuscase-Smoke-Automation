@@ -11,8 +11,12 @@ test.describe('Verify Recent Cases Print', () => {
         const printPreviewPopup = new PrintPreviewPopup(page);
         const menu = new Menu(page);
         await menu.navigate("case", "recentCases");
-        await printPreviewPopup.verifyRecentCasePrintButtonVisible();
-        await printPreviewPopup.clickRecentCasePrintButton();
+        await printPreviewPopup.verifyPrintCaseButtonVisible();
+        await printPreviewPopup.clickPrintCaseButton();
         await printPreviewPopup.verifyRecentCaseDataLoadingToPrint();
+        await printPreviewPopup.verifyRecentCaseDataLoadingToPrint();
+        await printPreviewPopup.recentCasePrintButton.click();
+        
+
     })
 })
