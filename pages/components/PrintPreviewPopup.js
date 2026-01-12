@@ -13,6 +13,10 @@ export class PrintPreviewPopup {
     this.eventPrintButton = page.locator(
       "//span[@class='p-button-label' and normalize-space()='Print']"
     );
+    this.recentCasePrintButton = page.locator(
+      "//span[@class='p-button-label' and normalize-space()='Print']"
+    );
+    this.printCaseButton = page.getByText('Print Cases', { exact: true })
   }
 
   //verify Message Print
@@ -52,6 +56,27 @@ export class PrintPreviewPopup {
 
   async verifyEventDataLoadingToPrint() {
     await expect(this.page.locator('div').locator('div').nth(0)).toBeVisible();
+  }
+
+  //verify Recent Case Print
+  async verifyRecentCasePrintButtonVisible() {
+    await expect(this.recentCasePrintButton).toBeVisible();
+  }
+
+  async clickRecentCasePrintButton() {
+    await this.recentCasePrintButton.click();
+  }
+
+  async verifyRecentCaseDataLoadingToPrint() {
+    await expect(this.page.getByText('Applicant', { exact: true })).toBeVisible();
+  }
+
+  async verifyPrintCaseButtonVisible() {
+    await expect(this.printCaseButton).toBeVisible();
+  }
+
+  async clickPrintCaseButton() {
+    await this.printCaseButton.click();
   }
 
 }
