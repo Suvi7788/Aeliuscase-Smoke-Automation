@@ -1,6 +1,6 @@
 // tests/setup/verifyMessageInTileList.spec.js
 const { test } = require("@playwright/test");
-const { CaseDashboardSection } = require("../pages/sections/CaseDashboardSection");
+const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
 const eventData = require("../data/eventData.json");
 const endpoints = require("../config/endpoints");
 const { CaseNoteListPage } = require("../pages/CaseNoteListPage");

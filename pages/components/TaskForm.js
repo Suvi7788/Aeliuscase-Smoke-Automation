@@ -1,4 +1,5 @@
 const { expect } = require('@playwright/test');
+const taskData = require("../../data/taskData.json");
 class TaskForm {
     constructor(page) {
         this.page = page;
@@ -9,7 +10,7 @@ class TaskForm {
 
         this.Subject = page.locator(subjectFiled);
         this.Assignee = page.locator(assigneeFiled);
-        this.AssigneeValue = page.getByRole('option', { name: 'suvi dison' });
+        this.AssigneeValue = page.getByRole('option', { name: taskData.AssigneeValue });
         this.Description = page.locator(descriptionFiled);
         this.CalculateDays = page.locator('input[formcontrolname="calculateDays"]');
         this.SaveBtn = page.getByRole('button', { name: 'Save', exact: true });

@@ -20,6 +20,8 @@ class FirmDashboardPage extends BasePage {
         const deleteMessageBtn = "//button[@ptooltip='Delete Message']//span[@class='p-button-icon pi pi-trash']";
         const deleteConfermationMsg = "//span[normalize-space()='Proceed']";        
         const msgPrintBtn ="//span[i[contains(@class,'pi-print')]]";
+        const eventPrintBtn ="//span[i[contains(@class,'pi-print')]]";
+        const taskPrintBtn ="//span[i[contains(@class,'pi-print')]]";
 
 
         this.page = page;
@@ -34,6 +36,8 @@ class FirmDashboardPage extends BasePage {
         this.deleteMessageBtn = this.page.locator(deleteMessageBtn).first();
         this.deleteConfermationMsg = this.page.locator(deleteConfermationMsg).first();
         this.msgPrintBtn = this.page.locator(msgPrintBtn).first();
+        this.eventPrintBtn = this.page.locator(eventPrintBtn).first();
+        this.taskPrintBtn = this.page.locator(taskPrintBtn).first();
         
 
 
@@ -51,7 +55,7 @@ class FirmDashboardPage extends BasePage {
         this.eventRow = page.locator('td').filter({ hasText: /Normal|High|Low/ }).first();
         this.taskSectionTitle = page.getByText('Upcoming Tasks (');
         this.eventSectionTitle = page.getByText('Upcoming Events (');
-        this.messageSectionTitle = page.getByText('Messages', { exact: true });
+        this.messageSectionTitle = page.getByText('Messages (');
         this.recentCasesTitle = page.locator('app-cases-dashboard').getByText('Recent Cases');
 
     }
@@ -149,7 +153,7 @@ class FirmDashboardPage extends BasePage {
         await expect(this.msgPrintBtn).toBeVisible();
     }
     //Message Print
-    async msgPrintviewPopup(){
+    async openMsgPrintviewPopup(){
         await this.msgPrintBtn.click();
     }
 
@@ -187,6 +191,14 @@ class FirmDashboardPage extends BasePage {
     
     async verifyDeleteMessage() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
+    }
+
+    async openEventPrintviewPopup(){
+        await this.eventPrintBtn.click();
+    }
+
+    async openTaskPrintviewPopup(){
+        await this.taskPrintBtn.click();
     }
 
 }

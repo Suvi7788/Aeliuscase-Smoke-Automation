@@ -1,3 +1,4 @@
+const eventData = require("../../data/eventData.json");
 class EventForm {
     constructor(page) {
         const caseFiled = "p-autocomplete[class='p-element p-inputwrapper ng-pristine ng-valid ng-star-inserted ng-untouched'] input[role='combobox']";
@@ -13,7 +14,7 @@ class EventForm {
         this.CaseValue = page.getByText(caseValue);
         this.Subject = page.locator(subjectFiled);
         this.Assignee = page.locator(assigneeFiled);
-        this.AssigneeValue = page.getByRole('option', { name: 'suvi dison' });
+        this.AssigneeValue = page.getByRole('option', { name: eventData.AssigneeValue });
         this.Description = page.locator(descriptionFiled);
         this.SaveBtn = page.getByRole('button', { name: 'Save' });
     }

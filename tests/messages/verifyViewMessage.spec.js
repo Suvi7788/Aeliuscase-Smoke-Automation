@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const { FirmDashboardPage } = require('../pages/FirmDashboardPage');
-const routes = require('../config/routes');
+const { FirmDashboardPage } = require('../../pages/FirmDashboardPage');
+const routes = require('../../config/routes');
 
 
 

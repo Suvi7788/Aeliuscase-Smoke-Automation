@@ -9,6 +9,8 @@ class FirmTaskListPage extends BasePage {
         this.page = page;
         this.AddTaskBtn = page.locator("//button[@ptooltip='Create New Task']");
         this.taskSubject = page.getByText('Test Automation Task - Subject').first();
+        this.printOptionDropdown = page.getByRole('combobox', { name: 'Option' });
+        this.taskPrintOptionDropdown = page.getByRole('combobox', { name: 'Choose Action' });
     }
 
     async openTaskForm() {
@@ -35,5 +37,22 @@ class FirmTaskListPage extends BasePage {
     async verifyTaskListNavigation() {
     await expect(this.page).toHaveURL(/\/dashboard\/list-task\//);
     }
+
+    async navigateToAllTaskList(){
+        await this.page.getByText('All', { exact: true }).click();
+    }
+
+    async navigateToPrintOptionDropdown(){
+        await this.printOptionDropdown.click();
+    }
+
+    async navigateToPrintOptionThisWeek(){
+        await this.page.getByText('This Week', { exact: true }).click();
+    }
+
+    async navigateToTaskPrintOptionDropdown(){
+        await this.taskPrintOptionDropdown.click();
+    }
+
 }
 module.exports = { FirmTaskListPage };

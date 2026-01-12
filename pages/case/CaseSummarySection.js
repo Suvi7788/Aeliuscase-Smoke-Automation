@@ -20,6 +20,7 @@ class CaseSummarySection {
         await this.caseEdit.click();
     }
 
+
 }
 
 module.exports = CaseSummarySection;

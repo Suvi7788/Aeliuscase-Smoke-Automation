@@ -24,7 +24,7 @@ test.describe('Create WCAB Case From Recent Case List', () => {
         const { faker } = await import('@faker-js/faker');
         const menu = new Menu(page);
         const casePage = new CasePage(page);
-        await menu.navigateToRecentCase();
+        await menu.navigate("case","recentCases");
         await casePage.openCaseForm();
         const wcabCaseForm = new WcabCaseForm(page);
         await wcabCaseForm.createCase(faker.person.firstName(), faker.person.lastName(), faker.company.name());
