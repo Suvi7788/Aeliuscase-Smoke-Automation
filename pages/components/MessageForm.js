@@ -1,13 +1,11 @@
 const messageData = require("../../data/messageData.json");
+
 class MessageForm {
     constructor(page) {
-        const ForFiled = "//li[@role='option']//input[@role='combobox']";
-
-
         this.page = page;
         this.CaseNo = page.locator('p-autocomplete[formcontrolname="phoneCallMessageCases"] input');
         this.CaseValue = page.locator('span:has-text("AE00147 - Automation vs DO NOT DELETE")');
-        this.ForField = page.locator(ForFiled)
+        this.ForField = page.getByRole('combobox').nth(3);
         this.ForValue = page.getByRole('option', { name: messageData.AssigneeValue });
         this.Details = page.locator('div.ql-editor');
         this.SaveBtn = page.getByRole('button', { name: 'Save' });
@@ -17,6 +15,14 @@ class MessageForm {
         this.TimeField = page.locator('input[placeholder="HH:MM AA"]'); // Time input
         this.DatePickerIcon = page.locator('span.pi-calendar'); // Calendar icon
         this.FutureDateOption = page.locator('td:has-text("15")'); // Example: Select 15th of the month
+
+        // Add task selectors
+        this.AddTaskBtn = page.getByRole('combobox').nth(5);
+        
+        // Add task assignee 
+        this.addTaskAssignee = page.locator('p-autocomplete[formcontrolname="caseTaskAssigneeId"] input[role="combobox"]');
+
+        this.ClickAssigneeValue = page.locator('span.p-column-title', { hasText: 'Raj Patel' });
 
     }
 
@@ -99,6 +105,52 @@ class MessageForm {
         // Enter new details
         await this.editDetails.fill(newDetails);
     }
+
+    async fillAddTask() {
+    // Step 1: Click on "Add Task" button
+    await this.AddTaskBtn.click();
+
+    // Step 2: Calculate tomorrow's date (today + 1 day)
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    const tomorrowDay = tomorrow.getDate().toString();
+
+    // Step 3: Find and click on tomorrow's date in the calendar
+    // Try multiple strategies to find the date cell
+    
+    // Strategy 1: Direct text match
+    try {
+        const dateCell = this.TomorrowDate.first();
+        await dateCell.click();
+    } catch (error) {
+        // Strategy 2: Search in all table cells
+        const allCells = await this.page.locator('td').all();
+        for (const cell of allCells) {
+            const cellText = await cell.textContent();
+            if (cellText.trim() === tomorrowDay) {
+                await cell.click();
+                break;
+            }
+        }
+    }
+}
+
+async fillAssignee() {
+    await this.addTaskAssignee.click();
+    await this.addTaskAssignee.fill(messageData.AssigneeClick);
+}
+
+async assigneeClick() {
+    await this.ClickAssigneeValue.click();
+}
+
+
+// Test 2: Save Message as Task (separate test)
+async fillMessageAsTaskTest() {
+    // First create the message
+    await this.fillMessageForm(messageData.caseNo, messageData.user, messageData.Details);   
+}
 
 
 }
