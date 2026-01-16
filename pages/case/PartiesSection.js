@@ -18,7 +18,7 @@ class PartiesSection {
 
     async selectPartyType(partyType) {
         this.partyType = partyType;
-        await this.page.getByRole('complementary').getByText(partyType).click();
+        await this.page.getByRole('complementary').getByText(partyType, { exact: true }).click();
     }
 
     async verifyPartyCreation() {

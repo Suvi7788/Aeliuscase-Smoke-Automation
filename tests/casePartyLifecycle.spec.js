@@ -30,7 +30,7 @@ test.describe('Create Party', () => {
             await caseOverview.caseTabs.open('parties');
             await partiesSection.openPartyForm();
             await partiesSection.selectPartyType(tc.type);
-            await partyForm.fillPartyForm(partyData.companyName);
+            await partyForm.fillPartyForm(partyData.companyName , false);
             await partyForm.savePartyForm();
             await partiesSection.verifyPartyCreation();
         })

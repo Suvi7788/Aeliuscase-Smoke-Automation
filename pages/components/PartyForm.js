@@ -2,6 +2,9 @@ class PartyForm {
     constructor(page) {
         this.page = page;
         this.companyNameInput = page.locator('p-autocomplete[formcontrolname="company"] input');
+        this.companyNameInputRolodex = page.locator('button[placeholder="company"]');
+        this.companyInput = page.locator('[formcontrolname="company"]');
+
         this.companyNameOption = page.getByRole('option', { name: /Med/i }).first();
         this.saveButton = page.getByRole('button', { name: 'Save' });
         this.commentInput = page.locator('textarea[formcontrolname="comments"]');
@@ -14,11 +17,17 @@ class PartyForm {
         this.deletePriorTreatmentProviderButton = page.locator('button[ptooltip="Delete"]').first();
         this.deletePriorTreatmentProviderConfirmButton = page.locator('button.p-confirm-dialog-accept');
         this.editPartyButton = page.getByText('Edit', { exact: true });
-
+        this.applicantFirstName = page.locator('input[placeholder="First Name"]');
+        this.applicantLastName = page.locator('input[placeholder="Last Name"]');
     }
-    async fillPartyForm(companyName) {
-        await this.companyNameInput.fill(companyName);
-        await this.companyNameOption.click();
+    async fillPartyForm(companyName, isFromRolodex) {
+
+        await this.companyInput.fill(companyName);
+
+        if (!isFromRolodex) {
+            await this.companyNameOption.click();
+            this.page.isFromRolodex = isFromRolodex;
+        }
     }
 
     async fillPriorTreatmentForm(companyName, doctorName) {
@@ -58,6 +67,11 @@ class PartyForm {
 
     async navigateToEditParty() {
         await this.editPartyButton.click();
+    }
+
+    async fillRolodexPeopleForm(firstName, lastName) {
+        await this.applicantFirstName.fill(firstName);
+        await this.applicantLastName.fill(lastName);
     }
 }
 module.exports = { PartyForm };
