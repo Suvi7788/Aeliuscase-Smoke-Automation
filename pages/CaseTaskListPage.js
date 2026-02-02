@@ -13,7 +13,8 @@ class CaseTaskListPage extends BasePage {
         const addTaskBtn = "//button[@ptooltip='Create New Task']";
         this.AddTaskBtn = page.locator(addTaskBtn);
         this.taskSubject = page.getByText('Test Automation Task - Subject').first();
-
+        this.deleteConfermationMsg = this.page.locator("//span[normalize-space()='Proceed']").first();
+        this.taskDeleteBtn = page.locator("//button[@ptooltip='Delete Task']").first();
     }
     async openTaskForm() {
         await this.waitForAPIResponse(endpoints.getCaseTaskList);
@@ -35,6 +36,18 @@ class CaseTaskListPage extends BasePage {
 
     async verifyRecordUpdate() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
+    }
+
+        async deleteTask() {
+        if (!await this.taskDeleteBtn.isVisible({ timeout: 100000 })) {
+            throw new Error('Pre-condition failed: Test task not found');
+        }
+        await this.taskDeleteBtn.click();
+        await this.deleteConfermationMsg.click();
+    }
+
+    async verifyDeleteTask() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
     }
 }
 module.exports = { CaseTaskListPage };
