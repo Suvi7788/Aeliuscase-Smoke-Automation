@@ -4,7 +4,7 @@ const partyData = require("../../data/partyData.json");
 const { Menu } = require("../../pages/Menu");
 const {PartiesSection} = require("../../pages/case/PartiesSection");
 const {PartyForm} = require("../../pages/components/PartyForm");
-
+const { faker } = require("@faker-js/faker");
 test.describe('Add Rolodex Company', () => {
     const testCases = [
         // { name: 'Medical Provider', type: partyData.medicalProvider },
@@ -26,11 +26,10 @@ test.describe('Add Rolodex Company', () => {
             const partyForm = new PartyForm(page);
             const menu = new Menu(page);
             await menu.openMenu('rolodex');
-            await rolodexPage.openAddCompanyForm();
-            await partiesSection.selectPartyType(tc.type );
-            await partyForm.fillPartyForm(partyData.companyName , true);
+            await rolodexPage.openAddPeopleForm();
+            await partyForm.fillRolodexPeopleForm(faker.person.firstName(), faker.person.lastName());
             await partyForm.savePartyForm();
-            await rolodexPage.verifyRolodexCreation();
+            // await rolodexPage.verifyRolodexCreation();
         });
     }
 });

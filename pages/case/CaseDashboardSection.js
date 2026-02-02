@@ -20,6 +20,8 @@ class CaseDashboardSection extends BasePage {
         this.caseNumber = this.page.locator(':text-is("Case Number: AE00147 |")');
         this.editPartyButton = page.getByText('Edit', { exact: true });
         this.addPartyButton = page.locator('button[ptooltip="Add a new party"]');
+        this.deleteConfermationMsg = this.page.locator("//span[normalize-space()='Proceed']").first();
+        this.taskDeleteBtn = page.locator("//button[@ptooltip='Delete Task']").first();
         this.caseTabs = new CaseTabs(page);
     }
 
@@ -99,6 +101,18 @@ class CaseDashboardSection extends BasePage {
 
     async verifyEmployerApplicantUpdate(party) {
         await expect(this.page.locator('div.p-toast-detail', { hasText: `${party} successfully update` })).toBeVisible();
+    }
+
+    async deleteTask() {
+        if (!await this.taskDeleteBtn.isVisible({ timeout: 100000 })) {
+            throw new Error('Pre-condition failed: Test task not found');
+        }
+        await this.taskDeleteBtn.click();
+        await this.deleteConfermationMsg.click();
+    }
+
+    async verifyDeleteTask() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
     }
 }
 module.exports = { CaseDashboardSection };
