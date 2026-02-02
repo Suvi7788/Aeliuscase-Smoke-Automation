@@ -22,6 +22,8 @@ test.describe('Firm Dashboard message Creation', () => {
 
 test.describe('Firm Message List message Creation', () => {
     test('Create Firm Message List message', async ({ page }) => {
+        const firmDashboardPage = new FirmDashboardPage(page);
+        await firmDashboardPage.navigateToMessageList();
         const firmMessageListPage = new FirmMessageListPage(page);
         await firmMessageListPage.createFirmMessageListMessage(messageData.caseNo, messageData.user, messageData.Details);
         await firmMessageListPage.verifyMessageCreation();
@@ -33,7 +35,7 @@ test('Create Message From Case List((Cases→Recent Cases→case options→Add P
     const messageForm = new MessageForm(page);
     const casePage = new CasePage(page);
     const menu = new Menu(page);
-    await menu.navigateToRecentCase();
+    await menu.navigate("case", "recentCases");
     await casePage.openCaseListOption(caseListOptions.addPhoneMessage);
     await messageForm.fillMessageForm(messageData.caseNo, messageData.user, messageData.Details);
     await messageForm.submitMessageForm();

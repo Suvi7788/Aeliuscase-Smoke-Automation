@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
-const { FirmDashboardPage } = require('../pages/FirmDashboardPage');
-const routes = require('../config/routes');
-const { MessageForm } = require('../pages/components/MessageForm');
+const { FirmDashboardPage } = require('../../pages/FirmDashboardPage');
+const routes = require('../../config/routes');
+const { MessageForm } = require('../../pages/components/MessageForm');
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
