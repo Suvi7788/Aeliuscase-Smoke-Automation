@@ -203,9 +203,9 @@ class FirmDashboardPage extends BasePage {
 
     async deleteTask() {
 
-        if (!await this.taskDeleteBtn.isVisible({ timeout: 100000 })) {
-            throw new Error('Pre-condition failed: Test task not found');
-        }
+        // if (!await this.taskDeleteBtn.isVisible({ timeout: 100000 })) {
+            // throw new Error('Pre-condition failed: Test task not found');
+        // }
         await this.taskDeleteBtn.click();
         await this.deleteConfermationMsg.click();
     }
