@@ -9,6 +9,9 @@ class FirmTaskListPage extends BasePage {
         this.page = page;
         this.AddTaskBtn = page.locator("//button[@ptooltip='Create New Task']");
         this.taskSubject = page.getByText('Test Automation Task - Subject').first();
+        this.DeletedTasks=page.getByRole('button', { name: 'Deleted Task' }).first();
+        this.restoreDeletedTask=page.locator("//button[@ptooltip='Restore Task']").first();
+        this.confirmRestoreTask=page.getByRole('button', { name: 'Proceed' }).first();
     }
 
     async openTaskForm() {
@@ -35,5 +38,13 @@ class FirmTaskListPage extends BasePage {
     async verifyTaskListNavigation() {
     await expect(this.page).toHaveURL(/\/dashboard\/list-task\//);
     }
+
+    async restoreDeletedTask() {
+        await this.DeletedTasks.click();
+        await this.restoreDeletedTask.click();
+        await this.confirmRestoreTask.click();
+    }
+
+
 }
 module.exports = { FirmTaskListPage };
