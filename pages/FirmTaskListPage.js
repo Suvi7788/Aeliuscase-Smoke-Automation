@@ -13,6 +13,9 @@ class FirmTaskListPage extends BasePage {
         this.taskPrintOptionDropdown = page.getByRole('combobox', { name: 'Choose Action' });
         this.deleteConfermationMsg = this.page.locator("//span[normalize-space()='Proceed']").first();
         this.taskDeleteBtn = page.locator("//button[@ptooltip='Delete Task']").first();
+        this.DeletedTasks = page.getByRole('button', { name: 'Deleted Task' }).first();
+        this.restoreDeletedTaskBtn = page.locator("//button[@ptooltip='Restore Task']").first();
+        this.confirmRestoreTask = page.getByRole('button', { name: 'Proceed' }).first();
     }
 
     async openTaskForm() {
@@ -37,29 +40,28 @@ class FirmTaskListPage extends BasePage {
     }
 
     async verifyTaskListNavigation() {
-    await expect(this.page).toHaveURL(/\/dashboard\/list-task\//);
+        await expect(this.page).toHaveURL(/\/dashboard\/list-task\//);
     }
 
-    async navigateToAllTaskList(){
+    async navigateToAllTaskList() {
         await this.page.getByText('All', { exact: true }).click();
     }
 
-    async navigateToPrintOptionDropdown(){
+    async navigateToPrintOptionDropdown() {
         await this.printOptionDropdown.click();
     }
 
-    async navigateToPrintOptionThisWeek(){
+    async navigateToPrintOptionThisWeek() {
         await this.page.getByText('This Week', { exact: true }).click();
     }
 
-    async navigateToTaskPrintOptionDropdown(){
+    async navigateToTaskPrintOptionDropdown() {
         await this.taskPrintOptionDropdown.click();
     }
 
-        async deleteTask() {
-        // if (!await this.taskDeleteBtn.isVisible({ timeout: 100000 })) {
-            // throw new Error('Pre-condition failed: Test task not found');
-        // }
+    async deleteTask() {
+        await expect(this.taskDeleteBtn)
+            .toBeVisible();
         await this.taskDeleteBtn.click();
         await this.deleteConfermationMsg.click();
     }
@@ -67,6 +69,17 @@ class FirmTaskListPage extends BasePage {
     async verifyDeleteTask() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
     }
-    
+
+    async restoreDeletedTask() {
+        await this.DeletedTasks.click();
+        await expect(this.restoreDeletedTaskBtn)
+            .toBeVisible();
+
+        await this.restoreDeletedTaskBtn.click();
+        await this.confirmRestoreTask.click();
+    }
+    async verifyRestoreTask() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully Restore the task' })).toBeVisible();
+    }
 }
 module.exports = { FirmTaskListPage };

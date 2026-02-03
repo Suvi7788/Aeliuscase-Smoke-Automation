@@ -35,6 +35,13 @@ class EventForm {
     async submitEventForm() {
         await this.SaveBtn.click();
     }
+
+    async editEventForm(Assignee, Description) {
+        await this.Assignee.fill(Assignee);
+        await this.AssigneeValue.waitFor();
+        await this.AssigneeValue.click();
+        await this.Description.fill(Description);
+    }
 }
 
 module.exports = { EventForm };
