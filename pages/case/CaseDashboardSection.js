@@ -5,6 +5,7 @@ const endpoints = require('../../config/endpoints');
 const routes = require('../../config/routes');
 const { CaseTabs } = require('./CaseTabs');
 
+
 class CaseDashboardSection extends BasePage {
     constructor(page) {
         super(page)
@@ -22,6 +23,15 @@ class CaseDashboardSection extends BasePage {
         this.addPartyButton = page.locator('button[ptooltip="Add a new party"]');
         this.deleteConfermationMsg = this.page.locator("//span[normalize-space()='Proceed']").first();
         this.taskDeleteBtn = page.locator("//button[@ptooltip='Delete Task']").first();
+        this.taskSectionTitle = page.getByText('Case Tasks (');
+        this.eventSectionTitle = page.getByText('Upcoming Events (');
+        this.noteSectionTitle = page.getByText('Notes (');
+        this.deleteEventBtn = page.locator("//button[@ptooltip='Delete Event']").first();
+        this.deleteConfirmationMsg = this.page.locator("//span[normalize-space()='Proceed']").first();
+        this.eventOptions = page.locator("//button[@ptooltip='Options']").first();
+        this.viewEventBtn = page.getByText('View Event', { exact: true }).first();
+        this.editEventBtn = page.getByText('Edit Event', { exact: true }).first();
+        this.eventSubject = page.getByText('Subject', { exact: true });
         this.caseTabs = new CaseTabs(page);
     }
 
@@ -104,15 +114,54 @@ class CaseDashboardSection extends BasePage {
     }
 
     async deleteTask() {
-        // if (!await this.taskDeleteBtn.isVisible({ timeout: 100000 })) {
-            // throw new Error('Pre-condition failed: Test task not found');
-        // }
+        await expect(this.taskDeleteBtn)
+            .toBeVisible();
         await this.taskDeleteBtn.click();
         await this.deleteConfermationMsg.click();
     }
 
     async verifyDeleteTask() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
+    }
+
+
+    async navigateToTaskList() {
+        await this.taskSectionTitle.click();
+    }
+
+    async navigateToEventList() {
+        await this.eventSectionTitle.click();
+    }
+    async navigateToNoteList() {
+        await this.noteSectionTitle.click();
+    }
+
+    async deleteEvent() {
+        await expect(this.deleteEventBtn)
+            .toBeVisible();
+        await this.deleteEventBtn.click();
+        await this.deleteConfirmationMsg.click();
+    }
+
+    async verifyDeleteEvent() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
+    }
+
+    async viewEvent() {
+        await this.eventOptions.click();
+        await this.viewEventBtn.click();
+    }
+
+    async verifyEventView() {
+        await expect(this.eventSubject).toBeVisible();
+    }
+
+    async editEvent() {
+        await this.eventOptions.click();
+        await this.editEventBtn.click();
+    }
+ async verifyEventUpdate(){
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event updated successfully.' })).toBeVisible();
     }
 }
 module.exports = { CaseDashboardSection };

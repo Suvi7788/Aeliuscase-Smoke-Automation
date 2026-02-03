@@ -4,7 +4,6 @@ const { CaseCreationPage } = require("./CaseCreationPage");
 const { MessageForm } = require("./components/MessageForm");
 const { BasePage } = require('./BasePage');
 const endpoints = require('../config/endpoints');
-const routes = require('../config/routes');
 
 class FirmDashboardPage extends BasePage {
     constructor(page) {
@@ -58,6 +57,12 @@ class FirmDashboardPage extends BasePage {
         this.messageSectionTitle = page.getByText('Messages (');
         this.recentCasesTitle = page.locator('app-cases-dashboard').getByText('Recent Cases');
         this.taskDeleteBtn = page.locator("//button[@ptooltip='Delete Task']").first();
+        this.deleteEventBtn = page.locator("//button[@ptooltip='Delete Event']").first();
+        this.deleteConfirmationMsg = this.page.locator("//span[normalize-space()='Proceed']").first();
+        this.eventOptions = page.locator("//button[@ptooltip='Options']").first();
+        this.viewEventBtn = page.getByText('View Event', { exact: true }).first();
+        this.editEventBtn = page.getByText('Edit Event', { exact: true }).first();
+        this.eventSubject = page.getByText('Subject', { exact: true });
     }
 
     async openEventForm() {
@@ -202,16 +207,43 @@ class FirmDashboardPage extends BasePage {
     }
 
     async deleteTask() {
-
-        // if (!await this.taskDeleteBtn.isVisible({ timeout: 100000 })) {
-            // throw new Error('Pre-condition failed: Test task not found');
-        // }
+        await expect(this.taskDeleteBtn)
+            .toBeVisible();
         await this.taskDeleteBtn.click();
         await this.deleteConfermationMsg.click();
     }
 
     async verifyDeleteTask() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
+    }
+
+    async deleteEvent() {
+        await expect(this.deleteEventBtn)
+            .toBeVisible();
+        await this.deleteEventBtn.click();
+        await this.deleteConfirmationMsg.click();
+    }
+
+    async verifyDeleteEvent() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' }).first()).toBeVisible();
+    }
+
+
+    async viewEvent() {
+        await this.eventOptions.click();
+        await this.viewEventBtn.click();
+    }
+
+    async verifyEventView() {
+        await expect(this.eventSubject).toBeVisible();
+    }
+
+    async editEvent() {
+        await this.eventOptions.click();
+        await this.editEventBtn.click();
+    }
+    async verifyEventUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event updated successfully.' })).toBeVisible();
     }
 }
 module.exports = { FirmDashboardPage };
