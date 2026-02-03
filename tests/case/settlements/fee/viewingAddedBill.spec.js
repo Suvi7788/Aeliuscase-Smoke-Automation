@@ -1,9 +1,9 @@
 const { test } = require("@playwright/test");
-const SettlementSection = require("../../../pages/case/SettlementSection");
-const settlementData = require("../../../data/settlementData.json");
-const { Menu } = require("../../../pages/Menu");
-const CaseSummarySection = require("../../../pages/case/CaseSummarySection");
-const FeeSection = require("../../../pages/case/FeeSection");
+const SettlementSection = require("../../../../pages/case/SettlementSection");
+const settlementData = require("../../../../data/settlementData.json");
+const { Menu } = require("../../../../pages/Menu");
+const CaseSummarySection = require("../../../../pages/case/CaseSummarySection");
+const FeeSection = require("../../../../pages/case/FeeSection");
 
 
 test.beforeEach(async ({ page }) => {
@@ -19,8 +19,10 @@ test.describe('Add Settlements', () => {
         await caseSummarySection.hoverOverInjuryDetails();
         const settlementSection = new SettlementSection(page);
         await settlementSection.openNotHasSettlement();
-        await feeSection.addNewBill();
-        await feeSection.enterAmount(settlementData.amount);
-        await feeSection.saveBill();
+        await feeSection.viewFeesOption();
+        await feeSection.viewFeeClick();
+        await feeSection.viewAttorneyFeeVisible();
+
+
     })
 })
