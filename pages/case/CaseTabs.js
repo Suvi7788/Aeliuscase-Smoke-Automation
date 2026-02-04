@@ -25,6 +25,7 @@ class CaseTabs {
       letters: page.getByRole('textbox', { name: 'Search Letters' }),
       tasks: page.getByRole('button', { name: 'Deleted Task' }),
       calendar: page.getByText('Calendar View', { exact: true }),
+      settlement: page.getByRole('button', { name: 'PD Ratings' }),
     };
 
     // Route indicators

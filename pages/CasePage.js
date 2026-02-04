@@ -8,6 +8,9 @@ class CasePage extends BasePage {
         super(page);
         this.createCaseBtn = page.locator("//button[@ptooltip='Create New Case']");
         this.caseListOption = page.locator('div.mt-1.flex').locator('button').nth(0);
+        this.openCaseBtn = page.locator("//span[@ptooltip='Click to open this case in its own window.']").first();
+        this.deleteCaseBtn = page.locator("//button[@ptooltip='Click to delete DOI']").first();
+        this.confirmDeleteBtn = page.getByRole('button', { name: 'Proceed' });
     }
 
     async openCaseForm() {
@@ -40,6 +43,23 @@ class CasePage extends BasePage {
 
     async verifyCaseListNavigation() {
         await expect(this.page).toHaveURL(/\/dashboard\/recent-cases(\?|$)/);
+    }
+
+    async navigateToACase() {
+        await this.openCaseBtn.click();
+    }
+
+    async verifyCaseNavigation() {
+        await expect(this.page).toHaveURL(/\/dashboard\/case-overview\/\d+$/);
+    }
+
+    async deleteCase() {
+        await this.deleteCaseBtn.click();
+        await this.confirmDeleteBtn.click();
+    }
+
+    async verifyCaseDeletion() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Case Deleted successfully!' })).toBeVisible();
     }
 }
 module.exports = { CasePage };

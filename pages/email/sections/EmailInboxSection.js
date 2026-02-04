@@ -29,6 +29,8 @@ class EmailInboxSection {
 
 
     async openComposeForm() {
+        await this.page.click('button:has-text("Try again")');
+
         await this.composeButton.click();
     }
 
