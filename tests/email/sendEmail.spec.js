@@ -15,7 +15,7 @@ test.describe('Send Email', () => {
         const menu = new Menu(page);
         const emailInboxSection = new EmailInboxSection(page);
         await menu.navigate("email", "emailInbox");
-        await emailInboxSection.login(emailData.gmail, emailData.gmailPassword);
+        await page.context().storageState({ path: 'auth/email-auth.json' });
         await emailInboxSection.openComposeForm();
         // await emailInboxSection.selectFromEmail(emailData.outlook);
         await emailInboxSection.composeEmail(emailData.toEmail, emailData.subject, emailData.message);

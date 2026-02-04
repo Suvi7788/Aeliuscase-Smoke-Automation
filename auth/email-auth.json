@@ -1,0 +1,154 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://qa.aeliuscase.com",
+      "localStorage": [
+        {
+          "name": "2",
+          "value": "Raj Patel"
+        },
+        {
+          "name": "17",
+          "value": "null"
+        },
+        {
+          "name": "6",
+          "value": "undefined"
+        },
+        {
+          "name": "taskOverdueCount",
+          "value": "163"
+        },
+        {
+          "name": "4",
+          "value": "0"
+        },
+        {
+          "name": "isUnassignedBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "10",
+          "value": "5935"
+        },
+        {
+          "name": "isTaskOverdueBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "loggedUserId",
+          "value": "5935"
+        },
+        {
+          "name": "15",
+          "value": "1042"
+        },
+        {
+          "name": "8",
+          "value": "undefined"
+        },
+        {
+          "name": "13",
+          "value": "null"
+        },
+        {
+          "name": "3",
+          "value": "undefined"
+        },
+        {
+          "name": "taskInboxCount",
+          "value": "4"
+        },
+        {
+          "name": "16",
+          "value": "RP"
+        },
+        {
+          "name": "5",
+          "value": "200000020"
+        },
+        {
+          "name": "11",
+          "value": "1770188331010"
+        },
+        {
+          "name": "eventReminderCount",
+          "value": "0"
+        },
+        {
+          "name": "isBSExtractBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "pendingBatchScanCount",
+          "value": "11"
+        },
+        {
+          "name": "18",
+          "value": "3"
+        },
+        {
+          "name": "20",
+          "value": "1085"
+        },
+        {
+          "name": "hashedUserRoleId",
+          "value": "TgdAhWK+24tgzgXB3s/jrRa3IjCWfeAfZAt+Rym0n84="
+        },
+        {
+          "name": "notifiedBatchScanCount",
+          "value": "3"
+        },
+        {
+          "name": "isTaskInboxBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "userTimezone",
+          "value": "Asia/Colombo"
+        },
+        {
+          "name": "1",
+          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzAxODExMzEsImV4cCI6MTgwNjE4MTEzMSwiaXNzIjoiaHR0cHM6Ly9xYWlkZW50aXR5LmFlbGl1c2Nhc2UuY29tIiwiYXVkIjoiSWthc2UuV2ViQVBJIiwiY2xpZW50X2lkIjoiYWVsaXVzcWEiLCJzdWIiOiIxIiwiYXV0aF90aW1lIjoxNzcwMTgxMTMxLCJpZHAiOiJsb2NhbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJSYWogUGF0ZWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjU5MzUiLCJVc2VySWQiOiI1OTM1IiwianRpIjoiQjA2NkQwQkIyQzMwRTFGRkUwNDMyQ0RBODAwODVBMjMiLCJpYXQiOjE3NzAxODExMzEsInNjb3BlIjpbIklrYXNlLldlYkFQSSJdLCJhbXIiOlsiY3VzdG9tIl19.bfUsX915c4ydCP11oUAAXhm4EIzjbUfhQwT3GIHwGWK56RHYogeGQjQ8AryYfr6aylIY82xw9HZ7AEPWF0Ho58TmAgsmzqdJ1_xxmiW4go3iRiqw8UU1GxCaqFjqBp0cqkB8TMDhPDoFnp1vgVVgqAYtheIVuK0_eLNcZvvkMHSj9IGfucRXjAO50RCs8l2lVFIyJxMSvjsj-ji6Gs_M8WurDYMnh7errjENP86HHgad5doPvbhFQ1aALdzerPrV-We0lIRcc5DW8IMkaV2GUgWM6Y6Eb1mRUl7q_-HnQiBaTJjRfyne_2VOd1lrVviDcB_JWmEV-w2TsBFPL2wXow"
+        },
+        {
+          "name": "14",
+          "value": "undefined"
+        },
+        {
+          "name": "isTaskTodayBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "pendingUnassignedCount",
+          "value": "9"
+        },
+        {
+          "name": "taskTodayCount",
+          "value": "0"
+        },
+        {
+          "name": "isBSNotifyBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "12",
+          "value": "undefined"
+        },
+        {
+          "name": "firmName",
+          "value": "RP LAW GROUP RIVERSIDE"
+        },
+        {
+          "name": "7",
+          "value": "null"
+        },
+        {
+          "name": "taskReminderCount",
+          "value": "0"
+        }
+      ]
+    }
+  ]
+}
