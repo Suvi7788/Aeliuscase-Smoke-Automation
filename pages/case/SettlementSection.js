@@ -25,6 +25,7 @@ class SettlementSection {
         this.amountCell = page.locator('div.col-12').locator('div').nth(1);
         this.editBtn = page.locator('button[label="Edit"]');
         this.saveBtnInEdit = page.getByRole('button', { name: 'Save' });
+        this.pdRatingsBtn = page.getByRole('button', { name: 'PD Ratings' });
     }
 
 
@@ -131,6 +132,12 @@ class SettlementSection {
         await this.page.keyboard.press('ArrowUp');
         await this.saveBtnInEdit.click();
     }
+
+    async openPDRatings() {
+        await this.pdRatingsBtn.click();
+    }
+
+    
 
 }
 module.exports = SettlementSection;

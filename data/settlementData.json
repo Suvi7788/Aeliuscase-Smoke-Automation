@@ -1,4 +1,6 @@
 {
     "caseNo": "AE00147",
-    "amount": "1000"
+    "amount": "1000",
+    "paymentAmount": "1",
+    "comment": "Updated automation edit"
 }
