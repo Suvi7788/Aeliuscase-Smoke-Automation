@@ -14,9 +14,11 @@ export class FillDocumentInfoComponent {
         this.saveBtn = page.locator('button[ptooltip="Click to Save"]').first();
     }
 
-    async fillDocumentInfo(caseNo, Details) {
-        await this.CaseNo.fill(caseNo);
-        await this.CaseValue.click();
+    async fillDocumentInfo(caseNo, caseDocs) {
+        if(!caseDocs){
+            await this.CaseNo.fill(caseNo);
+            await this.CaseValue.click();
+        }
         await this.docTypeDropdown.click();
         await this.docTypeValue.click();
         await this.docCategoryDropdown.click();

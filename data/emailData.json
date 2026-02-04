@@ -1,0 +1,11 @@
+{
+    "gmail": "test.suvi01@gmail.com",
+    "gmailType": "Gmail",
+    "gmailPassword": "A8oA8pWu",
+    "outlook": "aeliuscaseoutlintegration@outlook.com",
+    "outlookType": "Outlook",
+    "outlookPassword": "Aeliuscoutlookint@224",
+    "toEmail": "suvidisonperera@gmail.com",
+    "subject": "test subject",
+    "message": "test automation message"
+}
