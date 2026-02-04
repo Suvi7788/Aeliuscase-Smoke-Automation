@@ -13,6 +13,13 @@ class PDRatingSection {
         this.typeOfRPTSelectPersonal = page.locator('li[role="option"]', { hasText: 'PERSONAL' });
         this.saveBtn = page.locator('button', { hasText: 'Save' });
         this.verifySaveSuccessMsgConfirm = page.locator('div.p-toast-summary[data-pc-section="summary"]').last();
+        this.pdRatingOption = page.locator("//tbody/tr[1]/td[1]/button[1]/span[1]")
+        this.pdRatingEditBtn = page.locator('span:has-text("Edit PD Rating")')
+        this.recommendedFutureMedicalCareInput = page.locator('textarea[formcontrolname="recommandations"]');
+        this.pdRatingView = page.getByText('View PD Rating', { exact: true })
+        this.verifyViewPDRatingConfirm = page.getByText('View PD Rating', { exact: true })
+        this.deletePdRatingBtn = page.locator(`//tr[td[contains(., 'test')]]//td[6]//span`)
+        this.deleteConfirmBtn = page.getByText('Proceed', { exact: true })
     }
 
     async addNewPdRating() {
@@ -50,6 +57,25 @@ class PDRatingSection {
 
     async verifySaveSuccessMsg() {
         await expect(this.verifySaveSuccessMsgConfirm).toBeVisible();
+    }
+
+    async clickPDRatingOption() {
+        await this.pdRatingOption.click();
+    }
+
+    async updatePdRating() {
+        await this.pdRatingEditBtn.click();
+    }
+    async addRecommendedFutureMedicalCare(recommendedFutureMedicalCareTxt) {
+        await this.recommendedFutureMedicalCareInput.fill(recommendedFutureMedicalCareTxt);
+    }
+
+    async viewPDRating() {
+        await this.pdRatingView.click();
+    }
+
+    async verifyViewPDRating() {
+        await expect(this.verifyViewPDRatingConfirm).toBeVisible();
     }
 
 }
