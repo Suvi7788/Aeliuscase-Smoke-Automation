@@ -12,7 +12,7 @@ test.describe('Fill Document Info', () => {
         const menu = new Menu(page);
         await menu.navigate("document", "listUnassigned");
         const fillDocumentInfoComponent = new FillDocumentInfoComponent(page);
-        await fillDocumentInfoComponent.fillDocumentInfo(documentData.caseNo, documentData.details);
+        await fillDocumentInfoComponent.fillDocumentInfo(documentData.caseNo, false);
         await fillDocumentInfoComponent.verifySaveSuccess();
     });
 
@@ -22,7 +22,7 @@ test.describe('Fill Document Info', () => {
          const menu = new Menu(page);
         await menu.navigate("document", "listExtract");
         const fillDocumentInfoComponent = new FillDocumentInfoComponent(page);
-        await fillDocumentInfoComponent.fillDocumentInfo(documentData.caseNo, documentData.details);
+        await fillDocumentInfoComponent.fillDocumentInfo(documentData.caseNo, false);
         await fillDocumentInfoComponent.verifySaveSuccess();
     })
 });
