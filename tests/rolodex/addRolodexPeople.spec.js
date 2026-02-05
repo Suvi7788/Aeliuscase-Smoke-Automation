@@ -4,7 +4,8 @@ const partyData = require("../../data/partyData.json");
 const { Menu } = require("../../pages/Menu");
 const {PartiesSection} = require("../../pages/case/PartiesSection");
 const {PartyForm} = require("../../pages/components/PartyForm");
-const { faker } = require("@faker-js/faker");
+import { faker } from '@faker-js/faker';
+
 test.describe('Add Rolodex Company', () => {
     const testCases = [
         // { name: 'Medical Provider', type: partyData.medicalProvider },
