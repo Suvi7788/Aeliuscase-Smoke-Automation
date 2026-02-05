@@ -1,5 +1,10 @@
 trigger: none   # prevents running on every push
 
+variables:
+  TEST_USERNAME: $(TEST_USERNAME)
+  TEST_PASSWORD: $(TEST_PASSWORD)
+
+  
 schedules:
 - cron: "30 22 * * *"   # 10:30 PM UTC = 4:00 AM Sri Lanka
   displayName: Daily 4AM Playwright Run
@@ -16,6 +21,12 @@ steps:
   inputs:
     versionSpec: '18.x'
   displayName: 'Install Node.js'
+
+- script: |
+    echo "Checking TEST_USERNAME..."
+    if [ -z "$TEST_USERNAME" ]; then echo "USERNAME MISSING"; else echo "USERNAME OK"; fi
+    if [ -z "$TEST_PASSWORD" ]; then echo "PASSWORD MISSING"; else echo "PASSWORD OK"; fi
+  displayName: 'Debug Environment Variables'
 
 - script: |
     npm ci
@@ -44,3 +55,4 @@ steps:
     publishLocation: 'pipeline'
   condition: succeededOrFailed()
   displayName: 'Upload Playwright HTML Report'
+
