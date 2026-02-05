@@ -2,9 +2,15 @@ const { test } = require("@playwright/test");
 const { RolodexPage } = require("../../pages/rolodex/RolodexPage");
 const partyData = require("../../data/partyData.json");
 const { Menu } = require("../../pages/Menu");
-const {PartiesSection} = require("../../pages/case/PartiesSection");
-const {PartyForm} = require("../../pages/components/PartyForm");
-import { faker } from '@faker-js/faker';
+const { PartiesSection } = require("../../pages/case/PartiesSection");
+const { PartyForm } = require("../../pages/components/PartyForm");
+
+let faker;
+
+test.beforeAll(async () => {
+    ({ faker } = await import("@faker-js/faker"));
+});
+
 
 test.describe('Add Rolodex Company', () => {
     const testCases = [
