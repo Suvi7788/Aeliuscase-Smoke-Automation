@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Fill Document Info', () => {
-    test('Fill case Document Info', async ({ page }) => {
+    test('Fill case Document Info @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTabs = new CaseTabs(page);
         const caseDocsSection = new CaseDocsSection(page);

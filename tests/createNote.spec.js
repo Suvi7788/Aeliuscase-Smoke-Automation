@@ -26,7 +26,7 @@ test.describe('Create Note', () => {
         await caseDashboardSection.verifyRecordCreation();
     })
 
-    test('Create Note From Case Note List', async ({ page }) => {
+    test('Create Note From Case Note List @smoke', async ({ page }) => {
         const noteForm = new NoteForm(page);
         const caseNoteListPage = new CaseNoteListPage(page);
         const menu = new Menu(page);

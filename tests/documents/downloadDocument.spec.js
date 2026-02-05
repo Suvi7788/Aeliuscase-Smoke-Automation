@@ -8,14 +8,14 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Download Document', () => {
-    test('Download Unassigned Document', async ({ page }) => {
+    test('Download Unassigned Document @smoke', async ({ page }) => {
         const menu = new Menu(page);
         await menu.navigate("document", "listUnassigned");
         const documentDownloadComponent = new DocumentDownloadComponent(page);
         await documentDownloadComponent.downloadDocument();
     });
 
-    test('Download Batchscan Document', async({ page }) => {
+    test('Download Batchscan Document @smoke', async({ page }) => {
          const menu = new Menu(page);
         await menu.navigate("document", "listExtract");
         const documentDownloadComponent = new DocumentDownloadComponent(page);

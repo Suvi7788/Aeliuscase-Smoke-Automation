@@ -29,7 +29,7 @@ test.describe('Verify Case Event List loads', () => {
 })
 
 test.describe('Verify Case Event Tile loads', () => {
-    test('Verify Case Event Tile loads', async ({ page }) => {
+    test('Verify Case Event Tile loads @smoke', async ({ page }) => {
         const caseDashboardSection = new CaseDashboardSection(page);
         await caseDashboardSection.verifyTilesLoadsInCaseDashboard(eventData.caseId, endpoints.caseEventList);
     })

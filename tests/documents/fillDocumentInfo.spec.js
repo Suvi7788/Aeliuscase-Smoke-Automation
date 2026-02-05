@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Fill Document Info', () => {
-    test('Fill Unassigned Document Info', async ({ page }) => {
+    test('Fill Unassigned Document Info @smoke', async ({ page }) => {
         const menu = new Menu(page);
         await menu.navigate("document", "listUnassigned");
         const fillDocumentInfoComponent = new FillDocumentInfoComponent(page);
@@ -18,7 +18,7 @@ test.describe('Fill Document Info', () => {
 
 
     //need to chnage the type,category,subcategory locators
-    test('Fill Batchscan Document Info', async({ page }) => {
+    test('Fill Batchscan Document Info @smoke', async({ page }) => {
          const menu = new Menu(page);
         await menu.navigate("document", "listExtract");
         const fillDocumentInfoComponent = new FillDocumentInfoComponent(page);

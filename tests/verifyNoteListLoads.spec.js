@@ -7,17 +7,17 @@ const { CaseNoteListPage } = require("../pages/CaseNoteListPage");
 
 
 test.describe('Verify Note List loads', () => {
-    test('Verify Case Note List loads', async ({ page }) => {
+    test('Verify Case Note List loads @smoke', async ({ page }) => {
         const caseNoteListPage = new CaseNoteListPage(page);
         await caseNoteListPage.verifyNoteInCaseNoteList(eventData.caseId);
     })
 
-    test('Verify Case Note Tile loads', async ({ page }) => {
+    test('Verify Case Note Tile loads @smoke', async ({ page }) => {
         const caseDashboardSection = new CaseDashboardSection(page);
         await caseDashboardSection.verifyTilesLoadsInCaseDashboard(eventData.caseId, endpoints.GetCaseNote);
     })
 
-    test('Verify Case Quick Note Tile loads', async ({ page }) => {
+    test('Verify Case Quick Note Tile loads @smoke', async ({ page }) => {
         const caseDashboardSection = new CaseDashboardSection(page);
         await caseDashboardSection.verifyTilesLoadsInCaseDashboard(eventData.caseId, endpoints.GetCaseNote);
     })

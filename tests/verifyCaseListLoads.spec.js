@@ -4,7 +4,7 @@ const { CasePage } = require("../pages/CasePage");
 const { caseTypes } = require("../config/caseTypes");
 
 test.describe('Verify Dashboard Case List loads', () => {
-    test('Verify Dashboard Case List loads', async ({ page }) => {
+    test('Verify Dashboard Case List loads @smoke', async ({ page }) => {
         const firmDashboardPage = new FirmDashboardPage(page);
         await firmDashboardPage.verifyCaseInTileList();
     })
@@ -19,7 +19,7 @@ test.describe('Verify Dashboard Case List loads', () => {
 
 test.describe("Case List Loading", () => {
   for (const type of Object.values(caseTypes)) {
-    test(`Verify ${type} case list loads`, async ({ page }) => {
+    test(`Verify ${type} case list loads @smoke`, async ({ page }) => {
       const casePage = new CasePage(page);
       await casePage.verifyCaseList(type);
     });

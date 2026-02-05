@@ -22,7 +22,7 @@ test.describe('Event Tile Print', () => {
 })
 
 test.describe('Event List Print', () => {
-    test('Verify Event List Print', async ({ page }) => {
+    test('Verify Event List Print @smoke', async ({ page }) => {
        const printPreviewPopup = new PrintPreviewPopup(page);
        const firmTaskListPage = new FirmTaskListPage(page);
        const menu = new Menu(page);

@@ -28,7 +28,7 @@ test.describe('Event View', () => {
         await caseDashboardSection.verifyEventView();
     })
 
-    test('View Firm Event List Event', async ({ page }) => {
+    test('View Firm Event List Event @smoke', async ({ page }) => {
         const firmEventListPage = new FirmEventListPage(page);
         const menu = new Menu(page);
         await menu.navigate("calendar", "firmEventList");

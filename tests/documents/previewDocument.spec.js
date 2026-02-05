@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Preview Documents', () => {
-    test('Preview Unassigned Document', async ({ page }) => {
+    test('Preview Unassigned Document @smoke', async ({ page }) => {
         const menu = new Menu(page);
         await menu.navigate("document","listUnassigned");
         const listUnassignedPage = new ListUnassignedPage(page);
@@ -18,7 +18,7 @@ test.describe('Preview Documents', () => {
         await documentPreviewComponent.expectLoaded(false);
     });
 
-    test('Preview Batchscan Document', async({ page }) => {
+    test('Preview Batchscan Document @smoke', async({ page }) => {
          const menu = new Menu(page);
         await menu.navigate("document","listExtract");
         const listUnassignedPage = new ListUnassignedPage(page);
