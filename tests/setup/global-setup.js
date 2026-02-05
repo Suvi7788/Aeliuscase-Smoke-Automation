@@ -9,7 +9,7 @@ const { LoginPage } = require('../../pages/LoginPage')
  */
 async function globalSetup() {
     // Launch a new browser instance
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch();
     // Create a new browser context (isolated session)
     const context = await browser.newContext();
     // Open a new page in this context
