@@ -245,5 +245,8 @@ class FirmDashboardPage extends BasePage {
     async verifyEventUpdate() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event updated successfully.' })).toBeVisible();
     }
+
+    
+  
 }
 module.exports = { FirmDashboardPage };

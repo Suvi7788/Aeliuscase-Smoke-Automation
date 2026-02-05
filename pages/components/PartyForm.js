@@ -19,6 +19,16 @@ class PartyForm {
         this.editPartyButton = page.getByText('Edit', { exact: true });
         this.applicantFirstName = page.locator('input[placeholder="First Name"]');
         this.applicantLastName = page.locator('input[placeholder="Last Name"]');
+        this.addMedicalBillingBtn = page.locator('button[ptooltip="New Medical Billing"]').first();
+        this.selectedDOIs = page.locator('p-multiselect[formcontrolname="selectedDOIs"]');
+        this.selectAllDOIs = page.locator('.p-checkbox-box[aria-label="All items unselected"]');
+        this.billed = page.locator('input[formcontrolname="billed"]');
+        this.saveMedicalBillingBtn = page.locator('app-medical-billing-crud').getByRole('button', { name: 'Save' });
+        this.optionsBtn = page.locator('button[ptooltip="Options"]').first();
+        this.editMedicalBillBtn = page.getByText('Edit Medical Bill');
+        this.deleteBillBtn = page.locator('button[ptooltip="Delete Bill"]').first();
+        this.deleteBillConfirmButton = page.getByRole('button', { name: 'Proceed' });
+
     }
     async fillPartyForm(companyName, isFromRolodex) {
 
@@ -73,5 +83,36 @@ class PartyForm {
         await this.applicantFirstName.fill(firstName);
         await this.applicantLastName.fill(lastName);
     }
+
+    async addMedicalBilling() {
+        await this.addMedicalBillingBtn.click();
+    }
+
+    async fillMedicalBillingForm(billValue) {
+        await this.selectedDOIs.click();
+        await this.selectAllDOIs.click();
+        await this.billed.fill(billValue);
+    }
+
+    async saveMedicalBillingForm() {
+        await this.saveMedicalBillingBtn.click();
+    }
+
+    async navigateToEditMedicalBill() {
+        await this.optionsBtn.click();
+        await this.editMedicalBillBtn.click();
+    }
+
+    async updateMedicalBillForm() {
+        await this.billed.click();
+        await this.page.keyboard.press('ArrowUp');
+    }
+
+    async deleteMedicalBill() {
+        await this.deleteBillBtn.click();
+        await this.deleteBillConfirmButton.click();
+    }
+
+
 }
 module.exports = { PartyForm };
