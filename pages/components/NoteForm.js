@@ -1,3 +1,5 @@
+const { expect } = require('@playwright/test');
+
 class NoteForm {
     constructor(page) {
         this.page = page;
@@ -12,6 +14,7 @@ class NoteForm {
         this.addTaskAssigneeMessageList = page.locator('p-calendar[formcontrolname="taskDate"] input[role="combobox"]');
 
         this.addTaskAssigneefill = page.locator("//input[@role='searchbox']");
+        this.noteViewVerify = page.getByText('View Note ');
 
     }
     async fillNoteForm(Description) {
@@ -66,5 +69,12 @@ class NoteForm {
         await this.fillMessageForm(noteData.caseNo, noteData.user, noteData.Details);
     }
 
+    async verifyNoteView() {
+        await expect(this.noteViewVerify).toBeVisible();
+    }
+
+    async editNote(updatedDescription) {
+        await this.Description.fill(updatedDescription + Date.now());
+    }
 }
 module.exports = { NoteForm };

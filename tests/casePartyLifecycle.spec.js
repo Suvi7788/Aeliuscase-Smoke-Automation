@@ -36,6 +36,49 @@ test.describe('Create Party', () => {
         })
     }
 
+    test(`Add Medical Billing`, async ({ page }) => {
+            const menu = new Menu(page);
+            const partiesSection = new PartiesSection(page);
+            const partyForm = new PartyForm(page);
+            const caseOverview = new CaseOverviewPage(page);
+            await menu.searchForCase(eventData.caseNo);
+            await caseOverview.caseTabs.open('parties');
+            await partiesSection.openCreatedParty(partyData.medicalProvider);
+            await partyForm.navigateToEditParty();
+            await partyForm.addMedicalBilling();
+            await partyForm.fillMedicalBillingForm('1000');
+            await partyForm.saveMedicalBillingForm();
+            await partiesSection.verifyMedicalBillAdded();
+        })
+
+    test(`Update Medical Billing`, async ({ page }) => {
+        const menu = new Menu(page);
+        const partiesSection = new PartiesSection(page);
+        const partyForm = new PartyForm(page);
+        const caseOverview = new CaseOverviewPage(page);
+        await menu.searchForCase(eventData.caseNo);
+        await caseOverview.caseTabs.open('parties');
+        await partiesSection.openCreatedParty(partyData.medicalProvider);
+        await partyForm.navigateToEditParty();
+        await partyForm.navigateToEditMedicalBill();
+        await partyForm.updateMedicalBillForm();
+        await partyForm.saveMedicalBillingForm();
+        await partiesSection.verifyMedicalBillUpdate();
+    })
+
+    test(`Delete Medical Billing`, async ({ page }) => {
+        const menu = new Menu(page);
+        const partiesSection = new PartiesSection(page);
+        const partyForm = new PartyForm(page);
+        const caseOverview = new CaseOverviewPage(page);
+        await menu.searchForCase(eventData.caseNo);
+        await caseOverview.caseTabs.open('parties');
+        await partiesSection.openCreatedParty(partyData.medicalProvider);
+        await partyForm.navigateToEditParty();
+        await partyForm.deleteMedicalBill();
+        await partiesSection.verifyMedicalBillDeletion();
+    })
+
     for (const tc of testCases) {
         test(`Update ${tc.name} Party`, async ({ page }) => {
             const menu = new Menu(page);

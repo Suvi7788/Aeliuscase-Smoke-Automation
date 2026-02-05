@@ -13,6 +13,11 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+  reporter: [
+    ['list'],
+    ['junit', { outputFile: 'results.xml' }],
+    ['html', { open: 'never' }]
+  ],
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -59,5 +64,7 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
+
+
 });
 

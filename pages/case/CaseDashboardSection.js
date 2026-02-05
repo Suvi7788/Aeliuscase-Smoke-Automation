@@ -32,6 +32,11 @@ class CaseDashboardSection extends BasePage {
         this.viewEventBtn = page.getByText('View Event', { exact: true }).first();
         this.editEventBtn = page.getByText('Edit Event', { exact: true }).first();
         this.eventSubject = page.getByText('Subject', { exact: true });
+        this.noteOptions = this.page.locator("//button[@ptooltip='Options']").first();
+        this.noteViewBtn = this.page.getByText('View Note', { exact: true }).first();
+        this.noteEditBtn = this.page.getByText('Edit Note', { exact: true }).first();
+        this.noteDeleteBtn = this.page.locator("//button[@ptooltip='Delete Note']").first();
+        this.deleteNoteConfirmButton = this.page.getByRole('button', { name: 'Proceed' });
         this.caseTabs = new CaseTabs(page);
     }
 
@@ -160,8 +165,40 @@ class CaseDashboardSection extends BasePage {
         await this.eventOptions.click();
         await this.editEventBtn.click();
     }
- async verifyEventUpdate(){
+    async verifyEventUpdate() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event updated successfully.' })).toBeVisible();
+    }
+
+    async viewNote() {
+        await this.noteOptions.click();
+        await this.noteViewBtn.click();
+    }
+
+
+    async navigateToEditNote() {
+        await this.noteOptions.click();
+        await this.noteEditBtn.click();
+    }
+
+    async verifyEditNote() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
+    }
+
+    async deleteNote() {
+        await this.noteDeleteBtn.click();
+        await this.deleteNoteConfirmButton.click();
+    }
+
+    async verifyDeleteNote() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
+    }
+
+    async verifyNoteView() {
+        await expect(this.noteSubject).toBeVisible();
+    }
+
+    async editNote(updatedDescription) {
+        await this.Description.fill(updatedDescription + Date.now());
     }
 }
 module.exports = { CaseDashboardSection };

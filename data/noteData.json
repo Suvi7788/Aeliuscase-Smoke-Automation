@@ -1,7 +1,8 @@
 {
     "caseNo": "AE00147",
-    "Description": "Test Automation Task - Description",
+    "Description": "Test Automation Note - Description",
     "caseId": "147",
     "AssigneeValue": "Raj Patel",
-    "AssigneeClick": "raj"
+    "AssigneeClick": "raj",
+    "updatedDescription": "Updated Note - Automation"
 }
