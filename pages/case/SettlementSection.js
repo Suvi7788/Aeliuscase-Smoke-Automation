@@ -26,6 +26,8 @@ class SettlementSection {
         this.editBtn = page.locator('button[label="Edit"]');
         this.saveBtnInEdit = page.getByRole('button', { name: 'Save' });
         this.pdRatingsBtn = page.getByRole('button', { name: 'PD Ratings' });
+        this.negotiationsBtn = page.getByRole('button', { name: /Negotiations/ });
+
     }
 
 
@@ -137,6 +139,9 @@ class SettlementSection {
         await this.pdRatingsBtn.click();
     }
 
+    async openNegotiations(){
+        await this.negotiationsBtn.click();
+    }
     
 
 }
