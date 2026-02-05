@@ -33,7 +33,7 @@ export default defineConfig({
   timeout: 100000,                 // GLOBAL TEST TIMEOUT
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless: false,
+    headless: !!process.env.CI,
     slowMo: 5000,
     baseURL: 'https://qa.aeliuscase.com',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
