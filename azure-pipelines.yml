@@ -32,7 +32,7 @@ steps:
   displayName: 'Install Playwright Browsers'
 
 - script: |
-    npx playwright test--headed=false
+    npx playwright test createEvent.spec.js --workers=4 --headed=false
   displayName: 'Run Playwright Tests'
   env:
     TEST_USERNAME: $(TEST_USERNAME)
