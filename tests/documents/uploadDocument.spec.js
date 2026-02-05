@@ -12,7 +12,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Upload Document', () => {
-    test('Upload Document Unassigned', async ({ page }) => {
+    test('Upload Document Unassigned @smoke', async ({ page }) => {
         const listUnassignedPage = new ListUnassignedPage(page);
         const menu = new Menu(page);
         const documentUpload = new DocumentUploadComponent(page);
@@ -22,7 +22,7 @@ test.describe('Upload Document', () => {
         await documentUpload.verifyUploadNavigation(routes.listUnassigned);
     })
 
-    test('Upload Document Batchscan', async ({ page }) => {
+    test('Upload Document Batchscan @smoke', async ({ page }) => {
         const documentUpload = new DocumentUploadComponent(page);
         const menu = new Menu(page);
         await menu.navigate("document", "uploadBatchscan");

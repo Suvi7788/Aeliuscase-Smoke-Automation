@@ -22,7 +22,7 @@ test.describe('Task Tile Print', () => {
 })
 
 test.describe('Task List Print', () => {
-    test('Verify Task List Print', async ({ page }) => {
+    test('Verify Task List Print @smoke', async ({ page }) => {
        const menu = new Menu(page);
        await menu.navigate("task", "tasksInbox");
        const firmTaskListPage = new FirmTaskListPage(page);

@@ -37,7 +37,7 @@ test.describe('Event Creation', () => {
     })
 
 
-    test('Create Case Event List Event', async ({ page }) => {
+    test('Create Case Event List Event @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseEventListPage = new CaseEventListPage(page);
         const caseOverview = new CaseOverviewPage(page);

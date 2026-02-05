@@ -26,7 +26,7 @@ test.describe('Delete Task', () => {
         await firmTaskListPage.verifyRestoreTask();
     })
 
-    test('Restore Deleted Task From Case Task List', async ({ page }) => {
+    test('Restore Deleted Task From Case Task List @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTaskListPage = new CaseTaskListPage(page);
         await menu.searchForCase(taskData.caseNo);

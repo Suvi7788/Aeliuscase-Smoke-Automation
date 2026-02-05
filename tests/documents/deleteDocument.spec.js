@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Delete Document', () => {
-    test('Delete Unassigned Document', async ({ page }) => {
+    test('Delete Unassigned Document @smoke', async ({ page }) => {
         const menu = new Menu(page);
         await menu.navigate("document", "listUnassigned");
         const deleteDocumentComponent = new DeleteDocumentComponent(page);
@@ -15,7 +15,7 @@ test.describe('Delete Document', () => {
         await deleteDocumentComponent.verifyDocumentDeleteSuccess();
     });
 
-    test('Delete Batchscan Document', async({ page }) => {
+    test('Delete Batchscan Document @smoke', async({ page }) => {
          const menu = new Menu(page);
         await menu.navigate("document", "listExtract");
         const deleteDocumentComponent = new DeleteDocumentComponent(page);

@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('View Settlements', () => {
-    test('View Settlements', async ({ page }) => {
+    test('View Settlements @smoke', async ({ page }) => {
         const menu = new Menu(page);
         await menu.searchForCase(settlementData.caseNo);
         const caseSummarySection = new CaseSummarySection(page);

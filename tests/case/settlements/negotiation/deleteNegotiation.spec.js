@@ -12,7 +12,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Delete Negotiation', () => {
     test.setTimeout(60000);
-    test('Delete Negotiation', async ({ page }) => {
+    test('Delete Negotiation @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseSummarySection = new CaseSummarySection(page);
         const settlementSection = new SettlementSection(page);

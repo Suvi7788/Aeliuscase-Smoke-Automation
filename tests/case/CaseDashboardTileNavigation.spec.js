@@ -15,7 +15,7 @@ test.describe('Firm Dashboard Tile Navigation', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/dashboard');
     });
-    test('Navigate to Case Task List', async ({ page }) => {
+    test('Navigate to Case Task List @smoke', async ({ page }) => {
         const caseDashboardSection = new CaseDashboardSection(page);
         const caseOverview = new CaseOverviewPage(page);
         const menu = new Menu(page);
@@ -24,7 +24,7 @@ test.describe('Firm Dashboard Tile Navigation', () => {
         await caseOverview.caseTabs.verifyTabLoaded('tasks');
 
     })
-    test('Navigate to Case Event List', async ({ page }) => {
+    test('Navigate to Case Event List @smoke', async ({ page }) => {
         const caseDashboardSection = new CaseDashboardSection(page);
         const caseOverview = new CaseOverviewPage(page);
         const menu = new Menu(page);
@@ -33,7 +33,7 @@ test.describe('Firm Dashboard Tile Navigation', () => {
         await caseOverview.caseTabs.verifyTabLoaded('calendar');
 
     })
-    test('Navigate to Case Note List', async ({ page }) => {
+    test('Navigate to Case Note List @smoke', async ({ page }) => {
         const caseDashboardSection = new CaseDashboardSection(page);
         const caseOverview = new CaseOverviewPage(page);
         const menu = new Menu(page);
