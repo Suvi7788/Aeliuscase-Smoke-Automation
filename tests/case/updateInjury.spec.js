@@ -9,7 +9,7 @@ test.describe('Update Injury', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/dashboard');
     });
-    test(`Update Injury`, async ({ page }) => {
+    test(`Update Injury @smoke`, async ({ page }) => {
         const menu = new Menu(page);
         const injurySection = new CaseInjurySection(page);
         const caseTabs = new CaseTabs(page);

@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Create Case', () => {
-    test('Create WCAB Case', async ({ page }) => {
+    test('Create WCAB Case @smoke', async ({ page }) => {
         const { faker } = await import('@faker-js/faker');
         const firmDashboardPage = new FirmDashboardPage(page);
         await firmDashboardPage.openCaseForm();

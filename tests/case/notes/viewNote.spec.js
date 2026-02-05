@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('View Note', () => {
-    test('View Note', async ({ page }) => {
+    test('View Note @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTabs = new CaseTabs(page);
         const caseNoteListPage = new CaseNoteListPage(page);
@@ -22,7 +22,7 @@ test.describe('View Note', () => {
         await noteForm.verifyNoteView();
     });
 
-    test('View Note from Note Tile', async ({ page }) => {
+    test('View Note from Note Tile ', async ({ page }) => {
         const menu = new Menu(page);
         const caseDashboardSection = new CaseDashboardSection(page);
         const noteForm = new NoteForm(page);

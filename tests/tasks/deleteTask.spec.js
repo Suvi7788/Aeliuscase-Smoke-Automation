@@ -30,7 +30,7 @@ test.describe('Delete Task', () => {
         await firmTaskListPage.verifyDeleteTask();
     })
 
-    test('Delete Task From Case Dashboard', async ({ page }) => {
+    test('Delete Task From Case Dashboard @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseDashboardSection = new CaseDashboardSection(page);
         await menu.searchForCase(taskData.caseNo);

@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Edit Note', () => {
-    test('Edit Note from Note List', async ({ page }) => {
+    test('Edit Note from Note List @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTabs = new CaseTabs(page);
         const caseNoteListPage = new CaseNoteListPage(page);
@@ -26,7 +26,7 @@ test.describe('Edit Note', () => {
         await caseNoteListPage.verifyEditNote();
     });
 
-    test('Edit Note from Note Tile', async ({ page }) => {
+    test('Edit Note from Note Tile ', async ({ page }) => {
         const menu = new Menu(page);
         const caseDashboardSection = new CaseDashboardSection(page);
         const noteForm = new NoteForm(page);

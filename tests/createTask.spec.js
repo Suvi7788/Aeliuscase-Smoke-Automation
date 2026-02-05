@@ -46,7 +46,7 @@ test.describe('Create Task From Firm Dashboard', () => {
         await caseDashboardSection.verifyRecordCreation();
     })
 
-    test('Create Task From Case Task List', async ({ page }) => {
+    test('Create Task From Case Task List @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTaskListPage = new CaseTaskListPage(page);
         const taskForm = new TaskForm(page);

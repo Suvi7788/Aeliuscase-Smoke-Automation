@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Merge Document', () => {
-    test('Merge Case Document', async ({ page }) => {
+    test('Merge Case Document @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTabs = new CaseTabs(page);
         const caseDocsSection = new CaseDocsSection(page);

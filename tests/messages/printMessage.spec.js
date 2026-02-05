@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Print Message List', () => {
-    test('Verify Print Message List', async ({ page }) => {
+    test('Verify Print Message List @smoke', async ({ page }) => {
         const firmDashboardPage = new FirmDashboardPage(page);
         await firmDashboardPage.navigateToMessageList();
         const printPreviewPopup = new PrintPreviewPopup(page);

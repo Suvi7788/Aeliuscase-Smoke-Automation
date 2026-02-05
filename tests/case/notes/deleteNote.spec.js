@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Delete Note', () => {
-    test('Delete Note from Note List', async ({ page }) => {
+    test('Delete Note from Note List @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTabs = new CaseTabs(page);
         const caseNoteListPage = new CaseNoteListPage(page);
@@ -24,7 +24,7 @@ test.describe('Delete Note', () => {
         await caseNoteListPage.verifyDeleteNote();
     });
 
-    test('Delete Note from Note Tile', async ({ page }) => {
+    test('Delete Note from Note Tile ', async ({ page }) => {
         const menu = new Menu(page);
         const caseDashboardSection = new CaseDashboardSection(page);
         await menu.searchForCase(caseData.caseNo);

@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
 });
 
-test('Navigate to a case', async ({ page }) => {
+test('Navigate to a case @smoke', async ({ page }) => {
     const menu = new Menu(page);
     await menu.navigate('cases','activeCases');
     const casePage = new CasePage(page);

@@ -9,19 +9,19 @@ const endpoints = require("../config/endpoints");
 
 test.describe('Verify Task list loads', () => {
 
-    test('Verify Firm Dashboard Task Tile loads', async ({ page }) => {
+    test('Verify Firm Dashboard Task Tile loads @smoke', async ({ page }) => {
         const firmDashboardPage = new FirmDashboardPage(page);
         await firmDashboardPage.verifyTilesLoads(endpoints.GetTaskTile);
     })
-    test('Verify Firm Task List loads', async ({ page }) => {
+    test('Verify Firm Task List loads @smoke', async ({ page }) => {
         const firmTaskListPage = new FirmTaskListPage(page);
         await firmTaskListPage.verifyTaskInTaskList();
     })
-    test('Verify Case Dashboard Task Tile loads', async ({ page }) => {
+    test('Verify Case Dashboard Task Tile loads @smoke', async ({ page }) => {
         const caseDashboardSection = new CaseDashboardSection(page);
         await caseDashboardSection.verifyTilesLoadsInCaseDashboard(taskData.caseId, endpoints.GetTaskTile);
     })
-    test('Verify Case Task List loads', async ({ page }) => {
+    test('Verify Case Task List loads @smoke', async ({ page }) => {
         const caseTaskListPage = new CaseTaskListPage(page);
         await caseTaskListPage.verifyTaskInTaskList(taskData.caseId);
     })

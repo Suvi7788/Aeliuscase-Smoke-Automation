@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Delete Document', () => {
-    test('Delete Case Document', async ({ page }) => {
+    test('Delete Case Document @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTabs = new CaseTabs(page);
         const caseDocsSection = new CaseDocsSection(page);

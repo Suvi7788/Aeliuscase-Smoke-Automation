@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Editing Added Bill', () => {
-    test('Editing Added Bill', async ({ page }) => {
+    test('Editing Added Bill @smoke', async ({ page }) => {
         test.timeOut = 60000;
         const menu = new Menu(page);
         await menu.searchForCase(settlementData.caseNo);

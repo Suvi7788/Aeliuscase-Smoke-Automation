@@ -13,7 +13,7 @@ test('Delete Message from Message Tile', async ({ page }) => {
     await firmDashboardPage.verifyDeleteMessage();
 })
 
-test('Delete Message from Message List', async ({ page }) => {
+test('Delete Message from Message List @smoke', async ({ page }) => {
     const firmDashboardPage = new FirmDashboardPage(page);
     await firmDashboardPage.navigateToMessageList(); 
     const firmMessageListPage = new FirmMessageListPage(page);

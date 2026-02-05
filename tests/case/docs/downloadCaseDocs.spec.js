@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Download Document', () => {
-    test('Download Case Document', async ({ page }) => {
+    test('Download Case Document @smoke', async ({ page }) => {
         const menu = new Menu(page);
         const caseTabs = new CaseTabs(page);
         const caseDocsSection = new CaseDocsSection(page);

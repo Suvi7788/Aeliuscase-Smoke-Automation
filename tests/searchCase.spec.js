@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 
-test('Search Case', async ({ page }) => {
+test('Search Case @smoke', async ({ page }) => {
     const menu = new Menu(page);
     const caseDashboardSection = new CaseDashboardSection(page);
     await menu.searchForCase('AE00147');

@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Verify Edit Message', () => {
-    test('Verify Edit Message', async ({ page }) => {
+    test('Verify Edit Message @smoke', async ({ page }) => {
         const firmDashboardPage = new FirmDashboardPage(page);
         const messageForm = new MessageForm(page);
         await firmDashboardPage.openEditMessageForm();
