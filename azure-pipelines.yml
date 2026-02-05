@@ -1,0 +1,46 @@
+trigger: none   # prevents running on every push
+
+schedules:
+- cron: "30 22 * * *"   # 10:30 PM UTC = 4:00 AM Sri Lanka
+  displayName: Daily 4AM Playwright Run
+  branches:
+    include:
+      - main
+  always: true
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm ci
+  displayName: 'Install Dependencies'
+
+- script: |
+    npx playwright install --with-deps
+  displayName: 'Install Playwright Browsers'
+
+- script: |
+    npx playwright test
+  displayName: 'Run Playwright Tests'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/results.xml'
+    failTaskOnFailedTests: true
+  condition: succeededOrFailed()
+  displayName: 'Publish Test Results'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'playwright-report'
+    artifact: 'playwright-report'
+    publishLocation: 'pipeline'
+  condition: succeededOrFailed()
+  displayName: 'Upload Playwright HTML Report'
