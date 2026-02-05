@@ -15,7 +15,7 @@ test.describe('Verify Case List Options', () => {
         const casePage = new CasePage(page);
         const caseOverview = new CaseOverviewPage(page);
         const menu = new Menu(page);
-        await menu.navigateToRecentCase();
+        await menu.navigate('cases','activeCases');
         await casePage.openCaseListOption(caseListOptions.reviewNote);
         await caseOverview.caseTabs.verifyTabLoaded('notes');
     })
@@ -24,7 +24,7 @@ test.describe('Verify Case List Options', () => {
         const casePage = new CasePage(page);
         const caseOverview = new CaseOverviewPage(page);
         const menu = new Menu(page);
-        await menu.navigateToRecentCase();
+        await menu.navigate('cases','activeCases');
         await casePage.openCaseListOption(caseListOptions.manageDocuments);
         await caseOverview.caseTabs.verifyTabLoaded('documents');
     })
@@ -33,7 +33,7 @@ test.describe('Verify Case List Options', () => {
         const casePage = new CasePage(page);
         const caseOverview = new CaseOverviewPage(page);
         const menu = new Menu(page);
-        await menu.navigateToRecentCase();
+        await menu.navigate('cases','activeCases');
         await casePage.openCaseListOption(caseListOptions.viewCalendar);
         await caseOverview.caseTabs.verifyTabLoaded('calendar');
     })
@@ -42,7 +42,7 @@ test.describe('Verify Case List Options', () => {
         const casePage = new CasePage(page);
         const caseOverview = new CaseOverviewPage(page);
         const menu = new Menu(page);
-        await menu.navigateToRecentCase();
+        await menu.navigate('cases','activeCases');
         await casePage.openCaseListOption(caseListOptions.reviewActivity);
         await caseOverview.caseTabs.verifyTabLoaded('activity');
     })
@@ -51,8 +51,17 @@ test.describe('Verify Case List Options', () => {
         const casePage = new CasePage(page);
         const caseOverview = new CaseOverviewPage(page);
         const menu = new Menu(page);
-        await menu.navigateToRecentCase();
+        await menu.navigate('cases','activeCases');
         await casePage.openCaseListOption(caseListOptions.composeALetter);
         await caseOverview.caseTabs.verifyTabLoaded('letters');
+    })
+
+    test('Verify Review Settlement Information Options', async ({ page }) => {
+        const casePage = new CasePage(page);
+        const caseOverview = new CaseOverviewPage(page);
+        const menu = new Menu(page);
+        await menu.navigate('cases','activeCases');
+        await casePage.openCaseListOption(caseListOptions.reviewSettlementInformation);
+        await caseOverview.caseTabs.verifyTabLoaded('settlement');
     })
 })

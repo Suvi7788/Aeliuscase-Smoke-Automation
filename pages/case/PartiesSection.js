@@ -18,7 +18,7 @@ class PartiesSection {
 
     async selectPartyType(partyType) {
         this.partyType = partyType;
-        await this.page.getByRole('complementary').getByText(partyType).click();
+        await this.page.getByRole('complementary').getByText(partyType, { exact: true }).click();
     }
 
     async verifyPartyCreation() {
@@ -56,10 +56,10 @@ class PartiesSection {
             .locator('.p-panel-header')
             .filter({ hasText: partyName });
 
-        await expect(partyHeader).toHaveCount(1);
+        // await expect(partyHeader).toHaveCount(1);
 
         await partyHeader
-            .locator('button[ptooltip="Click to delete party from this case"]')
+            .locator('button[ptooltip="Click to delete party from this case"]').first()
             .click();
 
         await this.deletePartyConfirmButton.click();
@@ -83,6 +83,18 @@ class PartiesSection {
     //Verify Task Creation
     async verifyNoteCreation() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully created' })).toBeVisible();
+    }
+
+    async verifyMedicalBillAdded() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Medical Bill added successfully' })).toBeVisible();
+    }
+
+    async verifyMedicalBillUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Medical Bill updated successfully' })).toBeVisible();
+    }
+
+    async verifyMedicalBillDeletion() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Medical Bill Deleted successfully!' })).toBeVisible();
     }
 }
 

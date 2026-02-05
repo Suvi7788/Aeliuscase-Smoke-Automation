@@ -2,6 +2,9 @@ class PartyForm {
     constructor(page) {
         this.page = page;
         this.companyNameInput = page.locator('p-autocomplete[formcontrolname="company"] input');
+        this.companyNameInputRolodex = page.locator('button[placeholder="company"]');
+        this.companyInput = page.locator('[formcontrolname="company"]');
+
         this.companyNameOption = page.getByRole('option', { name: /Med/i }).first();
         this.saveButton = page.getByRole('button', { name: 'Save' });
         this.commentInput = page.locator('textarea[formcontrolname="comments"]');
@@ -14,11 +17,27 @@ class PartyForm {
         this.deletePriorTreatmentProviderButton = page.locator('button[ptooltip="Delete"]').first();
         this.deletePriorTreatmentProviderConfirmButton = page.locator('button.p-confirm-dialog-accept');
         this.editPartyButton = page.getByText('Edit', { exact: true });
+        this.applicantFirstName = page.locator('input[placeholder="First Name"]');
+        this.applicantLastName = page.locator('input[placeholder="Last Name"]');
+        this.addMedicalBillingBtn = page.locator('button[ptooltip="New Medical Billing"]').first();
+        this.selectedDOIs = page.locator('p-multiselect[formcontrolname="selectedDOIs"]');
+        this.selectAllDOIs = page.locator('.p-checkbox-box[aria-label="All items unselected"]');
+        this.billed = page.locator('input[formcontrolname="billed"]');
+        this.saveMedicalBillingBtn = page.locator('app-medical-billing-crud').getByRole('button', { name: 'Save' });
+        this.optionsBtn = page.locator('button[ptooltip="Options"]').first();
+        this.editMedicalBillBtn = page.getByText('Edit Medical Bill');
+        this.deleteBillBtn = page.locator('button[ptooltip="Delete Bill"]').first();
+        this.deleteBillConfirmButton = page.getByRole('button', { name: 'Proceed' });
 
     }
-    async fillPartyForm(companyName) {
-        await this.companyNameInput.fill(companyName);
-        await this.companyNameOption.click();
+    async fillPartyForm(companyName, isFromRolodex) {
+
+        await this.companyInput.fill(companyName);
+
+        if (!isFromRolodex) {
+            await this.companyNameOption.click();
+            this.page.isFromRolodex = isFromRolodex;
+        }
     }
 
     async fillPriorTreatmentForm(companyName, doctorName) {
@@ -59,5 +78,41 @@ class PartyForm {
     async navigateToEditParty() {
         await this.editPartyButton.click();
     }
+
+    async fillRolodexPeopleForm(firstName, lastName) {
+        await this.applicantFirstName.fill(firstName);
+        await this.applicantLastName.fill(lastName);
+    }
+
+    async addMedicalBilling() {
+        await this.addMedicalBillingBtn.click();
+    }
+
+    async fillMedicalBillingForm(billValue) {
+        await this.selectedDOIs.click();
+        await this.selectAllDOIs.click();
+        await this.billed.fill(billValue);
+    }
+
+    async saveMedicalBillingForm() {
+        await this.saveMedicalBillingBtn.click();
+    }
+
+    async navigateToEditMedicalBill() {
+        await this.optionsBtn.click();
+        await this.editMedicalBillBtn.click();
+    }
+
+    async updateMedicalBillForm() {
+        await this.billed.click();
+        await this.page.keyboard.press('ArrowUp');
+    }
+
+    async deleteMedicalBill() {
+        await this.deleteBillBtn.click();
+        await this.deleteBillConfirmButton.click();
+    }
+
+
 }
 module.exports = { PartyForm };

@@ -4,7 +4,6 @@ const { CaseCreationPage } = require("./CaseCreationPage");
 const { MessageForm } = require("./components/MessageForm");
 const { BasePage } = require('./BasePage');
 const endpoints = require('../config/endpoints');
-const routes = require('../config/routes');
 
 class FirmDashboardPage extends BasePage {
     constructor(page) {
@@ -18,10 +17,10 @@ class FirmDashboardPage extends BasePage {
         const viewMessageTitle = "div[class='p-toolbar-group-start'] span[class='header-title']"
         const editMessageBtn = "//span[normalize-space()='Edit Message']";
         const deleteMessageBtn = "//button[@ptooltip='Delete Message']//span[@class='p-button-icon pi pi-trash']";
-        const deleteConfermationMsg = "//span[normalize-space()='Proceed']";        
-        const msgPrintBtn ="//span[i[contains(@class,'pi-print')]]";
-        const eventPrintBtn ="//span[i[contains(@class,'pi-print')]]";
-        const taskPrintBtn ="//span[i[contains(@class,'pi-print')]]";
+        const deleteConfermationMsg = "//span[normalize-space()='Proceed']";
+        const msgPrintBtn = "//span[i[contains(@class,'pi-print')]]";
+        const eventPrintBtn = "//span[i[contains(@class,'pi-print')]]";
+        const taskPrintBtn = "//span[i[contains(@class,'pi-print')]]";
 
 
         this.page = page;
@@ -38,7 +37,7 @@ class FirmDashboardPage extends BasePage {
         this.msgPrintBtn = this.page.locator(msgPrintBtn).first();
         this.eventPrintBtn = this.page.locator(eventPrintBtn).first();
         this.taskPrintBtn = this.page.locator(taskPrintBtn).first();
-        
+
 
 
         this.eventForm = new EventForm(page);
@@ -57,7 +56,13 @@ class FirmDashboardPage extends BasePage {
         this.eventSectionTitle = page.getByText('Upcoming Events (');
         this.messageSectionTitle = page.getByText('Messages (');
         this.recentCasesTitle = page.locator('app-cases-dashboard').getByText('Recent Cases');
-
+        this.taskDeleteBtn = page.locator("//button[@ptooltip='Delete Task']").first();
+        this.deleteEventBtn = page.locator("//button[@ptooltip='Delete Event']").first();
+        this.deleteConfirmationMsg = this.page.locator("//span[normalize-space()='Proceed']").first();
+        this.eventOptions = page.locator("//button[@ptooltip='Options']").first();
+        this.viewEventBtn = page.getByText('View Event', { exact: true }).first();
+        this.editEventBtn = page.getByText('Edit Event', { exact: true }).first();
+        this.eventSubject = page.getByText('Subject', { exact: true });
     }
 
     async openEventForm() {
@@ -147,13 +152,13 @@ class FirmDashboardPage extends BasePage {
     async openTaskForm() {
         await this.AddTaskBtn.click();
     }
- 
+
     //Verify Print Button
     async verifyPrintButtonVisible() {
         await expect(this.msgPrintBtn).toBeVisible();
     }
     //Message Print
-    async openMsgPrintviewPopup(){
+    async openMsgPrintviewPopup() {
         await this.msgPrintBtn.click();
     }
 
@@ -180,26 +185,68 @@ class FirmDashboardPage extends BasePage {
     async navigateToCaseList() {
         await this.recentCasesTitle.click();
     }
-    
+
     async deleteMessage() {
         if (!await this.deleteMessageBtn.isVisible({ timeout: 3000 })) {
             throw new Error('Pre-condition failed: Test message not found');
         }
         await this.deleteMessageBtn.click();
-        await this.deleteConfermationMsg.click(); 
+        await this.deleteConfermationMsg.click();
     }
-    
+
     async verifyDeleteMessage() {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
     }
 
-    async openEventPrintviewPopup(){
+    async openEventPrintviewPopup() {
         await this.eventPrintBtn.click();
     }
 
-    async openTaskPrintviewPopup(){
+    async openTaskPrintviewPopup() {
         await this.taskPrintBtn.click();
     }
 
+    async deleteTask() {
+        await expect(this.taskDeleteBtn)
+            .toBeVisible();
+        await this.taskDeleteBtn.click();
+        await this.deleteConfermationMsg.click();
+    }
+
+    async verifyDeleteTask() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' })).toBeVisible();
+    }
+
+    async deleteEvent() {
+        await expect(this.deleteEventBtn)
+            .toBeVisible();
+        await this.deleteEventBtn.click();
+        await this.deleteConfirmationMsg.click();
+    }
+
+    async verifyDeleteEvent() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' }).first()).toBeVisible();
+    }
+
+
+    async viewEvent() {
+        await this.eventOptions.click();
+        await this.viewEventBtn.click();
+    }
+
+    async verifyEventView() {
+        await expect(this.eventSubject).toBeVisible();
+    }
+
+    async editEvent() {
+        await this.eventOptions.click();
+        await this.editEventBtn.click();
+    }
+    async verifyEventUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event updated successfully.' })).toBeVisible();
+    }
+
+    
+  
 }
 module.exports = { FirmDashboardPage };

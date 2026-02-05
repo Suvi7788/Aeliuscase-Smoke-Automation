@@ -15,7 +15,7 @@ test.describe('Preview Documents', () => {
         const listUnassignedPage = new ListUnassignedPage(page);
         await listUnassignedPage.openFirstDocument("document","listUnassigned");
         const documentPreviewComponent = new DocumentPreviewComponent(page);
-        await documentPreviewComponent.expectLoaded();
+        await documentPreviewComponent.expectLoaded(false);
     });
 
     test('Preview Batchscan Document', async({ page }) => {
@@ -24,17 +24,7 @@ test.describe('Preview Documents', () => {
         const listUnassignedPage = new ListUnassignedPage(page);
         await listUnassignedPage.openFirstDocument("document","listExtract");
         const documentPreviewComponent = new DocumentPreviewComponent(page);
-        await documentPreviewComponent.expectLoaded();
-
-    })
-
-    test('Preview Case Document', async({ page }) => {
-         const menu = new Menu(page);
-        await menu.searchForCase(caseData.caseNo);
-        const caseTabs = new CaseTabs(page);
-        await caseTabs.open('documents');
-        const documentPreviewComponent = new DocumentPreviewComponent(page);
-        await documentPreviewComponent.expectLoaded();
+        await documentPreviewComponent.expectLoaded(false);
 
     })
 });

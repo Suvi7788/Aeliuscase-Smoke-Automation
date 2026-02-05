@@ -10,6 +10,8 @@ class Menu {
             task: page.getByRole('menuitem', { name: 'Task' }),
             document: page.getByRole('menuitem', { name: 'Document' }),
             rolodex: page.getByRole('menuitem', { name: 'Rolodex' }),
+            email: page.getByRole('menuitem', { name: 'Mail' }),
+            cases: page.getByRole('menuitem', { name: 'Cases' }),
         };
 
         this.subMenu = {
@@ -20,7 +22,15 @@ class Menu {
             uploadBatchscan: page.getByRole('menuitem', { name: 'Upload Batchscan' }),
             listUnassigned: page.getByRole('menuItem',{name:'List Unassigned'}),
             listExtract: page.getByRole('menuItem',{name:'List Extracts'}),
-
+            emailSettings: page.getByRole('menuitem', { name: 'Email Settings' }),
+            emailInbox: page.getByRole('menuitem', { name: 'Inbox' }),
+            unreadMessages: page.getByRole('menuitem', { name: 'Unread Messages' }),
+            sent: page.getByRole('menuitem', { name: 'Sent' }),
+            draft: page.getByRole('menuitem', { name: 'Draft' }),
+            compose: page.getByRole('menuitem', { name: 'Compose' }),
+            contacts: page.getByRole('menuitem', { name: 'Contacts' }),
+            blockedSpam: page.getByRole('menuitem', { name: 'Blocked SPAM' }),
+            activeCases: page.getByRole('menuitem', { name: 'Active Cases' }),
         };
 
         this.searchInput = page.getByRole('combobox', { name: 'Search' });

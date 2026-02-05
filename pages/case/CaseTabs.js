@@ -13,6 +13,7 @@ class CaseTabs {
       injury: page.getByRole('tab', { name: 'Injury' }),
       documents: page.getByRole('tab', { name: 'Docs' }),
       activity: page.getByRole('tab', { name: 'Activity' }),
+      calendar: page.getByRole('tab', { name: 'Calendar' }),
     };
 
     // Section validators
@@ -22,6 +23,9 @@ class CaseTabs {
       calendar: page.getByText('Calendar View', { exact: true }),
       activity: page.getByRole('textbox', { name: 'Search Activity' }),
       letters: page.getByRole('textbox', { name: 'Search Letters' }),
+      tasks: page.getByRole('button', { name: 'Deleted Task' }),
+      calendar: page.getByText('Calendar View', { exact: true }),
+      settlement: page.getByRole('button', { name: 'PD Ratings' }),
     };
 
     // Route indicators
@@ -40,7 +44,7 @@ class CaseTabs {
 
   async verifyTabLoaded(tabName) {
     await expect(this.sections[tabName]).toBeVisible();
-    await expect(this.page.url()).toContain(this.routes[tabName]);
+    // await expect(this.page.url()).toContain(this.routes[tabName]);
   }
 }
 

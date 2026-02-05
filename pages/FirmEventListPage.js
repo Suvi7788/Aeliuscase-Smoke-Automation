@@ -12,7 +12,12 @@ class FirmEventListPage extends BasePage {
 
         const addEventBtn = "//button[@ptooltip='Create Event']";
         this.AddEventBtn = page.locator(addEventBtn);
-
+        this.deleteEventBtn = page.locator("//button[@ptooltip='Delete Event']").first();
+        this.deleteConfirmationMsg = this.page.locator("//span[normalize-space()='Proceed']").first();
+        this.eventOptions = page.locator("//button[@ptooltip='Options']").first();
+        this.viewEventBtn = page.getByText('View Event', { exact: true }).first();
+        this.editEventBtn = page.getByText('Edit Event', { exact: true }).first();
+        this.eventSubject = page.getByText('Subject', { exact: true });
     }
     async openEventForm() {
         // await this.waitForAPIResponse(endpoints.firmEventList);
@@ -38,6 +43,33 @@ class FirmEventListPage extends BasePage {
 
     async verifyEventListNavigation() {
         await expect(this.page).toHaveURL(/\/dashboard\/list-event\//);
+    }
+    async deleteEvent() {
+        await expect(this.deleteEventBtn)
+            .toBeVisible();
+        await this.deleteEventBtn.click();
+        await this.deleteConfirmationMsg.click();
+    }
+
+    async verifyDeleteEvent() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Successfully deleted' }).first()).toBeVisible();
+    }
+
+    async viewEvent() {
+        await this.eventOptions.click();
+        await this.viewEventBtn.click();
+    }
+
+    async verifyEventView() {
+        await expect(this.eventSubject).toBeVisible();
+    }
+
+    async editEvent() {
+        await this.eventOptions.click();
+        await this.editEventBtn.click();
+    }
+    async verifyEventUpdate() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event updated successfully.' })).toBeVisible();
     }
 }
 module.exports = { FirmEventListPage };
