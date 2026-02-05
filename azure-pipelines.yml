@@ -1,9 +1,4 @@
 trigger: none   # prevents running on every push
-
-variables:
-  TEST_USERNAME: $(TEST_USERNAME)
-  TEST_PASSWORD: $(TEST_PASSWORD)
-
   
 schedules:
 - cron: "30 22 * * *"   # 10:30 PM UTC = 4:00 AM Sri Lanka
@@ -39,6 +34,16 @@ steps:
 - script: |
     npx playwright test
   displayName: 'Run Playwright Tests'
+  env:
+    TEST_USERNAME: $(TEST_USERNAME)
+    TEST_PASSWORD: $(TEST_PASSWORD)
+- script: |
+    if [ -z "$TEST_USERNAME" ]; then echo "USERNAME MISSING"; else echo "USERNAME OK"; fi
+    if [ -z "$TEST_PASSWORD" ]; then echo "PASSWORD MISSING"; else echo "PASSWORD OK"; fi
+  displayName: 'Check Env Vars'
+  env:
+    TEST_USERNAME: $(TEST_USERNAME)
+    TEST_PASSWORD: $(TEST_PASSWORD)
 
 - task: PublishTestResults@2
   inputs:
