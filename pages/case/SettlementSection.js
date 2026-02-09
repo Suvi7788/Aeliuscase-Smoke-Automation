@@ -27,6 +27,8 @@ class SettlementSection {
         this.saveBtnInEdit = page.getByRole('button', { name: 'Save' });
         this.pdRatingsBtn = page.getByRole('button', { name: 'PD Ratings' });
         this.negotiationsBtn = page.getByRole('button', { name: /Negotiations/ });
+        this.costsBtn = page.locator('button:has-text("Cost")');
+        this.deductionBtn = page.locator('button:has-text("Deductions")');
 
     }
 
@@ -141,6 +143,14 @@ class SettlementSection {
 
     async openNegotiations(){
         await this.negotiationsBtn.click();
+    }
+
+    async openCosts(){
+        await this.costsBtn.click();
+    }
+
+    async openDeduction(){
+        await this.deductionBtn.click();
     }
     
 
