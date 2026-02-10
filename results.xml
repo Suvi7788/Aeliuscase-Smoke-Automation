@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="24.041446999999696">
-<testsuite name="case\settlements\deduction\deleteDeduction.spec.js" timestamp="2026-02-09T07:53:05.494Z" hostname="chromium" tests="1" failures="0" skipped="0" time="18.07" errors="0">
-<testcase name="Delete Deduction › Delete Deduction" classname="case\settlements\deduction\deleteDeduction.spec.js" time="18.07">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="20.295565999999642">
+<testsuite name="profile\editProfile.spec.js" timestamp="2026-02-10T05:32:22.002Z" hostname="chromium" tests="1" failures="0" skipped="0" time="14.079" errors="0">
+<testcase name="View Profile" classname="profile\editProfile.spec.js" time="14.079">
 </testcase>
 </testsuite>
 </testsuites>
