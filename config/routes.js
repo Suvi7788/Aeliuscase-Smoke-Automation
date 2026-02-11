@@ -10,4 +10,5 @@ module.exports = {
     MessageList: '/dashboard/phone-call-messages/0',
     listUnassigned: '/dashboard/documents/list-unassigned',
     listBatchscan: '/dashboard/documents/list-extract/false',
+    letterTemplates: '/dashboard/documents/letter-templates',
 };

@@ -2,7 +2,7 @@
     "caseNo": "AE00147",
     "Description": "Test Automation Note - Description",
     "caseId": "147",
-    "AssigneeValue": "Raj Patel",
-    "AssigneeClick": "raj",
+    "AssigneeValue": "automation user",
+    "AssigneeClick": "automation",
     "updatedDescription": "Updated Note - Automation"
 }

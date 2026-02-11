@@ -22,4 +22,12 @@ test.describe('Delete Document', () => {
         await deleteDocumentComponent.deleteDocument();
         await deleteDocumentComponent.verifyBatchScanDeleteSuccess();
     })
+
+    test('Delete Letter Template @smoke', async ({ page }) => {
+        const menu = new Menu(page);
+        await menu.navigate("document", "letterTemplates");
+        const deleteDocumentComponent = new DeleteDocumentComponent(page);
+        await deleteDocumentComponent.deleteLetterTemplate();
+        await deleteDocumentComponent.verifyDocumentDeleteSuccess();
+    })
 });

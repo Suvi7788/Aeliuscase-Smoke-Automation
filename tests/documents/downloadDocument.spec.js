@@ -21,4 +21,11 @@ test.describe('Download Document', () => {
         const documentDownloadComponent = new DocumentDownloadComponent(page);
         await documentDownloadComponent.downloadDocument();
     })
+
+    test('Download Letter Template @smoke', async ({ page }) => {
+        const menu = new Menu(page);
+        await menu.navigate("document", "letterTemplates");
+        const documentDownloadComponent = new DocumentDownloadComponent(page);
+        await documentDownloadComponent.downloadLetterTemplate();
+    })
 });
