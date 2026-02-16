@@ -5,7 +5,7 @@ class SettingsPanal {
 
         this.users = page.getByText('Users', { exact: true });
         this.userPolicy = page.getByText('User Policy', { exact: true });
-        this.employeeCases = page.getByText('Employee Cases', { exact: true });
+        this.employeeCases = page.getByRole('treeitem', { name: 'Employee Cases' });
         this.employeeTasks = page.getByText('Employee Tasks', { exact: true });
         this.firmSettings = page.getByRole('link', { name: 'Firm Settings' });
         this.announcements = page.getByText('Announcements', { exact: true });
@@ -36,6 +36,9 @@ class SettingsPanal {
   async openAdminTool(menuName) {
     await this.openAdminToolsPanel();
     await this.page.getByText(menuName, { exact: true }).click();
+  }
+  async openEmployeeCases() {
+    await this.employeeCases.click();
   }
 
 }
