@@ -1,47 +1,6 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="23.765096999999603">
-<testsuite name="adminTools\updateUser.spec.js" timestamp="2026-02-13T04:39:20.249Z" hostname="chromium" tests="1" failures="1" skipped="0" time="18.191" errors="0">
-<testcase name="Add New User" classname="adminTools\updateUser.spec.js" time="18.191">
-<failure message="updateUser.spec.js:15:1 Add New User" type="FAILURE">
-<![CDATA[  [chromium] › adminTools\updateUser.spec.js:15:1 › Add New User ───────────────────────────────────
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('div.p-toast-detail').filter({ hasText: 'Successfully added the user' })
-    Expected: visible
-    Timeout: 5000ms
-    Error: element(s) not found
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('div.p-toast-detail').filter({ hasText: 'Successfully added the user' })
-
-
-       at ..\pages\firm\components\newUserForm.js:38
-
-      36 |
-      37 |     async verifySuccessMessage() {
-    > 38 |         await expect(this.successMessage).toBeVisible();
-         |                                           ^
-      39 |     }
-      40 |
-      41 |     async editProfile() {
-        at NewUserForm.verifySuccessMessage (D:\Vinuka Ara\Aeliuscase-Smoke-Automation\pages\firm\components\newUserForm.js:38:43)
-        at D:\Vinuka Ara\Aeliuscase-Smoke-Automation\tests\adminTools\updateUser.spec.js:27:23
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\adminTools-updateUser-Add-New-User-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\adminTools-updateUser-Add-New-User-chromium\error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|test-results\adminTools-updateUser-Add-New-User-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|test-results\adminTools-updateUser-Add-New-User-chromium\error-context.md]]
-]]>
-</system-out>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="19.78266899999976">
+<testsuite name="adminTools\printEmployeeCasesList.spec.js" timestamp="2026-02-13T08:43:28.720Z" hostname="chromium" tests="1" failures="0" skipped="0" time="13.418" errors="0">
+<testcase name="Add New User" classname="adminTools\printEmployeeCasesList.spec.js" time="13.418">
 </testcase>
 </testsuite>
 </testsuites>
