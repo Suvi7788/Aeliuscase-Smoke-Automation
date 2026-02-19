@@ -47,10 +47,10 @@ class SettlementNotesSection {
     async verifyDeleteSettlementNoteSuccessMessage(){
         await expect(this.deleteSettlementNoteSuccessMessage).toBeVisible();
     }
-    async printSettlementNoteList(){
+    async printNoteList(){
         await this.printSettlementNoteListBtn.click();
     }
-    async verifyPrintSettlementNoteList(){
+    async verifyPrintNoteList(){
         await expect(this.printBtn).toBeVisible();
         await this.printBtn.click();
     } 

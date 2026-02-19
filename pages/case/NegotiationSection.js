@@ -19,6 +19,7 @@ class NegotiationSection {
         this.searchInput = page.locator('input[placeholder="Search"]').nth(1);
         this.resultItem = page.getByText('Settlement', { exact: true }).first();
         this.addNewSettlementNoteBtn = page.locator('button[ptooltip="New Negotiation Note"]');
+        this.negotiationNoteOption = page.getByRole('button', { name: 'Options' })
     }
 
     async selectType() {
@@ -63,6 +64,9 @@ class NegotiationSection {
     }
     async openAddNewNegotiationNote(){
         await this.addNewSettlementNoteBtn.click();
+    }
+    async clickOptions() {
+        await this.negotiationNoteOption.click();
     }
 }
 
