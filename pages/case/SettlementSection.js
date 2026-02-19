@@ -29,6 +29,7 @@ class SettlementSection {
         this.negotiationsBtn = page.getByRole('button', { name: /Negotiations/ });
         this.costsBtn = page.locator('button:has-text("Cost")');
         this.deductionBtn = page.locator('button:has-text("Deductions")');
+        this.settlementNotesBtn = page.getByRole('button', { name: 'Settlement Notes' });
 
     }
 
@@ -151,6 +152,10 @@ class SettlementSection {
 
     async openDeduction(){
         await this.deductionBtn.click();
+    }
+
+    async openSettlementNotes(){
+        await this.settlementNotesBtn.click();
     }
     
 

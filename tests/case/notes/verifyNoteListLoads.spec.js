@@ -1,9 +1,9 @@
 // tests/setup/verifyMessageInTileList.spec.js
 const { test } = require("@playwright/test");
-const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
-const eventData = require("../data/eventData.json");
-const endpoints = require("../config/endpoints");
-const { CaseNoteListPage } = require("../pages/CaseNoteListPage");
+const { CaseDashboardSection } = require("../../../pages/case/CaseDashboardSection");
+const eventData = require("../../../data/eventData.json");
+const endpoints = require("../../../config/endpoints");
+const { CaseNoteListPage } = require("../../../pages/CaseNoteListPage");
 
 
 test.describe('Verify Note List loads', () => {
@@ -21,4 +21,10 @@ test.describe('Verify Note List loads', () => {
         const caseDashboardSection = new CaseDashboardSection(page);
         await caseDashboardSection.verifyTilesLoadsInCaseDashboard(eventData.caseId, endpoints.GetCaseNote);
     })
+
+    test('Verify Case settlement Note list loads @smoke', async ({ page }) => {
+        const caseDashboardSection = new CaseDashboardSection(page);
+        await caseDashboardSection.verifySettlementNoteList(eventData.caseId, endpoints.GetCaseNote);
+    })
+
 })
