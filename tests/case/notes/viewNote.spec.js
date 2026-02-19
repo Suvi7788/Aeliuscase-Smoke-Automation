@@ -48,4 +48,19 @@ test.describe('View Note', () => {
         await settlementNotesSection.verifyViewNote();
     })
 
+    test('View Negotiation Note @smoke', async ({ page }) => {
+        test.setTimeout(60000);
+        const menu = new Menu(page);
+        await menu.searchForCase(settlementData.caseNo);
+        const caseSummarySection = new CaseSummarySection(page);
+        await caseSummarySection.hoverOverInjuryDetails();
+        const settlementSection = new SettlementSection(page);
+        await settlementSection.openNotHasSettlement();
+        await settlementSection.openNegotiations();
+        const settlementNotesSection = new SettlementNotesSection(page);
+        await settlementNotesSection.clickOptions(); // need to change this locator form devloper
+        await settlementNotesSection.clickview();
+        await settlementNotesSection.verifyViewNote();
+    })
+
 });

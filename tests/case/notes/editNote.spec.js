@@ -12,6 +12,8 @@ const SettlementSection = require("../../../pages/case/SettlementSection");
 const settlementData = require("../../../data/settlementData.json");
 const CaseSummarySection = require("../../../pages/case/CaseSummarySection");
 const SettlementNotesSection = require("../../../pages/case/SettlementNotesSection");
+const NegotiationSection = require("../../../pages/case/NegotiationSection");
+
 
 
 test.beforeEach(async ({ page }) => {
@@ -57,5 +59,23 @@ test.describe('Edit Note', () => {
         await settlementNotesSection.clickEdit();
         await noteForm.editNote(noteData.Description);
         await noteForm.submitNoteForm();
+    })
+    test('Edit Negotiation Note @smoke', async ({ page }) => {
+        test.setTimeout(60000);
+        const menu = new Menu(page);
+        const caseSummarySection = new CaseSummarySection(page);
+        const settlementSection = new SettlementSection(page);
+        const negotiationSection = new NegotiationSection(page);
+        const caseDashboardSection = new CaseDashboardSection(page);
+        const noteForm = new NoteForm(page);
+        await menu.searchForCase(settlementData.caseNo);
+        await caseSummarySection.hoverOverInjuryDetails();
+        await settlementSection.openNotHasSettlement();
+        await settlementSection.openNegotiations();
+        await caseDashboardSection.navigateToEditNote();
+        await noteForm.editNote(noteData.updatedDescription);
+        await noteForm.submitNoteForm();
+        await caseDashboardSection.verifyEditNote();
+        
     })
 });

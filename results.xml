@@ -1,8 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="10.905613000000361">
-<testsuite name="case\notes\viewNote.spec.js" timestamp="2026-02-19T04:29:03.616Z" hostname="chromium" tests="1" failures="0" skipped="1" time="5.497" errors="0">
-<testcase name="View Note › View Settlement Note @smoke" classname="case\notes\viewNote.spec.js" time="5.497">
-<skipped>
-</skipped>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="32.429485000000334">
+<testsuite name="case\notes\viewNote.spec.js" timestamp="2026-02-19T06:03:01.506Z" hostname="chromium" tests="1" failures="0" skipped="0" time="27.181" errors="0">
+<testcase name="View Note › View Negotiation Note @smoke" classname="case\notes\viewNote.spec.js" time="27.181">
 </testcase>
 </testsuite>
 </testsuites>

@@ -11,8 +11,8 @@ test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
 });
 
-test.describe('Delete Settlement Note', () => {
-    test('Delete Settlement Note @smoke', async ({ page }) => {
+test.describe('Print Settlement Note List', () => {
+    test('Print Settlement Note List @smoke', async ({ page }) => {
         const menu = new Menu(page);
         await menu.searchForCase(settlementData.caseNo);
         const caseSummarySection = new CaseSummarySection(page);
@@ -21,7 +21,22 @@ test.describe('Delete Settlement Note', () => {
         await settlementSection.openHasSettlement();
         await settlementSection.openSettlementNotes();
         const settlementNotesSection = new SettlementNotesSection(page);
-        await settlementNotesSection.printSettlementNoteList();
-        await settlementNotesSection.verifyPrintSettlementNoteList();
+        await settlementNotesSection.printNoteList();
+        await settlementNotesSection.verifyPrintNoteList();
     })
+    test('Print Negotiation Note List @smoke', async ({ page }) => {
+        test.setTimeout(60000);
+        const menu = new Menu(page);
+        const caseSummarySection = new CaseSummarySection(page);
+        const settlementSection = new SettlementSection(page);
+        const settlementNotesSection = new SettlementNotesSection(page);
+        await menu.searchForCase(settlementData.caseNo);
+        await caseSummarySection.hoverOverInjuryDetails();
+        await settlementSection.openNotHasSettlement();
+        await settlementSection.openNegotiations();
+        await settlementNotesSection.printNoteList();
+        await settlementNotesSection.verifyPrintNoteList();
+        
+    })
+
 })      

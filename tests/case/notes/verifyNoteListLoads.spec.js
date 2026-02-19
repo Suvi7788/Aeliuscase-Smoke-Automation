@@ -27,4 +27,9 @@ test.describe('Verify Note List loads', () => {
         await caseDashboardSection.verifySettlementNoteList(eventData.caseId, endpoints.GetCaseNote);
     })
 
+    test('Verify Case Negotiation Note list loads @smoke', async ({ page }) => {
+        const caseDashboardSection = new CaseDashboardSection(page);
+        await caseDashboardSection.verifyNegotiationNoteList(eventData.caseId, endpoints.GetCaseNote);
+    })
+
 })
