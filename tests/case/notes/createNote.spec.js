@@ -1,14 +1,20 @@
 const { test } = require("@playwright/test");
-const noteData = require("../data/noteData.json");
-const { Menu } = require("../pages/Menu");
-const { NoteForm } = require("../pages/components/NoteForm");
-const { CaseDashboardSection } = require("../pages/case/CaseDashboardSection");
-const { CaseOverviewPage } = require("../pages/CaseOverviewPage");
-const { CaseNoteListPage } = require("../pages/CaseNoteListPage");
-const { caseListOptions } = require("../config/caseListOptions");
-const { PartiesSection } = require("../pages/case/PartiesSection");
-const { CasePage } = require("../pages/CasePage");
-const { CaseActivitySection } = require("../pages/case/CaseActivitySection");
+const noteData = require("../../../data/noteData.json");
+const { Menu } = require("../../../pages/Menu");
+const { NoteForm } = require("../../../pages/components/NoteForm");
+const { CaseDashboardSection } = require("../../../pages/case/CaseDashboardSection");
+const { CaseOverviewPage } = require("../../../pages/CaseOverviewPage");
+const { CaseNoteListPage } = require("../../../pages/CaseNoteListPage");
+const { caseListOptions } = require("../../../config/caseListOptions");
+const { PartiesSection } = require("../../../pages/case/PartiesSection");
+const { CasePage } = require("../../../pages/CasePage");
+const { CaseActivitySection } = require("../../../pages/case/CaseActivitySection");
+const SettlementSection = require("../../../pages/case/SettlementSection");
+const SettlementNotesSection = require("../../../pages/case/SettlementNotesSection");
+const settlementData = require("../../../data/settlementData.json");
+const CaseSummarySection = require("../../../pages/case/CaseSummarySection");
+const NegotiationSection = require("../../../pages/case/NegotiationSection");
+
 
 test.describe('Create Note', () => {
     test.beforeEach(async ({ page }) => {
@@ -96,4 +102,35 @@ test.describe('Create Note', () => {
         await noteForm.submitNoteForm();
         await caseActivitySection.verifyRecordCreation();
     })
+
+    test('Add Settlement Note @smoke', async ({ page }) => {
+        const menu = new Menu(page);
+        await menu.searchForCase(noteData.caseNo);
+        const caseSummarySection = new CaseSummarySection(page);
+        await caseSummarySection.hoverOverInjuryDetails();
+        const settlementSection = new SettlementSection(page);
+        await settlementSection.openHasSettlement();
+        await settlementSection.openSettlementNotes();
+        const settlementNotesSection = new SettlementNotesSection(page);
+        await settlementNotesSection.openAddNewSettlementNote();
+        const noteForm = new NoteForm(page);
+        await noteForm.fillNoteForm(noteData.Description);
+        await noteForm.submitNoteForm();
+    })
+
+    test('Add Negotiation Note @smoke', async ({ page }) => {
+        const menu = new Menu(page);
+        const caseSummarySection = new CaseSummarySection(page);
+        const settlementSection = new SettlementSection(page);
+        const negotiationSection = new NegotiationSection(page);
+        await menu.searchForCase(settlementData.caseNo);
+        await caseSummarySection.hoverOverInjuryDetails();
+        await settlementSection.openNotHasSettlement();
+        await settlementSection.openNegotiations();
+        await negotiationSection.openAddNewNegotiationNote();
+        const noteForm = new NoteForm(page);
+        await noteForm.fillNoteForm(noteData.Description);
+        await noteForm.submitNoteForm();
+    })
+
 })

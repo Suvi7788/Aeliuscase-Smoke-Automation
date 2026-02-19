@@ -18,6 +18,7 @@ class NegotiationSection {
         this.deleteSuccessMsg = page.locator('div.p-toast-summary[data-pc-section="summary"]').last();
         this.searchInput = page.locator('input[placeholder="Search"]').nth(1);
         this.resultItem = page.getByText('Settlement', { exact: true }).first();
+        this.addNewSettlementNoteBtn = page.locator('button[ptooltip="New Negotiation Note"]');
     }
 
     async selectType() {
@@ -59,6 +60,9 @@ class NegotiationSection {
     }
     async verifySearchBarFill() {
         await expect(this.resultItem).toBeVisible();
+    }
+    async openAddNewNegotiationNote(){
+        await this.addNewSettlementNoteBtn.click();
     }
 }
 

@@ -1,6 +1,8 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="19.78266899999976">
-<testsuite name="adminTools\printEmployeeCasesList.spec.js" timestamp="2026-02-13T08:43:28.720Z" hostname="chromium" tests="1" failures="0" skipped="0" time="13.418" errors="0">
-<testcase name="Add New User" classname="adminTools\printEmployeeCasesList.spec.js" time="13.418">
+<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="10.905613000000361">
+<testsuite name="case\notes\viewNote.spec.js" timestamp="2026-02-19T04:29:03.616Z" hostname="chromium" tests="1" failures="0" skipped="1" time="5.497" errors="0">
+<testcase name="View Note › View Settlement Note @smoke" classname="case\notes\viewNote.spec.js" time="5.497">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>
