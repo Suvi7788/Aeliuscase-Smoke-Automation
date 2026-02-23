@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="32.429485000000334">
-<testsuite name="case\notes\viewNote.spec.js" timestamp="2026-02-19T06:03:01.506Z" hostname="chromium" tests="1" failures="0" skipped="0" time="27.181" errors="0">
-<testcase name="View Note › View Negotiation Note @smoke" classname="case\notes\viewNote.spec.js" time="27.181">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="25.05126099999994">
+<testsuite name="case\activity\viewDeletedActivites.spec.js" timestamp="2026-02-23T03:20:20.579Z" hostname="chromium" tests="1" failures="0" skipped="0" time="19.477" errors="0">
+<testcase name="view delete activity ›  view delete activitys @smoke" classname="case\activity\viewDeletedActivites.spec.js" time="19.477">
 </testcase>
 </testsuite>
 </testsuites>
