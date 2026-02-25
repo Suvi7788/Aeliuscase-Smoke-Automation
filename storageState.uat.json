@@ -9,12 +9,12 @@
           "value": "Automation User"
         },
         {
-          "name": "17",
-          "value": "null"
-        },
-        {
           "name": "6",
           "value": "undefined"
+        },
+        {
+          "name": "17",
+          "value": "null"
         },
         {
           "name": "taskOverdueCount",
@@ -31,10 +31,6 @@
         {
           "name": "10",
           "value": "10067"
-        },
-        {
-          "name": "existingsBlobs",
-          "value": "blob:https://uat.aeliuscase.com/107bc748-7732-4bad-b711-b95e3c3bc6c8"
         },
         {
           "name": "isTaskOverdueBadgeBlinking",
@@ -89,8 +85,8 @@
           "value": "4"
         },
         {
-          "name": "18",
-          "value": "3"
+          "name": "notifiedBatchScanCount",
+          "value": "0"
         },
         {
           "name": "20",
@@ -101,8 +97,8 @@
           "value": "TgdAhWK+24tgzgXB3s/jrRa3IjCWfeAfZAt+Rym0n84="
         },
         {
-          "name": "notifiedBatchScanCount",
-          "value": "0"
+          "name": "18",
+          "value": "3"
         },
         {
           "name": "isTaskInboxBadgeBlinking",
@@ -121,12 +117,12 @@
           "value": "undefined"
         },
         {
-          "name": "isTaskTodayBadgeBlinking",
-          "value": "false"
-        },
-        {
           "name": "pendingUnassignedCount",
           "value": "1"
+        },
+        {
+          "name": "isTaskTodayBadgeBlinking",
+          "value": "false"
         },
         {
           "name": "taskTodayCount",
@@ -139,10 +135,6 @@
         {
           "name": "12",
           "value": "undefined"
-        },
-        {
-          "name": "firmName",
-          "value": "Automation Firm"
         },
         {
           "name": "7",

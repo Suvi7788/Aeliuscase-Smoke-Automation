@@ -1,70 +1,49 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'path';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+// Choose env: qa (default) or uat
+const ENV = process.env.ENV || 'qa';
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
+// Load .env.<env>
+dotenv.config({ path: path.resolve(process.cwd(), `.env.${ENV}`) });
+
 export default defineConfig({
   reporter: [
     ['list'],
     ['junit', { outputFile: 'results.xml' }],
-    ['html', { open: 'never' }]
+    ['html', { open: 'never' }],
   ],
   testDir: './tests',
-  /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  // reporter: 'html',
-  /* increase the wait time to 60 seconds */
-  timeout: 100000,                 // GLOBAL TEST TIMEOUT
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
+  timeout: 100000,
+
   use: {
     headless: true,
     slowMo: 5000,
-    baseURL: 'https://qa.aeliuscase.com',
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+
+    // ✅ baseURL comes from env file
+    baseURL: process.env.BASE_URL,
+
     trace: 'on-first-retry',
-    /* Add screenshot & video options */
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    storageState: 'storageState.json',
-    workers: 4,
 
+    // ✅ keep separate storage state per env (so QA login doesn’t overwrite UAT)
+    storageState: `storageState.${ENV}.json`,
   },
+
   globalSetup: './tests/setup/global-setup.js',
-  /* Configure projects for major browsers */
+
   projects: [
     {
       name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-
+      use: { ...devices['Desktop Chrome'] },
     },
-
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
-
-
 });
-

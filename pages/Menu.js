@@ -24,6 +24,7 @@ class Menu {
             uploadBatchscan: page.getByRole('menuitem', { name: 'Upload Batchscan' }),
             listUnassigned: page.getByRole('menuItem',{name:'List Unassigned'}),
             listExtract: page.getByRole('menuItem',{name:'List Extracts'}),
+            letterTemplates: page.getByRole('menuItem',{name:'Letter Templates'}),
             emailSettings: page.getByRole('menuitem', { name: 'Email Settings' }),
             emailInbox: page.getByRole('menuitem', { name: 'Inbox' }),
             unreadMessages: page.getByRole('menuitem', { name: 'Unread Messages' }),

@@ -63,6 +63,10 @@ class FirmDashboardPage extends BasePage {
         this.viewEventBtn = page.getByText('View Event', { exact: true }).first();
         this.editEventBtn = page.getByText('Edit Event', { exact: true }).first();
         this.eventSubject = page.getByText('Subject', { exact: true });
+
+        // recent case tile
+        this.openCase = page.locator('tr[data-p-selectable-row="true"]').first();
+
     }
 
     async openEventForm() {
@@ -246,7 +250,13 @@ class FirmDashboardPage extends BasePage {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event updated successfully.' })).toBeVisible();
     }
 
-    
-  
+    async navigateToACase() {
+        await this.openCase.click();
+    }
+
+    async verifyCaseNavigation() {
+        await expect(this.page).toHaveURL(/\/dashboard\/case-overview\/\d+$/);
+    }
+
 }
 module.exports = { FirmDashboardPage };

@@ -1,31 +1,40 @@
-// Load .env only if variables are not already provided (CI will provide them)
-if (!process.env.TEST_USERNAME) {
-    require('dotenv').config();
-}
-
+const dotenv = require('dotenv');
+const path = require('path');
 const { chromium } = require('@playwright/test');
 const { LoginPage } = require('../../pages/LoginPage');
 
-async function globalSetup() {
-    const username = process.env.TEST_USERNAME;
-    const password = process.env.TEST_PASSWORD;
+// ENV defaults to qa
+const ENV = process.env.ENV || 'qa';
 
-    if (!username || !password) {
-        throw new Error('Missing TEST_USERNAME or TEST_PASSWORD environment variables');
-    }
+// Load the matching env file (so globalSetup also has BASE_URL/creds)
+dotenv.config({ path: path.resolve(process.cwd(), `.env.${ENV}`) });
 
-    const browser = await chromium.launch();
-    const context = await browser.newContext();
-    const page = await context.newPage();
+async function globalSetup(config) {
+  const baseURL = process.env.BASE_URL || (config.projects?.[0]?.use?.baseURL);
+  const username = process.env.TEST_USERNAME;
+  const password = process.env.TEST_PASSWORD;
 
-    const loginPage = new LoginPage(page);
+  if (!baseURL) throw new Error('Missing BASE_URL');
+  if (!username || !password) {
+    throw new Error('Missing TEST_USERNAME or TEST_PASSWORD environment variables');
+  }
 
-    await page.goto('https://qa.aeliuscase.com/login');
-    await loginPage.login(username, password);
-    await page.waitForURL(/dashboard/);
+  const browser = await chromium.launch();
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
-    await page.context().storageState({ path: 'storageState.json' });
-    await browser.close();
+  const loginPage = new LoginPage(page);
+
+  // ✅ no hardcode: uses baseURL
+  await page.goto(`${baseURL}/login`);
+
+  await loginPage.login(username, password);
+  await page.waitForURL(/dashboard/);
+
+  // ✅ save per env
+  await page.context().storageState({ path: `storageState.${ENV}.json` });
+
+  await browser.close();
 }
 
 module.exports = globalSetup;
