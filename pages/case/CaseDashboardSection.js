@@ -193,6 +193,10 @@ class CaseDashboardSection extends BasePage {
         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Record successfully updated' })).toBeVisible();
     }
 
+    async verifyNegotiationNoteDeleted() {
+        await expect(this.page.locator('div.p-toast-detail', { hasText: 'Negotiation Note Deleted successfully!' })).toBeVisible();
+    }
+
     async verifyNoteView() {
         await expect(this.noteSubject).toBeVisible();
     }
