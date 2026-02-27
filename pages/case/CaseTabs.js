@@ -14,6 +14,9 @@ class CaseTabs {
       documents: page.getByRole('tab', { name: 'Docs' }),
       activity: page.getByRole('tab', { name: 'Activity' }),
       calendar: page.getByRole('tab', { name: 'Calendar' }),
+      textMessage: page.getByRole('tab', { name: 'Text Message' }),
+      letters: page.getByRole('tab', { name: 'Letters' }),
+      medIndex: page.getByRole('tab', {name:'Med Index'})
     };
 
     // Section validators
@@ -35,6 +38,8 @@ class CaseTabs {
       calendar: 'tab=4',
       activity: 'tab=7',
       letters: 'tab=10',
+      textMessage: 'tab=12',
+      medIndex: 'tab=11'
     };
   }
 
