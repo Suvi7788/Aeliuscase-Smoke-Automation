@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="25.05126099999994">
-<testsuite name="case\activity\viewDeletedActivites.spec.js" timestamp="2026-02-23T03:20:20.579Z" hostname="chromium" tests="1" failures="0" skipped="0" time="19.477" errors="0">
-<testcase name="view delete activity ›  view delete activitys @smoke" classname="case\activity\viewDeletedActivites.spec.js" time="19.477">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="17.911392">
+<testsuite name="case\letters\deleteComposeLetter.spec.js" timestamp="2026-02-27T04:27:23.913Z" hostname="chromium" tests="1" failures="0" skipped="0" time="9.483" errors="0">
+<testcase name="DownloadComposedLetter › DownloadComposedLetter @smoke" classname="case\letters\deleteComposeLetter.spec.js" time="9.483">
 </testcase>
 </testsuite>
 </testsuites>

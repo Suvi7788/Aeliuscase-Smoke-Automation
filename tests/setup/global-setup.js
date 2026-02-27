@@ -3,8 +3,8 @@ const path = require('path');
 const { chromium } = require('@playwright/test');
 const { LoginPage } = require('../../pages/LoginPage');
 
-// ENV defaults to qa
-const ENV = process.env.ENV || 'qa';
+// ENV defaults to uat
+const ENV = process.env.ENV || 'uat';
 
 // Load the matching env file (so globalSetup also has BASE_URL/creds)
 dotenv.config({ path: path.resolve(process.cwd(), `.env.${ENV}`) });

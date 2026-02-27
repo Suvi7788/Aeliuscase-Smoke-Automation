@@ -14,7 +14,7 @@ export class DocumentDownloadComponent {
         const [download] = await Promise.all([
             this.page.waitForEvent('download'),
             this.documentOptions.click(),
-            this.downloadBtn.click()
+            this.downloadBtn.click
         ]);
 
         expect(download).toBeTruthy();
