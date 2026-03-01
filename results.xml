@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="17.911392">
-<testsuite name="case\letters\deleteComposeLetter.spec.js" timestamp="2026-02-27T04:27:23.913Z" hostname="chromium" tests="1" failures="0" skipped="0" time="9.483" errors="0">
-<testcase name="DownloadComposedLetter › DownloadComposedLetter @smoke" classname="case\letters\deleteComposeLetter.spec.js" time="9.483">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="17.922111">
+<testsuite name="case\medindex\deleteExam.spec.js" timestamp="2026-03-01T03:52:09.612Z" hostname="chromium" tests="1" failures="0" skipped="0" time="8.387" errors="0">
+<testcase name="delete Medindex › delete Medindex @smoke" classname="case\medindex\deleteExam.spec.js" time="8.387">
 </testcase>
 </testsuite>
 </testsuites>
