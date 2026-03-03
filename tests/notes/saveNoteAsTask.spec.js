@@ -42,4 +42,32 @@ test.describe('Save Note As Task', () => {
         await noteForm.submitNoteForm();
         await caseDashboardSection.verifyRecordCreation();
     })
+
+    test('Create Party Note as a task From Case Dashboard', async ({ page }) => {
+        const noteForm = new NoteForm(page);
+        const caseDashboardSection = new CaseDashboardSection(page);
+        const menu = new Menu(page);
+        await menu.searchForCase(noteData.caseNo);
+        await caseDashboardSection.openPartyNoteForm();
+        await noteForm.fillNoteForm(noteData.Description);
+        await noteForm.fillAddTask();
+        await noteForm.fillAssignee(noteData.AssigneeClick);
+        await noteForm.assigneeClickCaseDashboard();
+        await noteForm.submitNoteForm();
+        await caseDashboardSection.verifyRecordCreation();
+    })
+
+    test('Create Quick Note From Case Dashboard', async ({ page }) => {
+        const noteForm = new NoteForm(page);
+        const caseDashboardSection = new CaseDashboardSection(page);
+        const menu = new Menu(page);
+        await menu.searchForCase(noteData.caseNo);
+        await caseDashboardSection.openQuickNoteForm();
+        await noteForm.fillNoteForm(noteData.Description);
+        await noteForm.fillAddTask();
+        await noteForm.fillAssignee(noteData.AssigneeClick);
+        await noteForm.assigneeClickCaseDashboard();
+        await noteForm.submitNoteForm();
+        await caseDashboardSection.verifyRecordCreation();
+    })
 })
