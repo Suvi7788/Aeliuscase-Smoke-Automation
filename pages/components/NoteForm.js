@@ -16,6 +16,8 @@ class NoteForm {
         this.addTaskAssigneefill = page.locator("//input[@role='searchbox']");
         this.noteViewVerify = page.getByText('View Note ');
 
+        this.ClickAssigneeValueDashboard = page.getByRole('option', { name: 'Automation User' });
+
     }
     async fillNoteForm(Description) {
         await this.Description.fill(Description);
@@ -75,6 +77,10 @@ class NoteForm {
 
     async editNote(updatedDescription) {
         await this.Description.fill(updatedDescription + Date.now());
+    }
+
+    async assigneeClickCaseDashboard() {
+        await this.ClickAssigneeValueDashboard.click();
     }
 }
 module.exports = { NoteForm };
