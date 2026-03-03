@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="17.922111">
-<testsuite name="case\medindex\deleteExam.spec.js" timestamp="2026-03-01T03:52:09.612Z" hostname="chromium" tests="1" failures="0" skipped="0" time="8.387" errors="0">
-<testcase name="delete Medindex › delete Medindex @smoke" classname="case\medindex\deleteExam.spec.js" time="8.387">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="22.803588">
+<testsuite name="case\legalForms\viewLegalForm.spec.js" timestamp="2026-03-02T09:48:43.477Z" hostname="chromium" tests="1" failures="0" skipped="0" time="12.257" errors="0">
+<testcase name="View Legal Form › View Legal Form From Case Dashboard" classname="case\legalForms\viewLegalForm.spec.js" time="12.257">
 </testcase>
 </testsuite>
 </testsuites>
