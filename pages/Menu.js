@@ -3,6 +3,8 @@ const { ListUnassignedPage } = require("./documents/ListUnassignedPage");
 class Menu {
     constructor(page) {
         this.page = page;
+        this.profileIcon = page.locator('div[data-pc-name="avatar"]').first();
+        this.profileDropdown = page.locator('li[role="menuitem"]:has-text("Profile")');
 
         this.menu = {
             calendar: page.getByRole('menuitem', { name: 'Calendar' }),
@@ -22,6 +24,7 @@ class Menu {
             uploadBatchscan: page.getByRole('menuitem', { name: 'Upload Batchscan' }),
             listUnassigned: page.getByRole('menuItem',{name:'List Unassigned'}),
             listExtract: page.getByRole('menuItem',{name:'List Extracts'}),
+            letterTemplates: page.getByRole('menuItem',{name:'Letter Templates'}),
             emailSettings: page.getByRole('menuitem', { name: 'Email Settings' }),
             emailInbox: page.getByRole('menuitem', { name: 'Inbox' }),
             unreadMessages: page.getByRole('menuitem', { name: 'Unread Messages' }),
@@ -51,6 +54,12 @@ class Menu {
         await this.searchInput.fill(caseNo);
         await this.page.getByRole('cell', { name: caseNo, exact: true }).click();
     }
+
+    async openProfile(){
+            await this.profileIcon.click();
+            await this.profileDropdown.click();
+        }
+
 }
 
 module.exports = { Menu };

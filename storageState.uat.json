@@ -1,0 +1,150 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://uat.aeliuscase.com",
+      "localStorage": [
+        {
+          "name": "2",
+          "value": "Automation User"
+        },
+        {
+          "name": "6",
+          "value": "undefined"
+        },
+        {
+          "name": "17",
+          "value": "null"
+        },
+        {
+          "name": "taskOverdueCount",
+          "value": "19"
+        },
+        {
+          "name": "4",
+          "value": "0"
+        },
+        {
+          "name": "isUnassignedBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "10",
+          "value": "10067"
+        },
+        {
+          "name": "isTaskOverdueBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "loggedUserId",
+          "value": "10067"
+        },
+        {
+          "name": "15",
+          "value": "1254"
+        },
+        {
+          "name": "8",
+          "value": "undefined"
+        },
+        {
+          "name": "13",
+          "value": "null"
+        },
+        {
+          "name": "3",
+          "value": "undefined"
+        },
+        {
+          "name": "taskInboxCount",
+          "value": "3"
+        },
+        {
+          "name": "16",
+          "value": "AU"
+        },
+        {
+          "name": "5",
+          "value": "200000020"
+        },
+        {
+          "name": "11",
+          "value": "1772614319118"
+        },
+        {
+          "name": "eventReminderCount",
+          "value": "0"
+        },
+        {
+          "name": "isBSExtractBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "pendingBatchScanCount",
+          "value": "4"
+        },
+        {
+          "name": "notifiedBatchScanCount",
+          "value": "0"
+        },
+        {
+          "name": "20",
+          "value": "null"
+        },
+        {
+          "name": "hashedUserRoleId",
+          "value": "TgdAhWK+24tgzgXB3s/jrRa3IjCWfeAfZAt+Rym0n84="
+        },
+        {
+          "name": "18",
+          "value": "3"
+        },
+        {
+          "name": "isTaskInboxBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "userTimezone",
+          "value": "America/Los_Angeles"
+        },
+        {
+          "name": "1",
+          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzI2MDcxMTYsImV4cCI6MTgwODYwNzExNiwiaXNzIjoiaHR0cHM6Ly91YXRpZGVudGl0eS5hZWxpdXNjYXNlLmNvbSIsImF1ZCI6IklrYXNlLldlYkFQSSIsImNsaWVudF9pZCI6ImFlbGl1c3FhIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTc3MjYwNzExNiwiaWRwIjoibG9jYWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQXV0b21hdGlvbiBVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxMDA2NyIsIlVzZXJJZCI6IjEwMDY3IiwianRpIjoiQ0M1MDY5MDVBODEzMzU2RjM2OUJDQTk2OTUzMEI2RTkiLCJpYXQiOjE3NzI2MDcxMTYsInNjb3BlIjpbIklrYXNlLldlYkFQSSJdLCJhbXIiOlsiY3VzdG9tIl19.QAvzqD7TncoeG8AQUa9QR-fXiCnGhKRJFBcBoVLOBCz-_B-7qfdb0obf-WAfjuAXW3oTcOUIh7c8A-XIkTRI3idHM3tb3w3whO-Ly1SY3jPaLhq5xSkFAdGngeMapHec4dy015ytqwQxRoPl77QkKFQoB6zwNkD-kfyRe1RF12C8LU0oYTI0qsj409sRh5sFE2ZouHCgVEo7JGiSF0xlErQR5CY-x_126sAQOQdMpRavrvYoWVVtAQbnKefhuZQiHm3DSm5qFDgPDlXxSgt8Ajd-WJsgzv3OumV_hHDpGX2vY6fCARLfG-T_w3Quc4BfZdiEcZETakgeXMjvGIpuFg"
+        },
+        {
+          "name": "14",
+          "value": "undefined"
+        },
+        {
+          "name": "pendingUnassignedCount",
+          "value": "1"
+        },
+        {
+          "name": "isTaskTodayBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "taskTodayCount",
+          "value": "0"
+        },
+        {
+          "name": "isBSNotifyBadgeBlinking",
+          "value": "false"
+        },
+        {
+          "name": "12",
+          "value": "undefined"
+        },
+        {
+          "name": "7",
+          "value": "null"
+        },
+        {
+          "name": "taskReminderCount",
+          "value": "0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
     "caseNo": "AE00147",
-    "user": "Raj",
+    "user": "automation",
     "Details": "Test Automation Message - Description",
-    "AssigneeValue": "Raj Patel",
-    "AssigneeClick": "raj"
+    "AssigneeValue": "automation user",
+    "AssigneeClick": "automation"
 }

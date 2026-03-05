@@ -8,6 +8,14 @@ const { CaseDashboardSection } = require('../../../pages/case/CaseDashboardSecti
 const caseData = require("../../../data/caseData.json");
 const noteData = require("../../../data/noteData.json");
 
+const SettlementSection = require("../../../pages/case/SettlementSection");
+const settlementData = require("../../../data/settlementData.json");
+const CaseSummarySection = require("../../../pages/case/CaseSummarySection");
+const SettlementNotesSection = require("../../../pages/case/SettlementNotesSection");
+const NegotiationSection = require("../../../pages/case/NegotiationSection");
+
+
+
 test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
 });
@@ -36,4 +44,38 @@ test.describe('Edit Note', () => {
         await noteForm.submitNoteForm();
         await caseDashboardSection.verifyEditNote();
     });
+    test('Update Settlement Note @smoke', async ({ page }) => {
+        test.setTimeout(60000);
+        const menu = new Menu(page);
+        await menu.searchForCase(settlementData.caseNo);
+        const caseSummarySection = new CaseSummarySection(page);
+        await caseSummarySection.hoverOverInjuryDetails();
+        const settlementSection = new SettlementSection(page);
+        await settlementSection.openHasSettlement();
+        await settlementSection.openSettlementNotes();
+        const noteForm = new NoteForm(page);
+        const settlementNotesSection = new SettlementNotesSection(page);
+        await settlementNotesSection.clickOptions(); // need to change this locator form devloper
+        await settlementNotesSection.clickEdit();
+        await noteForm.editNote(noteData.Description);
+        await noteForm.submitNoteForm();
+    })
+    test('Edit Negotiation Note @smoke', async ({ page }) => {
+        test.setTimeout(60000);
+        const menu = new Menu(page);
+        const caseSummarySection = new CaseSummarySection(page);
+        const settlementSection = new SettlementSection(page);
+        const negotiationSection = new NegotiationSection(page);
+        const caseDashboardSection = new CaseDashboardSection(page);
+        const noteForm = new NoteForm(page);
+        await menu.searchForCase(settlementData.caseNo);
+        await caseSummarySection.hoverOverInjuryDetails();
+        await settlementSection.openNotHasSettlement();
+        await settlementSection.openNegotiations();
+        await caseDashboardSection.navigateToEditNote();
+        await noteForm.editNote(noteData.updatedDescription);
+        await noteForm.submitNoteForm();
+        await caseDashboardSection.verifyEditNote();
+        
+    })
 });

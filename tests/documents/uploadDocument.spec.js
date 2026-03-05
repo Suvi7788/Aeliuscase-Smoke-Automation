@@ -33,4 +33,15 @@ test.describe('Upload Document', () => {
         await documentUpload.verifyUploadNavigation(routes.listBatchscan);
     })
 
+    test('Upload Letter Template @smoke', async ({ page }) => {
+        const documentUpload = new DocumentUploadComponent(page);
+        const menu = new Menu(page);
+        await menu.navigate("document", "letterTemplates");
+        await documentUpload.addLetterTemplate();
+        await documentUpload.uploadLetterTemplate('tests/fixtures/testLetterTemplate.docx');
+        await documentUpload.startUpload();
+        await documentUpload.confirmUpload();
+        await documentUpload.verifyUploadSuccessMessage();
+    })
+
 })

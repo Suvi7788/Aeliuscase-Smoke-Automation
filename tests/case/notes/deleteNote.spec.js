@@ -8,6 +8,13 @@ const caseData = require("../../../data/caseData.json");
 const noteData = require("../../../data/noteData.json");
 const { CaseDashboardSection } = require('../../../pages/case/CaseDashboardSection');
 
+
+const settlementData = require("../../../data/settlementData.json");
+const CaseSummarySection = require("../../../pages/case/CaseSummarySection");
+const SettlementNotesSection = require("../../../pages/case/SettlementNotesSection");
+const SettlementSection = require("../../../pages/case/SettlementSection");
+const NegotiationSection = require("../../../pages/case/NegotiationSection");
+
 test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
 });
@@ -31,4 +38,33 @@ test.describe('Delete Note', () => {
         await caseDashboardSection.deleteNote();
         await caseDashboardSection.verifyDeleteNote();
     });
+    test.describe('Delete Settlement Note', () => {
+    test('Delete Settlement Note @smoke', async ({ page }) => {
+        const menu = new Menu(page);
+        await menu.searchForCase(settlementData.caseNo);
+        const caseSummarySection = new CaseSummarySection(page);
+        await caseSummarySection.hoverOverInjuryDetails();
+        const settlementSection = new SettlementSection(page);
+        await settlementSection.openHasSettlement();
+        await settlementSection.openSettlementNotes();
+        const settlementNotesSection = new SettlementNotesSection(page);
+        await settlementNotesSection.clickDelete();
+        await settlementNotesSection.clickDeleteConfirm();
+        await settlementNotesSection.verifyDeleteSettlementNoteSuccessMessage();
+    })
+    test('Delete Negotiation Note @smoke', async ({ page }) => {
+        const menu = new Menu(page);
+        const caseSummarySection = new CaseSummarySection(page);
+        const settlementSection = new SettlementSection(page);
+        const negotiationSection = new NegotiationSection(page);
+        await menu.searchForCase(settlementData.caseNo);
+        await caseSummarySection.hoverOverInjuryDetails();
+        await settlementSection.openNotHasSettlement();
+        await settlementSection.openNegotiations();
+        const caseDashboardSection = new CaseDashboardSection(page);
+        await caseDashboardSection.deleteNote();
+        await caseDashboardSection.verifyNegotiationNoteDeleted();
+    })
+
+})
 });

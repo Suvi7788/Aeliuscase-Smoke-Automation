@@ -27,7 +27,11 @@ class SettlementSection {
         this.saveBtnInEdit = page.getByRole('button', { name: 'Save' });
         this.pdRatingsBtn = page.getByRole('button', { name: 'PD Ratings' });
         this.negotiationsBtn = page.getByRole('button', { name: /Negotiations/ });
-
+        this.costsBtn = page.locator('button:has-text("Cost")');
+        this.deductionBtn = page.locator('button:has-text("Deductions")');
+        this.settlementNotesBtn = page.getByRole('button', { name: 'Settlement Notes' });
+        this.medicalSummaryBtn = page.getByRole('button', { name: /Medical Summary \(\d+\)/ });
+        this.printMedicalSummaryButton = this.page.getByRole('button', { name: 'Print' });
     }
 
 
@@ -141,6 +145,33 @@ class SettlementSection {
 
     async openNegotiations(){
         await this.negotiationsBtn.click();
+    }
+
+    async openCosts(){
+        await this.costsBtn.click();
+    }
+
+    async openDeduction(){
+        await this.deductionBtn.click();
+    }
+
+    async openSettlementNotes(){
+        await this.settlementNotesBtn.click();
+    }
+
+    async openMedicalSummary(){
+        await this.medicalSummaryBtn.click();
+    }
+    async verifyMedicalSummary(){
+            const header = this.page.locator(
+            'div.flex.align-items-center > span',
+            { hasText: /Medical Summary \(\d+\)/ }
+        );
+
+        await expect(header).toBeVisible();
+    }
+    async printMedicalSummary(){
+        await this.printMedicalSummaryButton.click();
     }
     
 
