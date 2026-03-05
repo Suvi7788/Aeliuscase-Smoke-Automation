@@ -24,5 +24,6 @@ test.describe('Verify user can search negotiation', () => {
         await negotiationSection.searchBarFill();
         await negotiationSection.verifySearchBarFill();
 
+        
     })
 })
