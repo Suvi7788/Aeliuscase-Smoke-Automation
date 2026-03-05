@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="23.443918">
-<testsuite name="notes\saveNoteAsTask.spec.js" timestamp="2026-03-03T10:16:49.371Z" hostname="chromium" tests="1" failures="0" skipped="0" time="13.858" errors="0">
-<testcase name="Save Note As Task › Create Quick Note From Case Dashboard" classname="notes\saveNoteAsTask.spec.js" time="13.858">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="21.970182">
+<testsuite name="case\InjuryDetials\navigateToInjury.spec.js" timestamp="2026-03-04T06:52:00.147Z" hostname="chromium" tests="1" failures="0" skipped="0" time="12.484" errors="0">
+<testcase name="Navigate to Injury › Navigate to Injury" classname="case\InjuryDetials\navigateToInjury.spec.js" time="12.484">
 </testcase>
 </testsuite>
 </testsuites>
