@@ -3,6 +3,7 @@ const { expect } = require("@playwright/test");
 class CaseTabs {
   constructor(page) {
     this.page = page;
+    this.injuryDetails = page.getByText('Injury Details', { exact: true });
 
     // Tabs
     this.tabs = {
@@ -52,6 +53,10 @@ class CaseTabs {
   async verifyTabLoaded(tabName) {
     await expect(this.sections[tabName]).toBeVisible();
     // await expect(this.page.url()).toContain(this.routes[tabName]);
+  }
+
+  async verifyInjuryTabLoaded() {
+    await expect(this.injuryDetails).toBeVisible();
   }
 }
 
