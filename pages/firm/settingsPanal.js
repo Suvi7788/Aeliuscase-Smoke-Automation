@@ -6,13 +6,14 @@ class SettingsPanal {
         this.users = page.getByText('Users', { exact: true });
         this.userPolicy = page.getByText('User Policy', { exact: true });
         this.employeeCases = page.getByRole('treeitem', { name: 'Employee Cases' });
-        this.employeeTasks = page.getByText('Employee Tasks', { exact: true });
+        this.employeeTasks = page.getByRole('treeitem', { name: 'Employee Tasks' })
         this.firmSettings = page.getByRole('link', { name: 'Firm Settings' });
         this.announcements = page.getByText('Announcements', { exact: true });
 
         this.settingsBtn = page.locator('#layout-config-button');
         this.adminToolsDropdownBtn =page.getByRole('button', {name: 'Admin / Tools'}); //case dropdown is the same as admin tools dropdown locator
-        
+        this.employeeTasksCount = page.getByText('Employee Open Task Summary')
+        this.printButton = page.getByRole('button', { name: 'Print' });
     }
 
     async openSettingsPanal(){
@@ -39,6 +40,21 @@ class SettingsPanal {
   }
   async openEmployeeCases() {
     await this.employeeCases.click();
+  }
+  async openEmployeeTasks() {
+    await this.employeeTasks.click();
+  }
+  async openEmployeeTasksVerify() {
+    await this.employeeTasksCount.click();
+  }
+  async printEmployeeTasksCount() {
+    await this.printButton.isVisible();
+  }
+  async printEmployeeTasksCountVerify() {
+    await this.printButton.click();
+  }
+  async closeAdminToolsDropdown(){
+    await this.employeeTasksCount.click();
   }
 
 }

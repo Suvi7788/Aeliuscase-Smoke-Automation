@@ -2,11 +2,11 @@
   "cookies": [],
   "origins": [
     {
-      "origin": "https://uat.aeliuscase.com",
+      "origin": "https://qa.aeliuscase.com",
       "localStorage": [
         {
           "name": "2",
-          "value": "Automation User"
+          "value": "automation user"
         },
         {
           "name": "6",
@@ -18,7 +18,7 @@
         },
         {
           "name": "taskOverdueCount",
-          "value": "19"
+          "value": "0"
         },
         {
           "name": "4",
@@ -30,7 +30,7 @@
         },
         {
           "name": "10",
-          "value": "10067"
+          "value": "10165"
         },
         {
           "name": "isTaskOverdueBadgeBlinking",
@@ -38,11 +38,11 @@
         },
         {
           "name": "loggedUserId",
-          "value": "10067"
+          "value": "10165"
         },
         {
           "name": "15",
-          "value": "1254"
+          "value": "1292"
         },
         {
           "name": "8",
@@ -58,7 +58,7 @@
         },
         {
           "name": "taskInboxCount",
-          "value": "3"
+          "value": "0"
         },
         {
           "name": "16",
@@ -70,7 +70,7 @@
         },
         {
           "name": "11",
-          "value": "1772614319118"
+          "value": "1772004755850"
         },
         {
           "name": "eventReminderCount",
@@ -82,7 +82,7 @@
         },
         {
           "name": "pendingBatchScanCount",
-          "value": "4"
+          "value": "0"
         },
         {
           "name": "notifiedBatchScanCount",
@@ -110,7 +110,7 @@
         },
         {
           "name": "1",
-          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzI2MDcxMTYsImV4cCI6MTgwODYwNzExNiwiaXNzIjoiaHR0cHM6Ly91YXRpZGVudGl0eS5hZWxpdXNjYXNlLmNvbSIsImF1ZCI6IklrYXNlLldlYkFQSSIsImNsaWVudF9pZCI6ImFlbGl1c3FhIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTc3MjYwNzExNiwiaWRwIjoibG9jYWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQXV0b21hdGlvbiBVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxMDA2NyIsIlVzZXJJZCI6IjEwMDY3IiwianRpIjoiQ0M1MDY5MDVBODEzMzU2RjM2OUJDQTk2OTUzMEI2RTkiLCJpYXQiOjE3NzI2MDcxMTYsInNjb3BlIjpbIklrYXNlLldlYkFQSSJdLCJhbXIiOlsiY3VzdG9tIl19.QAvzqD7TncoeG8AQUa9QR-fXiCnGhKRJFBcBoVLOBCz-_B-7qfdb0obf-WAfjuAXW3oTcOUIh7c8A-XIkTRI3idHM3tb3w3whO-Ly1SY3jPaLhq5xSkFAdGngeMapHec4dy015ytqwQxRoPl77QkKFQoB6zwNkD-kfyRe1RF12C8LU0oYTI0qsj409sRh5sFE2ZouHCgVEo7JGiSF0xlErQR5CY-x_126sAQOQdMpRavrvYoWVVtAQbnKefhuZQiHm3DSm5qFDgPDlXxSgt8Ajd-WJsgzv3OumV_hHDpGX2vY6fCARLfG-T_w3Quc4BfZdiEcZETakgeXMjvGIpuFg"
+          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzE5OTc1NTYsImV4cCI6MTgwNzk5NzU1NiwiaXNzIjoiaHR0cHM6Ly9xYWlkZW50aXR5LmFlbGl1c2Nhc2UuY29tIiwiYXVkIjoiSWthc2UuV2ViQVBJIiwiY2xpZW50X2lkIjoiYWVsaXVzcWEiLCJzdWIiOiIxIiwiYXV0aF90aW1lIjoxNzcxOTk3NTU2LCJpZHAiOiJsb2NhbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhdXRvbWF0aW9uIHVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEwMTY1IiwiVXNlcklkIjoiMTAxNjUiLCJqdGkiOiI2NkNBNzhEMDVFNjg3N0ZGM0QxREQwRTdCM0YxRDI2NCIsImlhdCI6MTc3MTk5NzU1Niwic2NvcGUiOlsiSWthc2UuV2ViQVBJIl0sImFtciI6WyJjdXN0b20iXX0.l7rfFNa3k0tyztCaKoOCclJUDCDPNhv9UffIGvT14CNn0EC0QmRhqkMrVXf6A1wje9Zkeo8SZs2hRDuu1_9xg8fAjJU1AhWu5UJjqxvnbU2wvaLqM4si7GATxbVlKH2ozR984j2SeBpDWFiDp3_uaHMazryhGELWPjwUgBFDTnJn02V2kbbT11k6rUGifr2Ln9IPSyVP_XqZdSlZMjV3oiGKSAfTGfmhNRJsR_S-zKGz74gMX9BnhvzXw1ecsVNnobZfCBFEovOmeyoPDnOrQ2gj0JcFb7WuyWtTQ6uvVpyoLvAusZO7KH0RzqZ8f7WfwlGJtH7WPJvItVeqz9_qqw"
         },
         {
           "name": "14",
@@ -118,7 +118,7 @@
         },
         {
           "name": "pendingUnassignedCount",
-          "value": "1"
+          "value": "0"
         },
         {
           "name": "isTaskTodayBadgeBlinking",

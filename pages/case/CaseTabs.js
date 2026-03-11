@@ -3,6 +3,7 @@ const { expect } = require("@playwright/test");
 class CaseTabs {
   constructor(page) {
     this.page = page;
+    this.injuryDetails = page.getByText('Injury Details', { exact: true });
 
     // Tabs
     this.tabs = {
@@ -14,6 +15,10 @@ class CaseTabs {
       documents: page.getByRole('tab', { name: 'Docs' }),
       activity: page.getByRole('tab', { name: 'Activity' }),
       calendar: page.getByRole('tab', { name: 'Calendar' }),
+      textMessage: page.getByRole('tab', { name: 'Text Message' }),
+      letters: page.getByRole('tab', { name: 'Letters' }),
+      medIndex: page.getByRole('tab', {name:'Med Index'}),
+      legalForms: page.getByRole('tab', { name: 'Legal Forms' })
     };
 
     // Section validators
@@ -35,6 +40,9 @@ class CaseTabs {
       calendar: 'tab=4',
       activity: 'tab=7',
       letters: 'tab=10',
+      textMessage: 'tab=12',
+      medIndex: 'tab=11',
+      legalForms: 'tab=9'
     };
   }
 
@@ -45,6 +53,10 @@ class CaseTabs {
   async verifyTabLoaded(tabName) {
     await expect(this.sections[tabName]).toBeVisible();
     // await expect(this.page.url()).toContain(this.routes[tabName]);
+  }
+
+  async verifyInjuryTabLoaded() {
+    await expect(this.injuryDetails).toBeVisible();
   }
 }
 
