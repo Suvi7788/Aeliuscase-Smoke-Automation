@@ -35,6 +35,8 @@ steps:
     npx playwright test --grep "@smoke"
   displayName: 'Run Playwright Tests'
   env:
+    ENV: $(ENV)
+    BASE_URL: $(BASE_URL)
     TEST_USERNAME: $(TEST_USERNAME)
     TEST_PASSWORD: $(TEST_PASSWORD)
 - script: |
