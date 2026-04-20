@@ -3,7 +3,7 @@ const { Menu } = require("../../../pages/Menu");
 const {CaseDashboardSection} = require("../../../pages/case/CaseDashboardSection");
 const caseData = require("../../../data/caseData.json");
 const {ActivityForm} = require("../../../pages/components/ActivityForm");
-const {ActivitySection }= require("../../../pages/case/activitySection");
+const {ActivitySection }= require("../../../pages/case/ActivitySection");
 const {CaseTabs} = require("../../../pages/case/CaseTabs");
 const {CaseOverviewPage} = require("../../../pages/CaseOverviewPage");
 

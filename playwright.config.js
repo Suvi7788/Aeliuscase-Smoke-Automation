@@ -7,7 +7,8 @@ import path from 'path';
 const ENV = process.env.ENV || 'qa';
 
 // Load .env.<env>
-dotenv.config({ path: path.resolve(process.cwd(), `.env.${ENV}`) });
+const envPath = path.resolve(process.cwd(), `.env.${ENV}`);
+dotenv.config({ path: envPath, override: false });
 
 export default defineConfig({
   reporter: [

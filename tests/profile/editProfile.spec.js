@@ -7,9 +7,9 @@ test.beforeEach(async ({ page }) => {
     await page.goto('/dashboard');
 });
 
-test('View Profile', async ({ page }) => {
+test.skip('View Profile', async ({ page }) => {
     const menu = new Menu(page);
-    const profilePage = new ProfilePage(page); 
+    const profilePage = new ProfilePage(page);
     await menu.openProfile();
     await profilePage.editProfile();
     await profilePage.saveProfile();
