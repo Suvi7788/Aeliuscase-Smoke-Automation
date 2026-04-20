@@ -1,6 +1,2 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="21.970182">
-<testsuite name="case\InjuryDetials\navigateToInjury.spec.js" timestamp="2026-03-04T06:52:00.147Z" hostname="chromium" tests="1" failures="0" skipped="0" time="12.484" errors="0">
-<testcase name="Navigate to Injury › Navigate to Injury" classname="case\InjuryDetials\navigateToInjury.spec.js" time="12.484">
-</testcase>
-</testsuite>
+<testsuites id="" name="" tests="0" failures="0" skipped="0" errors="0" time="85.03612400000002">
 </testsuites>

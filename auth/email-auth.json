@@ -6,7 +6,7 @@
       "localStorage": [
         {
           "name": "2",
-          "value": "Automation User"
+          "value": "automation user"
         },
         {
           "name": "17",
@@ -18,7 +18,7 @@
         },
         {
           "name": "taskOverdueCount",
-          "value": "2"
+          "value": "5"
         },
         {
           "name": "4",
@@ -26,15 +26,15 @@
         },
         {
           "name": "isUnassignedBadgeBlinking",
-          "value": "false"
+          "value": "true"
         },
         {
           "name": "10",
-          "value": "10067"
+          "value": "10106"
         },
         {
           "name": "existingsBlobs",
-          "value": "blob:https://uat.aeliuscase.com/107bc748-7732-4bad-b711-b95e3c3bc6c8"
+          "value": "blob:https://uat.aeliuscase.com/05d3ee45-1251-4476-96cc-226ac6b83ac3,blob:https://uat.aeliuscase.com/6bb78d8a-cd99-4762-ab30-4a763d3cd51e"
         },
         {
           "name": "isTaskOverdueBadgeBlinking",
@@ -42,11 +42,11 @@
         },
         {
           "name": "loggedUserId",
-          "value": "10067"
+          "value": "10106"
         },
         {
           "name": "15",
-          "value": "1254"
+          "value": "1212"
         },
         {
           "name": "8",
@@ -62,7 +62,7 @@
         },
         {
           "name": "taskInboxCount",
-          "value": "12"
+          "value": "8"
         },
         {
           "name": "16",
@@ -74,7 +74,7 @@
         },
         {
           "name": "11",
-          "value": "1771507594606"
+          "value": "1776404036953"
         },
         {
           "name": "eventReminderCount",
@@ -82,11 +82,11 @@
         },
         {
           "name": "isBSExtractBadgeBlinking",
-          "value": "false"
+          "value": "true"
         },
         {
           "name": "pendingBatchScanCount",
-          "value": "4"
+          "value": "58"
         },
         {
           "name": "18",
@@ -94,7 +94,7 @@
         },
         {
           "name": "20",
-          "value": "null"
+          "value": "1038"
         },
         {
           "name": "hashedUserRoleId",
@@ -106,7 +106,7 @@
         },
         {
           "name": "isTaskInboxBadgeBlinking",
-          "value": "false"
+          "value": "true"
         },
         {
           "name": "userTimezone",
@@ -114,7 +114,7 @@
         },
         {
           "name": "1",
-          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzE1MDAzOTQsImV4cCI6MTgwNzUwMDM5NCwiaXNzIjoiaHR0cHM6Ly91YXRpZGVudGl0eS5hZWxpdXNjYXNlLmNvbSIsImF1ZCI6IklrYXNlLldlYkFQSSIsImNsaWVudF9pZCI6ImFlbGl1c3FhIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTc3MTUwMDM5NCwiaWRwIjoibG9jYWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQXV0b21hdGlvbiBVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxMDA2NyIsIlVzZXJJZCI6IjEwMDY3IiwianRpIjoiMDVCNTY2NDNFOUIzMTIyRjZBNjE0QzIzNEZCRTYwNDQiLCJpYXQiOjE3NzE1MDAzOTQsInNjb3BlIjpbIklrYXNlLldlYkFQSSJdLCJhbXIiOlsiY3VzdG9tIl19.uzEmQL4VCwFslLePUwtNWaLy_JmDKJqrOpns4HV2tpuRhAXXNfjvRC8OaGqONFs6AxkUaBROaGOOxMYd5ZcMFx8wh4p0E_WblHd6ebPvUj25TXjjhtnNKavTwlJ1OQZvS0A0K3Vb3yeWfznID6Ub05_PTuW_J_FvovZXoyCCuR1vgKDtqrOWwuwsxgLpjd3flwtSrM9ZiQJuww9bXBn7B4IgSD6ThJ1dSbhC1ZXdBX8_LopbcIp4v_E2I9fKUaa_W8xLMPPgICWkzAvLGNHV2bxDGfV03IftX2ePwERiQ0-PtQ0UG4uwcyk9SaAoqfsg_2leckEuLKuv7LSwQAttMg"
+          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzYzOTY4MzEsImV4cCI6MTgxMjM5NjgzMSwiaXNzIjoiaHR0cHM6Ly91YXRpZGVudGl0eS5hZWxpdXNjYXNlLmNvbSIsImF1ZCI6IklrYXNlLldlYkFQSSIsImNsaWVudF9pZCI6ImFlbGl1c3FhIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTc3NjM5NjgzMSwiaWRwIjoibG9jYWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYXV0b21hdGlvbiB1c2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxMDEwNiIsIlVzZXJJZCI6IjEwMTA2IiwianRpIjoiQjQxRUMxNzM4MEEyN0I1NTg0QTJEQjg0QzlDRUMzMUIiLCJpYXQiOjE3NzYzOTY4MzEsInNjb3BlIjpbIklrYXNlLldlYkFQSSJdLCJhbXIiOlsiY3VzdG9tIl19.wgTeUpGvBuvCj-xIV5SKIGzb2MwCCNqqgZi45B3znNWGQmtd5yvZVnDXueQcObqZNNayR2RaP4RxlG-Op8G2wDs4yWKo3jW_dFUs0aOR46hAQdZGMkDcQ_LkAR8kmKDf1DJJYN2jpevxPNY5kvd7isEJxDNzr8narp5LH41E2h-2vf65QzLzUAEpVwdPpBPOj02mDqchFuOcaXABXk8nTW0tuB_aHeiVo71E-FQj7iBb-956CHv_w_lJ9F1fQQtZLRqPvDQq-ELSxLwYR9UAz-nWzqAY2TZeTnQbRb-LXv9LF0T4BXQPOIjauwvV7gjniWgFMQFYPBOsd3Hkhd-5GA"
         },
         {
           "name": "14",
@@ -126,11 +126,15 @@
         },
         {
           "name": "pendingUnassignedCount",
-          "value": "1"
+          "value": "14"
         },
         {
           "name": "taskTodayCount",
           "value": "0"
+        },
+        {
+          "name": "mail.selected.account.id",
+          "value": "-1"
         },
         {
           "name": "isBSNotifyBadgeBlinking",
@@ -142,7 +146,7 @@
         },
         {
           "name": "firmName",
-          "value": "Automation Firm"
+          "value": "AeliusCase Primary"
         },
         {
           "name": "7",
