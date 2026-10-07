@@ -8,7 +8,7 @@ const endpoints = require('../config/endpoints');
 class FirmDashboardPage extends BasePage {
     constructor(page) {
         super(page)
-        const addEventBtn = "//button[@ptooltip='Create New Event']";
+        const addEventBtn = "//span[@ptooltip='Create New Event']";
         const createCaseBtn = "//button[@ptooltip='Open a Case']";
         const addMessageBtn = "//button[@ptooltip='Create New Message']";
         const messageButton = "//tr[td[contains(., 'Normal') or contains(., 'High') or contains(., 'Low')]]//td[2]//button";

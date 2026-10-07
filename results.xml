@@ -1,2 +1,63 @@
-<testsuites id="" name="" tests="0" failures="0" skipped="0" errors="0" time="85.03612400000002">
+<testsuites id="" name="" tests="6" failures="1" skipped="0" errors="0" time="104.945836">
+<testsuite name="createEvent.spec.js" timestamp="2026-10-07T05:30:05.042Z" hostname="chromium" tests="6" failures="1" skipped="0" time="92.596" errors="0">
+<testcase name="Event Creation › Create Firm Dashboard Event" classname="createEvent.spec.js" time="21.348">
+</testcase>
+<testcase name="Event Creation › Create Case Dashboard Event" classname="createEvent.spec.js" time="14.568">
+</testcase>
+<testcase name="Event Creation › Create Firm Event List Event" classname="createEvent.spec.js" time="11.379">
+</testcase>
+<testcase name="Event Creation › Create Case Event List Event @smoke" classname="createEvent.spec.js" time="14.682">
+</testcase>
+<testcase name="Event Creation › Create Event From Case List" classname="createEvent.spec.js" time="16.335">
+<failure message="createEvent.spec.js:50:1 Create Event From Case List" type="FAILURE">
+<![CDATA[  [chromium] › createEvent.spec.js:50:1 › Event Creation › Create Event From Case List ─────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('div.p-toast-detail').filter({ hasText: 'Event added successfully.' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('div.p-toast-detail').filter({ hasText: 'Event added successfully.' })
+
+
+       at ..\pages\CasePage.js:40
+
+      38 |     async verifyEventCreation() {
+      39 |         // await this.waitForAPIResponse(endpoints.createEvent);
+    > 40 |         await expect(this.page.locator('div.p-toast-detail', { hasText: 'Event added successfully.' })).toBeVisible();
+         |                                                                                                         ^
+      41 |
+      42 |     }
+      43 |
+        at CasePage.verifyEventCreation (D:\Aeliuscase-Smoke-Automation\Aeliuscase-Smoke-Automation\pages\CasePage.js:40:105)
+        at D:\Aeliuscase-Smoke-Automation\Aeliuscase-Smoke-Automation\tests\createEvent.spec.js:58:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\createEvent-Event-Creation-Create-Event-From-Case-List-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\createEvent-Event-Creation-Create-Event-From-Case-List-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\createEvent-Event-Creation-Create-Event-From-Case-List-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\createEvent-Event-Creation-Create-Event-From-Case-List-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\createEvent-Event-Creation-Create-Event-From-Case-List-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\createEvent-Event-Creation-Create-Event-From-Case-List-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Event Creation › Create Event From Case Activity" classname="createEvent.spec.js" time="14.284">
+</testcase>
+</testsuite>
 </testsuites>

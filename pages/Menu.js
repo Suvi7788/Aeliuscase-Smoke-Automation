@@ -22,9 +22,9 @@ class Menu {
             tasksInbox: page.getByRole('menuitem', { name: 'Tasks Inbox' }),
             uploadUnassigned: page.getByRole('menuitem', { name: 'Upload Unassigned' }),
             uploadBatchscan: page.getByRole('menuitem', { name: 'Upload Batchscan' }),
-            listUnassigned: page.getByRole('menuItem',{name:'List Unassigned'}),
-            listExtract: page.getByRole('menuItem',{name:'List Extracts'}),
-            letterTemplates: page.getByRole('menuItem',{name:'Letter Templates'}),
+            listUnassigned: page.getByRole('menuItem', { name: 'List Unassigned' }),
+            listExtract: page.getByRole('menuItem', { name: 'List Extracts' }),
+            letterTemplates: page.getByRole('menuItem', { name: 'Letter Templates' }),
             emailSettings: page.getByRole('menuitem', { name: 'Email Settings' }),
             emailInbox: page.getByRole('menuitem', { name: 'Inbox' }),
             unreadMessages: page.getByRole('menuitem', { name: 'Unread Messages' }),
@@ -52,13 +52,14 @@ class Menu {
 
     async searchForCase(caseNo) {
         await this.searchInput.fill(caseNo);
-        await this.page.getByRole('cell', { name: caseNo, exact: true }).click();
+        // await this.page.getByRole('cell', { name: caseNo, exact: true }).click();
+        await this.page.getByText(caseNo, { exact: true }).click();
     }
 
-    async openProfile(){
-            await this.profileIcon.click();
-            await this.profileDropdown.click();
-        }
+    async openProfile() {
+        await this.profileIcon.click();
+        await this.profileDropdown.click();
+    }
 
 }
 
