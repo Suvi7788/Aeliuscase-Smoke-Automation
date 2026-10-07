@@ -10,7 +10,7 @@
         },
         {
           "name": "17",
-          "value": "null"
+          "value": "true"
         },
         {
           "name": "6",
@@ -18,7 +18,7 @@
         },
         {
           "name": "taskOverdueCount",
-          "value": "5"
+          "value": "12"
         },
         {
           "name": "4",
@@ -26,7 +26,7 @@
         },
         {
           "name": "isUnassignedBadgeBlinking",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "10",
@@ -34,7 +34,7 @@
         },
         {
           "name": "existingsBlobs",
-          "value": "blob:https://uat.aeliuscase.com/05d3ee45-1251-4476-96cc-226ac6b83ac3,blob:https://uat.aeliuscase.com/6bb78d8a-cd99-4762-ab30-4a763d3cd51e"
+          "value": "blob:https://uat.aeliuscase.com/3901c739-f88c-456c-a945-6dafc08c3c34"
         },
         {
           "name": "isTaskOverdueBadgeBlinking",
@@ -62,7 +62,7 @@
         },
         {
           "name": "taskInboxCount",
-          "value": "8"
+          "value": "17"
         },
         {
           "name": "16",
@@ -74,7 +74,7 @@
         },
         {
           "name": "11",
-          "value": "1776404036953"
+          "value": "1776681709120"
         },
         {
           "name": "eventReminderCount",
@@ -82,7 +82,7 @@
         },
         {
           "name": "isBSExtractBadgeBlinking",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "pendingBatchScanCount",
@@ -106,7 +106,7 @@
         },
         {
           "name": "isTaskInboxBadgeBlinking",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "userTimezone",
@@ -114,7 +114,7 @@
         },
         {
           "name": "1",
-          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzYzOTY4MzEsImV4cCI6MTgxMjM5NjgzMSwiaXNzIjoiaHR0cHM6Ly91YXRpZGVudGl0eS5hZWxpdXNjYXNlLmNvbSIsImF1ZCI6IklrYXNlLldlYkFQSSIsImNsaWVudF9pZCI6ImFlbGl1c3FhIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTc3NjM5NjgzMSwiaWRwIjoibG9jYWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYXV0b21hdGlvbiB1c2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxMDEwNiIsIlVzZXJJZCI6IjEwMTA2IiwianRpIjoiQjQxRUMxNzM4MEEyN0I1NTg0QTJEQjg0QzlDRUMzMUIiLCJpYXQiOjE3NzYzOTY4MzEsInNjb3BlIjpbIklrYXNlLldlYkFQSSJdLCJhbXIiOlsiY3VzdG9tIl19.wgTeUpGvBuvCj-xIV5SKIGzb2MwCCNqqgZi45B3znNWGQmtd5yvZVnDXueQcObqZNNayR2RaP4RxlG-Op8G2wDs4yWKo3jW_dFUs0aOR46hAQdZGMkDcQ_LkAR8kmKDf1DJJYN2jpevxPNY5kvd7isEJxDNzr8narp5LH41E2h-2vf65QzLzUAEpVwdPpBPOj02mDqchFuOcaXABXk8nTW0tuB_aHeiVo71E-FQj7iBb-956CHv_w_lJ9F1fQQtZLRqPvDQq-ELSxLwYR9UAz-nWzqAY2TZeTnQbRb-LXv9LF0T4BXQPOIjauwvV7gjniWgFMQFYPBOsd3Hkhd-5GA"
+          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzY2NzQ1MDMsImV4cCI6MTgxMjY3NDUwMywiaXNzIjoiaHR0cHM6Ly91YXRpZGVudGl0eS5hZWxpdXNjYXNlLmNvbSIsImF1ZCI6IklrYXNlLldlYkFQSSIsImNsaWVudF9pZCI6ImFlbGl1c3FhIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTc3NjY3NDUwMywiaWRwIjoibG9jYWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYXV0b21hdGlvbiB1c2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxMDEwNiIsIlVzZXJJZCI6IjEwMTA2IiwianRpIjoiNjA4MDQyQzIxM0Q5NzUwODlEMTJCMjAxRDQ5OUU0RUQiLCJpYXQiOjE3NzY2NzQ1MDMsInNjb3BlIjpbIklrYXNlLldlYkFQSSJdLCJhbXIiOlsiY3VzdG9tIl19.VdkXqLaGvu1dUqkuHCYbdvqve3UF7zAKSySm77mTju6mi2Y6ppf4N72hv9_ss8Yl4fpC-0-jz_s6wQBzxUjHTi1QCOb8tk703iBv0mdybkTB9Q5jvcuYl48zsD3HLNq-YTzdFV7QKOdGPxS4bCYUBdMt9LfWkl8-4IURo-XaMKA5_V2EIEmaQUY7lRZKb4NidWlckO3OGICSxzpze3tSqkn_WrzNBb2RKWqDB_i6DU91r1dCgs55ZPaplcMHh_hOdHW2YVLgCC2q482DAY6HmQZo77aotmVGKDJ122O_9dZ8sZG8-lzDtSU7LGSX2lvbYABEvFxkTW7uyGRvlUfBxg"
         },
         {
           "name": "14",
@@ -126,7 +126,7 @@
         },
         {
           "name": "pendingUnassignedCount",
-          "value": "14"
+          "value": "5"
         },
         {
           "name": "taskTodayCount",
@@ -134,7 +134,7 @@
         },
         {
           "name": "mail.selected.account.id",
-          "value": "-1"
+          "value": "38"
         },
         {
           "name": "isBSNotifyBadgeBlinking",

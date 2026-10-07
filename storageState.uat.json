@@ -1,5 +1,16 @@
 {
-  "cookies": [],
+  "cookies": [
+    {
+      "name": "_GRECAPTCHA",
+      "value": "09AKhCRwj04HeAlOG9wzl7cL-8VX1CucTgUzkpDfKRXsQFJlMywrc92d7LAbtAIE_RiXSMx_ksGySgidOzJnhgd_E",
+      "domain": "www.google.com",
+      "path": "/recaptcha",
+      "expires": 1806903003.343968,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
   "origins": [
     {
       "origin": "https://uat.aeliuscase.com",
@@ -18,7 +29,7 @@
         },
         {
           "name": "taskOverdueCount",
-          "value": "6"
+          "value": "0"
         },
         {
           "name": "4",
@@ -31,6 +42,10 @@
         {
           "name": "10",
           "value": "10106"
+        },
+        {
+          "name": "_grecaptcha",
+          "value": "09AKhCRwhv9FtiWXDXtMta2DChdLdNkLrvBDBrrcVfTDvTeKwlOUFHTm7kXlzBooz6dGUw_qRW0dBm55iwv_PT4K6w6xh6c27ONtU6w-2hM_zHpl4Qbx6uW9yS1XPHw3RP"
         },
         {
           "name": "isTaskOverdueBadgeBlinking",
@@ -54,11 +69,11 @@
         },
         {
           "name": "3",
-          "value": "undefined"
+          "value": "192EDDC87EE12C4A97C3F240D3E5D4759153FA82CF032DD8E1463EBD62A08194"
         },
         {
           "name": "taskInboxCount",
-          "value": "15"
+          "value": "0"
         },
         {
           "name": "16",
@@ -70,7 +85,7 @@
         },
         {
           "name": "11",
-          "value": "1776665729718"
+          "value": "1791358203690"
         },
         {
           "name": "eventReminderCount",
@@ -82,7 +97,7 @@
         },
         {
           "name": "pendingBatchScanCount",
-          "value": "59"
+          "value": "6"
         },
         {
           "name": "notifiedBatchScanCount",
@@ -106,11 +121,11 @@
         },
         {
           "name": "userTimezone",
-          "value": "America/Los_Angeles"
+          "value": "Asia/Colombo"
         },
         {
           "name": "1",
-          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhCRkJERkM1QUQ1NDkzOTczN0JBQzYzOTVEQUFBQkJFNDE1OURFM0ZSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6ImlfdmZ4YTFVazVjM3VzWTVYYXFydmtGWjNqOCJ9.eyJuYmYiOjE3NzY2NTg1MjQsImV4cCI6MTgxMjY1ODUyNCwiaXNzIjoiaHR0cHM6Ly91YXRpZGVudGl0eS5hZWxpdXNjYXNlLmNvbSIsImF1ZCI6IklrYXNlLldlYkFQSSIsImNsaWVudF9pZCI6ImFlbGl1c3FhIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTc3NjY1ODUyNCwiaWRwIjoibG9jYWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYXV0b21hdGlvbiB1c2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxMDEwNiIsIlVzZXJJZCI6IjEwMTA2IiwianRpIjoiNzI2OTI5MjRGQUQ1Q0YyQTEwRTJERjMyNEU0MzMzQTYiLCJpYXQiOjE3NzY2NTg1MjQsInNjb3BlIjpbIklrYXNlLldlYkFQSSJdLCJhbXIiOlsiY3VzdG9tIl19.I6R8LRLq-cz9xbG2LS3sYfaSTNZu7x2nKQSq59za12QHdjAwP7eOhC2nzOHnG7yMcQBa7BlJEL-v-6orLP0C4EZVkfTlM68dmJ2wln3gUV8oNxDz2t7qrqq5xkLHJqBg1cgBM2hsY9uI-5Vn5UBhbyg5wV7JcPocxNbPo-cshBwfdpyU2FzxFZP466nUgf4iwGtvG-A3nm_XrNIckMAzaJiOnasPtzU9U2ANH-okRygk6rgpJS9f1e1eepEXZRO3WpLqz8VwNMILL_KYEoPF37uteXlH_BjsaQxBQ-xT2NK0fmxsPOO0TFdKwfIPOGxlIxkW4rScVgw12u7hu_hK8w"
+          "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE1RUI1NjU2NkI0RUMzOTlCMkVEQjg5RDUyOUNCMUU3OTBGN0Y0QzNSUzI1NiIsInR5cCI6ImF0K2p3dCIsIng1dCI6IkZldFdWbXRPdzVteTdiaWRVcHl4NTVEMzlNTSJ9.eyJuYmYiOjE3OTEzNTEwMDAsImV4cCI6MTgyNzM1MTAwMCwiaXNzIjoiaHR0cHM6Ly91YXRpZGVudGl0eS5hZWxpdXNjYXNlLmNvbSIsImF1ZCI6IklrYXNlLldlYkFQSSIsImNsaWVudF9pZCI6ImFlbGl1c3FhIiwic3ViIjoiMSIsImF1dGhfdGltZSI6MTc5MTM1MTAwMCwiaWRwIjoibG9jYWwiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYXV0b21hdGlvbiB1c2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxMDEwNiIsIlVzZXJJZCI6IjEwMTA2IiwianRpIjoiNzU1MTU4QTA3Q0IyMUE1NzFGNEUxODdDQkY5RjUwMDYiLCJpYXQiOjE3OTEzNTEwMDAsInNjb3BlIjpbIklrYXNlLldlYkFQSSIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJjdXN0b20iXX0.AAfyrcAP9t2B_c3qbbX2J84WSL_Kidk3okhCL_2Cm9HyX5SrmDoa53s6w38sE61PSygT1SsYv8DCNOKOmLbnrU_a9m9ShhJJYBir1eMphR--seVRQFE8OVlgA4-ZKYYs1TaJVyKJwDJGm79eDGs9jLF_WYoZ8y-XjPMVcfphvMDL2RsErH2WYvhz4tt27nCc7zZOeOFM3vZC305ofsSscXDGLRpeMwws3zaxlFSbiNMr2OsVHEEn5hVGOwulgOVvujPhz1A2I1P5TFbk2HQGTb7RDbXCUW9v9lw-miBoiir5V1R6PnuedVfJWu5z8i-_EJEV1P_lFp7A1XKLCtHw6A"
         },
         {
           "name": "14",
@@ -118,7 +133,7 @@
         },
         {
           "name": "pendingUnassignedCount",
-          "value": "11"
+          "value": "1"
         },
         {
           "name": "isTaskTodayBadgeBlinking",
@@ -126,7 +141,7 @@
         },
         {
           "name": "taskTodayCount",
-          "value": "7"
+          "value": "0"
         },
         {
           "name": "isBSNotifyBadgeBlinking",
@@ -143,6 +158,19 @@
         {
           "name": "taskReminderCount",
           "value": "0"
+        }
+      ]
+    },
+    {
+      "origin": "https://www.google.com",
+      "localStorage": [
+        {
+          "name": "rc::a",
+          "value": "b3ZwczI1MWlyMHh0bw=="
+        },
+        {
+          "name": "rc::f",
+          "value": "0aAFzLYhgOqYa7fg5cACLfK4tEKrlXXfGu_XiKOwBMhopNx7DG6rLQzIJmv58JOUajOrDBJXc"
         }
       ]
     }
